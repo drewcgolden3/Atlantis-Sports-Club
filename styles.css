@@ -207,13 +207,15 @@ ul { list-style: none; padding: 0; }
 }
 .hero__title {
   font-family: var(--font-head); font-weight: 800;
-  font-size: clamp(3rem, 8.4vw, 6.2rem); line-height: .92; letter-spacing: -.01em;
+  font-size: clamp(3rem, 8.4vw, 6.2rem); line-height: .98; letter-spacing: -.01em;
   margin: 16px 0 0; text-shadow: 0 6px 40px rgba(4,27,43,.4);
 }
 .hero__title .line { display: block; }
 .hero__title-accent {
   background: linear-gradient(100deg, var(--cyan-300), var(--sky-300) 60%, #fff);
   -webkit-background-clip: text; background-clip: text; color: transparent;
+  /* Extra box room so background-clip:text doesn't crop descenders (g, y). */
+  padding-bottom: .12em; margin-bottom: -.12em;
 }
 .hero__lede { max-width: 40ch; font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: rgba(255,255,255,.9); margin-top: 16px; }
 
