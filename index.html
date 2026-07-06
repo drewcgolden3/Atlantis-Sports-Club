@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlantis Sports Club — Opening July 7, 2027 · Founding Member Presale</title>
+  <meta name="description" content="Atlantis Sports Club is coming to East Sandwich, MA. Olympic-size pool, basketball court, and dance studio. Lock in the Founding Member presale: $99 down, $99/month." />
+  <meta name="theme-color" content="#0EA5E9" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Atlantis Sports Club — Opening July 7, 2027" />
+  <meta property="og:description" content="Founding Member Presale: $99 down, $99/month. Olympic-size pool, basketball, and dance studio in East Sandwich, MA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/hero-poster.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (inline SVG wave-star mark) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230284C7'/%3E%3Cpath d='M16 6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L16 19.3l-5.2 2.7 1-5.8L7.6 12l5.8-.8L16 6z' fill='%23fff'/%3E%3C/svg%3E" />
+
+  <!-- Fonts: Barlow Condensed (headings) + Barlow (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================ NAVBAR ============================ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="brand" aria-label="Atlantis Sports Club home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 22c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2 2.5-2 5-2" />
+            <path d="M2 27c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2 2.5-2 5-2" />
+            <path d="M16 4l3.2 6.5 7.2 1-5.2 5.1 1.2 7.1L16 20.4 9.4 23.7l1.2-7.1L5.4 11.5l7.2-1L16 4z" />
+          </svg>
+        </span>
+        <span class="brand__text">Atlantis<span class="brand__sub">Sports Club</span></span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#presale">Presale</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#booking">Book</a>
+        <a href="#location">Location</a>
+      </nav>
+
+      <a href="#" data-link="presale" class="btn btn--primary btn--sm nav__cta">Join the Presale</a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <a href="#presale">Presale</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#booking">Book</a>
+      <a href="#location">Location</a>
+      <a href="#" data-link="presale" class="btn btn--primary">Join the Presale</a>
+    </div>
+  </header>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero" id="top">
+    <div class="hero__media" id="heroMedia">
+      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline
+             poster="assets/images/hero-poster.jpg">
+        <!-- Web-optimized versions are generated from your screen recording. -->
+        <source src="assets/video/hero.webm" type="video/webm" />
+        <source src="assets/video/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__scrim"></div>
+      <div class="hero__glow" id="heroGlow" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        Now in Presale · Opening <span data-opening-label>July 7, 2027</span>
+      </p>
+
+      <h1 class="hero__title reveal">
+        <span class="line">Dive Into</span>
+        <span class="line hero__title-accent">Something Bigger</span>
+      </h1>
+
+      <p class="hero__lede reveal">
+        East Sandwich&rsquo;s new home for swimming, sport, and community.
+        An Olympic-size pool, basketball court, and dance studio — all under one roof.
+      </p>
+
+      <!-- Countdown -->
+      <div class="countdown reveal" id="countdown" aria-label="Countdown to opening day">
+        <div class="countdown__unit"><span class="countdown__num" data-cd="days">--</span><span class="countdown__lab">Days</span></div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit"><span class="countdown__num" data-cd="hours">--</span><span class="countdown__lab">Hrs</span></div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit"><span class="countdown__num" data-cd="mins">--</span><span class="countdown__lab">Min</span></div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit"><span class="countdown__num" data-cd="secs">--</span><span class="countdown__lab">Sec</span></div>
+      </div>
+
+      <div class="hero__cta reveal">
+        <a href="#" data-link="presale" class="btn btn--primary btn--lg">
+          Claim <span data-presale-down>$99</span> Down · <span data-presale-monthly>$99</span>/mo
+        </a>
+        <a href="#amenities" class="btn btn--ghost btn--lg">Explore the Club</a>
+      </div>
+    </div>
+
+    <button class="hero__sound" id="soundToggle" aria-label="Toggle video sound" aria-pressed="false">
+      <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      <svg class="icon-sound" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M19 5a9 9 0 010 14"/></svg>
+    </button>
+
+    <a href="#presale" class="hero__scroll" aria-label="Scroll to presale offer">
+      <span class="hero__scroll-mouse"><span></span></span>
+    </a>
+  </section>
+
+  <!-- ============================ PRESALE ============================ -->
+  <section class="presale" id="presale">
+    <div class="container">
+      <div class="presale__card">
+        <div class="presale__left">
+          <p class="section__eyebrow">Founding Member Presale</p>
+          <h2 class="presale__headline">Lock in the lowest rate we&rsquo;ll ever offer.</h2>
+          <p class="presale__text">
+            Founding members get in before the doors open — no waiting lists, no rate hikes.
+            When we open on <strong data-opening-label>July 7, 2027</strong>, you&rsquo;re already in.
+          </p>
+          <ul class="presale__perks">
+            <li>Priority booking for lap lanes, parties &amp; classes</li>
+            <li>Founding Member rate locked for life</li>
+            <li>First access to pool, court &amp; dance studio</li>
+            <li>Exclusive charter-member events</li>
+          </ul>
+          <div class="presale__actions">
+            <a href="#" data-link="presale" class="btn btn--primary btn--lg">Become a Founding Member</a>
+            <span class="presale__spots"><span class="pulse-dot pulse-dot--dark"></span> Limited charter memberships</span>
+          </div>
+        </div>
+
+        <div class="presale__right">
+          <div class="price-card">
+            <div class="price-card__ribbon">Presale</div>
+            <p class="price-card__label">Founding Member</p>
+            <div class="price-card__row">
+              <div class="price-card__block">
+                <span class="price-card__amt" data-presale-down>$99</span>
+                <span class="price-card__unit">down</span>
+              </div>
+              <span class="price-card__plus">+</span>
+              <div class="price-card__block">
+                <span class="price-card__amt" data-presale-monthly>$99</span>
+                <span class="price-card__unit">/month</span>
+              </div>
+            </div>
+            <p class="price-card__note">No enrollment fee · Cancel anytime before opening</p>
+            <a href="#" data-link="presale" class="btn btn--primary btn--block">Reserve My Spot</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ AMENITIES ============================ -->
+  <section class="amenities" id="amenities">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">The Club</p>
+        <h2 class="section__title">Everything under one roof</h2>
+        <p class="section__sub">Four ways to move, compete, and celebrate — built for the whole family.</p>
+      </div>
+
+      <div class="amenity-grid">
+        <article class="amenity amenity--wide" data-img="pool">
+          <div class="amenity__media"></div>
+          <div class="amenity__body">
+            <span class="amenity__tag">Aquatics</span>
+            <h3>Olympic-Size Pool</h3>
+            <p>A full competition pool for lap swimming, lessons, and open water training — heated and lifeguarded year-round.</p>
+          </div>
+        </article>
+
+        <article class="amenity" data-img="basketball">
+          <div class="amenity__media"></div>
+          <div class="amenity__body">
+            <span class="amenity__tag">Court</span>
+            <h3>Basketball Court</h3>
+            <p>Full-size hardwood for pickup games, leagues, and skills clinics.</p>
+          </div>
+        </article>
+
+        <article class="amenity" data-img="dance">
+          <div class="amenity__media"></div>
+          <div class="amenity__body">
+            <span class="amenity__tag">Studio</span>
+            <h3>Dance Studio</h3>
+            <p>A mirrored, sprung-floor studio for dance, barre, and group fitness.</p>
+          </div>
+        </article>
+
+        <article class="amenity amenity--wide" data-img="birthday">
+          <div class="amenity__media"></div>
+          <div class="amenity__body">
+            <span class="amenity__tag">Celebrate</span>
+            <h3>Birthday Parties</h3>
+            <p>Pool parties, court parties, and studio dance parties — we host, you celebrate. Packages for every age.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ BOOKING ============================ -->
+  <section class="booking" id="booking">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Reserve Your Time</p>
+        <h2 class="section__title">Book with us</h2>
+        <p class="section__sub">Booking opens with the club. Reserve lanes, parties, and studio time in seconds through Mindbody.</p>
+      </div>
+
+      <div class="booking-grid">
+        <article class="book-card" data-img="bookBirthday">
+          <div class="book-card__media"><span class="book-card__badge">Parties</span></div>
+          <div class="book-card__body">
+            <h3>Birthday Parties</h3>
+            <p>Reserve a pool, court, or dance party package — we handle setup, hosting, and cleanup.</p>
+            <a href="#" data-link="birthday" class="btn btn--primary btn--block">Book a Party</a>
+          </div>
+        </article>
+
+        <article class="book-card" data-img="bookLapLanes">
+          <div class="book-card__media"><span class="book-card__badge">Aquatics</span></div>
+          <div class="book-card__body">
+            <h3>Lap Lanes</h3>
+            <p>Grab a lane in the Olympic-size pool. Reserve by the hour, whenever it fits your schedule.</p>
+            <a href="#" data-link="lapLanes" class="btn btn--primary btn--block">Reserve a Lane</a>
+          </div>
+        </article>
+
+        <article class="book-card" data-img="bookDance">
+          <div class="book-card__media"><span class="book-card__badge">Studio</span></div>
+          <div class="book-card__body">
+            <h3>Dance Studio</h3>
+            <p>Book studio time for classes, rehearsals, or private sessions on our sprung floor.</p>
+            <a href="#" data-link="danceStudio" class="btn btn--primary btn--block">Book the Studio</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SIGNUP / WAITLIST ============================ -->
+  <section class="signup" id="signup">
+    <div class="container">
+      <div class="signup__inner">
+        <div class="signup__copy">
+          <h2 class="section__title">Be first through the doors</h2>
+          <p class="section__sub">Join the list for presale pricing, opening-day updates, and early booking access.</p>
+        </div>
+        <form class="signup__form" id="signupForm" novalidate>
+          <div class="field">
+            <label for="email" class="sr-only">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" required />
+            <button type="submit" class="btn btn--primary">Keep Me Posted</button>
+          </div>
+          <p class="signup__msg" id="signupMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ LOCATION ============================ -->
+  <section class="location" id="location">
+    <div class="container">
+      <div class="location__grid">
+        <div class="location__info">
+          <p class="section__eyebrow">Find Us</p>
+          <h2 class="section__title">551 MA-6A, East Sandwich</h2>
+          <p class="location__addr">
+            <span data-addr1>551 MA-6A</span><br />
+            <span data-addr2>East Sandwich, MA 02537</span><br />
+            <span class="location__venue" data-venue>at Riverview School</span>
+          </p>
+          <a href="#" data-link="map" class="btn btn--outline" id="directionsBtn">Get Directions</a>
+        </div>
+        <div class="location__map">
+          <iframe id="mapFrame" title="Map to Atlantis Sports Club" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__text">Atlantis<span class="brand__sub">Sports Club</span></span>
+        <p>Opening <span data-opening-label>July 7, 2027</span> in East Sandwich, MA.</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#presale">Presale</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#booking">Book</a>
+        <a href="#location">Location</a>
+      </nav>
+      <div class="footer__contact">
+        <a href="#" data-link="email" id="emailLink">hello@atlantissportsclub.com</a>
+        <p class="footer__phone" data-phone-wrap></p>
+        <div class="footer__social" id="footerSocial"></div>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <div class="container">
+        <span>© <span id="year">2027</span> Atlantis Sports Club. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
