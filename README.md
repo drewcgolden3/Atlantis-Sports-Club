@@ -1,11 +1,28 @@
 # Atlantis Sports Club — Coming Soon Website
 
-A one-page launch site for Atlantis Sports Club (East Sandwich, MA) featuring an
-interactive video hero, the Founding Member presale ($99 down / $99 a month), a
-countdown to opening day, amenities, and Mindbody-ready booking sections.
+A multi-page launch site for Atlantis Sports Club (East Sandwich, MA) with an
+interactive video hero, a Founding-Member presale that highlights the discount
+and urgency, a countdown to opening day, amenities, Mindbody-ready booking, and
+location.
 
-Built as plain HTML/CSS/JS — **no build step, no dependencies.** Just upload the
-folder to any web host (Netlify drag-and-drop, Squarespace, GoDaddy, Vercel, etc.).
+Built as plain HTML/CSS/JS — **no build step, no dependencies.** Upload the whole
+folder to any web host (Netlify drag-and-drop, GoDaddy, Vercel, etc.).
+
+---
+
+## Pages
+
+| File             | Page       | What it's for                                        |
+|------------------|------------|------------------------------------------------------|
+| `index.html`     | Home       | Video hero, the founding-member offer, explore links |
+| `presale.html`   | Presale    | Full price comparison (founding vs. regular) + FAQ   |
+| `amenities.html` | Amenities  | Pool, court, dance studio, birthday parties          |
+| `booking.html`   | Book       | Birthday parties, lap lanes, dance studio (Mindbody) |
+| `location.html`  | Location   | Address, map, directions                             |
+
+The top navigation and footer are **shared automatically** across every page —
+you never have to edit them. They're generated from `script.js`, and the current
+page is highlighted based on the `data-page` attribute on each page's `<body>`.
 
 ---
 
@@ -13,97 +30,84 @@ folder to any web host (Netlify drag-and-drop, Squarespace, GoDaddy, Vercel, etc
 
 Open `config.js` in any text editor. You never need to touch the HTML.
 
-### 1. Add your Mindbody booking links
-Find the `links` section and paste your Mindbody URLs between the quotes:
+### 1. Mindbody booking links
+Paste your Mindbody URLs into the `links` block. Until you do, the buttons show a
+friendly "Booking opens soon" message instead of a broken page.
 
+### 2. Pricing & the discount  ← NEW
 ```js
-links: {
-  presale:     "https://clients.mindbodyonline.com/...",  // Presale checkout
-  birthday:    "https://clients.mindbodyonline.com/...",  // Birthday parties
-  lapLanes:    "https://clients.mindbodyonline.com/...",  // Lap lane booking
-  danceStudio: "https://clients.mindbodyonline.com/...",  // Dance studio
-  membership:  "https://clients.mindbodyonline.com/...",  // Waitlist / general
-},
+pricing: {
+  currency: "$",
+  regularDown:     299,   // regular enrollment
+  regularMonthly:  129,   // regular monthly
+  foundingDown:    99,    // founding-member enrollment (first 500)
+  foundingMonthly: 99,    // founding-member monthly
+  foundingSpots:   500,   // size of the founding group
+  spotsRemaining:  null,  // set a number (e.g. 137) to show a live
+                          //   "X of 500 claimed" progress bar; null hides it
+}
 ```
+Enter **numbers only** — the site adds the "$", strikes through the regular price,
+and works out the savings ("Save $200 today + $30/mo") automatically everywhere.
+Change a number once here and it updates on every page and in the top banner.
 
-> Where to find these in Mindbody: **Manage → Widgets / Links**, copy the link,
-> and paste it in. Until you add a real link, the button politely says
-> "Booking opens soon" instead of going to a broken page.
+> **Want to crank up urgency?** Put a real number in `spotsRemaining` (e.g. `137`).
+> A progress bar appears on the Home and Presale pages: *"363 of 500 founding
+> spots claimed — only 137 left."* Update it as memberships sell.
 
-### 2. Update the opening date & pricing
-```js
-openingDate: "2027-07-07T09:00:00",   // drives the live countdown
-openingLabel: "July 7, 2027",
-presale: { down: "$99", monthly: "$99", tagline: "Founding Member Presale" },
-```
-
-### 3. Contact & map
-Update `contact.email`, `contact.phone`, and the address if needed. The Google
-Map already points to 551 MA-6A, East Sandwich.
-
-### 4. Social links
-Add Instagram / Facebook URLs in `social` to show those icons in the footer
-(leave them blank to hide).
+### 3. Opening date & contact
+Update `openingDate`, `openingLabel`, `contact` (email, phone, address), and
+`social` links at the bottom of the file.
 
 ---
 
 ## 🖼️ Adding photos
 
-Drop image files into the **`assets/images/`** folder using these exact names:
+Drop image files into **`assets/images/`** using these exact names:
 
-| File name                     | Where it appears                    |
-|-------------------------------|-------------------------------------|
-| `pool.jpg`                    | Olympic-Size Pool amenity           |
-| `basketball.jpg`              | Basketball Court amenity            |
-| `dance.jpg`                   | Dance Studio amenity                |
-| `birthday.jpg`                | Birthday Parties amenity            |
-| `hero-poster.jpg`             | Still frame shown before the hero video loads |
+| File name         | Where it appears                              |
+|-------------------|-----------------------------------------------|
+| `pool.jpg`        | Pool (amenities + home + booking)             |
+| `basketball.jpg`  | Basketball court                              |
+| `dance.jpg`       | Dance studio                                  |
+| `birthday.jpg`    | Birthday parties                              |
+| `hero-poster.jpg` | Still shown before the hero video loads       |
 
-That's it — they appear automatically. Until you add a photo, a clean blue
-gradient placeholder is shown, so the site always looks finished.
-
-- **Recommended:** at least 1200px wide, landscape, `.jpg` or `.webp`.
-- Want to point a card at a different file name? Change the path in the
-  `images` section of `config.js`.
+They appear automatically. Until then, a clean blue gradient placeholder shows,
+so the site always looks finished. Recommended: 1200px+ wide, landscape, JPG/WebP.
 
 ---
 
 ## 🎬 The hero video
 
-The interactive hero uses your facility walkthrough, already optimized for the
-web and located at:
+The home hero uses your facility walkthrough, already web-optimized and cropped to
+remove the Vimeo player controls/cursor:
 
-- `assets/video/hero.mp4`
-- `assets/video/hero.webm`
-- `assets/images/hero-poster.jpg` (poster still)
+- `assets/video/hero.mp4`  •  `assets/video/hero.webm`  •  `assets/images/hero-poster.jpg`
 
-The Vimeo player controls and cursor from the original recording were cropped
-out. To swap in a new video later, replace those files (keep the same names).
-The hero also has a **sound toggle** (bottom-right) and reacts to cursor movement
-and scroll.
+To swap it later, replace those files (keep the same names).
 
 ---
 
 ## 🚀 Publishing
 
-**Easiest (free):** go to [app.netlify.com/drop](https://app.netlify.com/drop)
-and drag this whole `atlantis-sports-club` folder onto the page. You'll get a
-live URL in seconds, and can connect your custom domain in Netlify's settings.
-
-**Any host:** upload the folder contents to your web root (`public_html`, etc.).
-`index.html` is the home page.
+**Easiest (free):** drag this folder onto [app.netlify.com/drop](https://app.netlify.com/drop).
+**Any host:** upload the folder contents to your web root; `index.html` is the home page.
 
 ---
 
 ## Files at a glance
 ```
 atlantis-sports-club/
-├── index.html      ← page structure (no edits needed)
-├── styles.css      ← visual design (no edits needed)
-├── script.js       ← behavior (no edits needed)
-├── config.js       ← ★ YOU EDIT THIS: links, images, date, contact
-├── README.md       ← this guide
+├── index.html          Home
+├── presale.html        Presale / pricing
+├── amenities.html      Amenities
+├── booking.html        Book
+├── location.html       Location
+├── styles.css          Visual design (no edits needed)
+├── script.js           Shared header/footer + behavior (no edits needed)
+├── config.js           ★ YOU EDIT THIS: links, pricing, images, date, contact
 └── assets/
-    ├── images/     ← drop your photos here
-    └── video/      ← hero.mp4 / hero.webm
+    ├── images/         drop your photos here
+    └── video/          hero.mp4 / hero.webm
 ```
