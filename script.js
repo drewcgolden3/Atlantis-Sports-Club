@@ -30,11 +30,15 @@
   };
 
   var NAV = [
-    { key: "presale",   label: "Presale",   href: "presale.html" },
+    { key: "presale",   label: "Presale",   href: "index.html#offer" },
     { key: "amenities", label: "Amenities", href: "amenities.html" },
     { key: "booking",   label: "Book",      href: "booking.html" },
     { key: "location",  label: "Location",  href: "location.html" },
   ];
+  // On the home page, in-page links to #offer shouldn't reload the page.
+  function pageHref(href) {
+    return (page === "home" && href.indexOf("index.html#") === 0) ? href.slice("index.html".length) : href;
+  }
 
   /* ============================================================= HEADER */
   var announceText =
@@ -57,21 +61,22 @@
   function navLinks(cls) {
     return NAV.map(function (n) {
       var active = n.key === page ? ' class="is-active" aria-current="page"' : "";
-      return '<a href="' + n.href + '"' + active + '>' + n.label + "</a>";
+      return '<a href="' + pageHref(n.href) + '"' + active + '>' + n.label + "</a>";
     }).join("");
   }
 
+  var offerHref = pageHref("index.html#offer");
   var headerHTML =
     '<div class="announce"><span>' + announceText +
-      ' <a href="presale.html">See the deal &rarr;</a></span></div>' +
+      ' <a href="' + offerHref + '">See the deal &rarr;</a></span></div>' +
     '<header class="nav" id="nav"><div class="nav__inner">' +
       brand +
       '<nav class="nav__links" aria-label="Primary">' + navLinks() + '</nav>' +
-      '<a href="presale.html" class="btn btn--primary btn--sm nav__cta">Join the Presale</a>' +
+      '<a href="' + offerHref + '" class="btn btn--primary btn--sm nav__cta">Join the Presale</a>' +
       '<button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
     '</div>' +
     '<div class="nav__mobile" id="navMobile">' + navLinks() +
-      '<a href="presale.html" class="btn btn--primary">Join the Presale</a>' +
+      '<a href="' + offerHref + '" class="btn btn--primary">Join the Presale</a>' +
     '</div></header>';
 
   var headerMount = $("#siteHeader");
@@ -85,7 +90,7 @@
         '<p>Opening <span data-opening-label>July 7, 2027</span> in East Sandwich, MA.</p>' +
       '</div>' +
       '<nav class="footer__links" aria-label="Footer">' +
-        NAV.map(function (n) { return '<a href="' + n.href + '">' + n.label + "</a>"; }).join("") +
+        NAV.map(function (n) { return '<a href="' + pageHref(n.href) + '">' + n.label + "</a>"; }).join("") +
       '</nav>' +
       '<div class="footer__contact">' +
         '<a href="#" data-link="email" id="emailLink">hello@atlantissportsclub.com</a>' +
