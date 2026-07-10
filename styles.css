@@ -4,30 +4,30 @@
    ============================================================================ */
 
 :root {
-  /* ---- Brand color scale (refined navy blue — desaturated for a premium feel) ---- */
-  --sky-50:  #F5F8FB;
-  --sky-100: #E6EDF3;
-  --sky-200: #CBD9E5;
-  --sky-300: #9FB8CD;
-  --sky-400: #6E90AF;
-  --sky-500: #416F92;
-  --sky-600: #2C5578;
-  --sky-700: #1E4363;
-  --sky-800: #163650;
-  --sky-900: #0F2B41;
-  --ocean:   #0A2236;
-  --cyan-300:#B4CEE1;   /* soft ice highlight (formerly neon cyan) */
-  --cyan-400:#8FB4D2;   /* muted steel accent */
+  /* ---- Brand color scale (original light-blue / aquatic — matches the favicon) ---- */
+  --sky-50:  #F0F9FF;
+  --sky-100: #E0F2FE;
+  --sky-200: #BAE6FD;
+  --sky-300: #7DD3FC;
+  --sky-400: #38BDF8;
+  --sky-500: #0EA5E9;
+  --sky-600: #0284C7;
+  --sky-700: #0369A1;
+  --sky-800: #075985;
+  --sky-900: #0C4A6E;
+  --ocean:   #082F49;
+  --cyan-300:#67E8F9;
+  --cyan-400:#22D3EE;
 
   /* ---- Semantic tokens ---- */
-  --color-primary:      #1E4E76;
-  --color-primary-strong: #143B5C;
-  --color-accent:       #8FB4D2;
+  --color-primary:      var(--sky-600);
+  --color-primary-strong: var(--sky-700);
+  --color-accent:       var(--cyan-400);
   --color-bg:           #FFFFFF;
-  --color-bg-alt:       #F5F8FB;
-  --color-fg:           #101F2C;
-  --color-fg-soft:      #4B5B67;
-  --color-border:       #E4E9EF;
+  --color-bg-alt:       var(--sky-50);
+  --color-fg:           #0B2233;
+  --color-fg-soft:      #3E5B6E;
+  --color-border:       var(--sky-100);
   --color-card:         #FFFFFF;
   --color-on-primary:   #FFFFFF;
 
