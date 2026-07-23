@@ -14,11 +14,11 @@ window.ATLANTIS_CONFIG = {
 
   /* -- 1) BOOKING & PRESALE LINKS (paste Mindbody URLs between the quotes) -- */
   links: {
-    presale:      "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=42",   // Founding Membership contract (Mindbody, Site ID 7396)
+    presale:      "https://clients.mindbodyonline.com/ASP/main_shop.asp?studioid=7396&pMode=0&tabID=3",   // Mindbody online store → Contracts tab (Founding Membership), Site ID 7396
     birthday:     "#",   // Birthday party booking
     lapLanes:     "#",   // Lap lane reservation
     danceStudio:  "#",   // Dance studio booking
-    membership:   "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=42",   // General membership / waitlist
+    membership:   "https://clients.mindbodyonline.com/ASP/main_shop.asp?studioid=7396&pMode=0&tabID=3",   // Mindbody online store → Contracts tab
   },
 
   /* -- 2) PRICING -----------------------------------------------------------
