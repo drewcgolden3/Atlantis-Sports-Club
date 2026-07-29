@@ -20,7 +20,10 @@
   var introMonths = Number(pr.introMonths || 12);
   var saveDown = (pr.regularDown || 0) - (pr.foundingDown || 0);            // enrollment savings
   var saveMonthly = (pr.regularMonthly || 0) - (pr.foundingMonthly || 0);  // monthly savings
-  var saveFirstYear = saveDown + saveMonthly * introMonths;                // total year-one savings
+  // The down payment covers month one on BOTH plans, so only the remaining
+  // (introMonths - 1) months are billed monthly in year one.
+  var billedMonths = Math.max(introMonths - 1, 0);
+  var saveFirstYear = saveDown + saveMonthly * billedMonths;               // total year-one savings
   var priceValues = {
     foundingDown: money(pr.foundingDown),
     foundingMonthly: money(pr.foundingMonthly),
