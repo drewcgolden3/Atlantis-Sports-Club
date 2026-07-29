@@ -290,16 +290,6 @@
     }, { passive: true });
   }
 
-  var soundBtn = $("#soundToggle");
-  if (soundBtn && heroVideo) {
-    soundBtn.addEventListener("click", function () {
-      heroVideo.muted = !heroVideo.muted;
-      var on = !heroVideo.muted;
-      soundBtn.setAttribute("aria-pressed", on ? "true" : "false");
-      if (on) { var p = heroVideo.play(); if (p && p.catch) p.catch(function () {}); }
-    });
-  }
-
   /* ============================================================= REVEAL */
   var reveals = $all(".reveal, .amenity, .book-card, .plan, .section__head, .explore-card");
   if ("IntersectionObserver" in window && !reduceMotion) {

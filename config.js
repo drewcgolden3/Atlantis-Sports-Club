@@ -76,4 +76,12 @@ window.ATLANTIS_CONFIG = {
     instagram: "",
     facebook:  "",
   },
+
+  /* -- 5) AI CHAT WIDGET (Switchboard OS) ----------------------------------- */
+  chat: {
+    clientSlug: "atlantis-sports-club",              // your Switchboard OS client
+    apiBase:    "https://switchboard-os.vercel.app", // Switchboard backend
+    title:      "Atlantis Sports Club",              // shown in the chat header
+    greeting:   "Hi! How can I help you?",           // proactive bubble + first message
+  },
 };
