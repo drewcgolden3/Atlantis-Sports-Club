@@ -665,3 +665,13 @@ ul { list-style: none; padding: 0; }
 /* Book page with two cards: center them */
 .booking-grid--two { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin-inline: auto; }
 @media (max-width: 640px) { .booking-grid--two { grid-template-columns: 1fr; } }
+
+/* Amenities hero: real gym rendering behind the headline (dark scrim for legible text) */
+body[data-page="amenities"] .page-hero {
+  background-image:
+    linear-gradient(100deg, rgba(6,20,32,.95) 0%, rgba(8,40,64,.88) 42%, rgba(8,47,73,.58) 100%),
+    url('assets/images/gym/gym-1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+body[data-page="amenities"] .page-hero::after { opacity: .28; }
