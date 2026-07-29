@@ -675,3 +675,28 @@ body[data-page="amenities"] .page-hero {
   background-position: center;
 }
 body[data-page="amenities"] .page-hero::after { opacity: .28; }
+
+/* Brand logo (Atlantis Sports Clubs) — single vector, recolored per context via CSS mask */
+.brand__logo {
+  display: block;
+  width: 92px; height: 43px;              /* logo aspect ~2.13:1 */
+  background-color: #fff;                  /* white on the dark hero nav + dark footer */
+  -webkit-mask: url('assets/logo.svg') no-repeat center / contain;
+          mask: url('assets/logo.svg') no-repeat center / contain;
+}
+.nav.is-scrolled .brand__logo { background-color: var(--color-primary-strong); } /* blue on the white scrolled bar */
+.brand__logo--footer { width: 112px; height: 52px; }
+@media (max-width: 760px) { .brand__logo { width: 82px; height: 38px; } }
+
+/* Offer band — slashed-price columns + fine print */
+.price-flip__col { display: flex; flex-direction: column; align-items: center; }
+.price-flip__col .price-flip__was {
+  display: block; color: rgba(255,255,255,.5); font-family: var(--font-head);
+  font-weight: 600; font-size: 1.3rem; line-height: 1; margin-bottom: 5px;
+  text-decoration-thickness: 2px; text-decoration-color: rgba(255,255,255,.55);
+}
+.price-flip__col .amt { font-family: var(--font-head); font-weight: 800; font-size: clamp(2.8rem, 7vw, 4rem); line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+.price-flip__col .unit { font-family: var(--font-head); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; color: rgba(255,255,255,.72); margin-top: 7px; }
+.price-flip__plus { align-self: center; font-family: var(--font-head); font-weight: 700; font-size: 2rem; color: rgba(255,255,255,.45); padding-top: 18px; }
+.urgency__headline .hl { color: var(--cyan-300); }
+.urgency__fine { font-size: .88rem; color: rgba(255,255,255,.68); max-width: 56ch; margin: 20px auto 0; line-height: 1.55; }

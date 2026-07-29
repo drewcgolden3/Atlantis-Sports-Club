@@ -34,22 +34,30 @@ Open `config.js` in any text editor. You never need to touch the HTML.
 Paste your Mindbody URLs into the `links` block. Until you do, the buttons show a
 friendly "Booking opens soon" message instead of a broken page.
 
-### 2. Pricing & the discount  ← NEW
+### 2. Pricing & the discount
 ```js
 pricing: {
   currency: "$",
-  regularDown:     299,   // regular enrollment
-  regularMonthly:  129,   // regular monthly
-  foundingDown:    99,    // founding-member enrollment (first 500)
-  foundingMonthly: 99,    // founding-member monthly
+  regularDown:     299,   // up-front enrollment fee
+  regularMonthly:  129,   // regular monthly — FULL access (gym + pool)
+  gymOnlyMonthly:  99,    // regular monthly — gym only (no pool)
+  foundingDown:    99,    // founding enrollment (first 500)
+  foundingMonthly: 99,    // founding monthly — full access
+  introMonths:     12,    // how long the founding rate is locked before it
+                          //   rolls to regularMonthly
   foundingSpots:   500,   // size of the founding group
   spotsRemaining:  null,  // set a number (e.g. 137) to show a live
                           //   "X of 500 claimed" progress bar; null hides it
 }
 ```
-Enter **numbers only** — the site adds the "$", strikes through the regular price,
-and works out the savings ("Save $200 today + $30/mo") automatically everywhere.
-Change a number once here and it updates on every page and in the top banner.
+Enter **numbers only** — the site adds the "$", strikes through the regular
+prices, and works out the savings automatically everywhere:
+- **Year-one savings** = enrollment savings + (monthly savings × `introMonths`).
+  With the defaults: ($299−$99) + ($129−$99)×12 = **$560**, shown as the big
+  "Save $560 in your first year" headline.
+- The founding deal is a **12-month locked intro rate**, then it rolls to the
+  standard `regularMonthly`. Change any number here and it updates on every page
+  and in the top banner.
 
 > **Want to crank up urgency?** Put a real number in `spotsRemaining` (e.g. `137`).
 > A progress bar appears on the Home and Presale pages: *"363 of 500 founding

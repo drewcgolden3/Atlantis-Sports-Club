@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Atlantis Sports Club — Opening July 7, 2027 · Founding Member Presale</title>
-  <meta name="description" content="Atlantis Sports Club is coming to East Sandwich, MA. Olympic-size pool, basketball court, and dance studio. The first 500 founding members lock in $99 down, $99/month for life — regularly $299 down, $129/month." />
+  <meta name="description" content="Atlantis Sports Club is coming to East Sandwich, MA — a brand-new gym and Olympic-size pool. The first 500 founding members save $560 in year one: $99 enrollment (reg. $299) + $99/month full access (reg. $129)." />
   <meta name="theme-color" content="#0EA5E9" />
   <meta property="og:title" content="Atlantis Sports Club — Opening July 7, 2027" />
-  <meta property="og:description" content="First 500 members lock in $99 down, $99/month for life. Regularly $299/$129. Olympic-size pool, basketball, and dance studio in East Sandwich, MA." />
+  <meta property="og:description" content="Founding Member Presale: the first 500 save $560 in year one — $99 enrollment (reg. $299) + $99/mo full gym + pool access (reg. $129). East Sandwich, MA." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/images/hero-poster.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230284C7'/%3E%3Cpath d='M16 6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L16 19.3l-5.2 2.7 1-5.8L7.6 12l5.8-.8L16 6z' fill='%23fff'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%230284C7'/%3E%3Cpath d='M24 9L35 24C31 21.6 17 21.6 13 24Z' fill='%23fff'/%3E%3Cpath d='M10 31C16.5 24.2 31.5 24.2 38 31C31.5 27.6 16.5 27.6 10 31Z' fill='%23fff'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body data-page="home">
 
@@ -76,29 +76,31 @@
     <div class="container">
       <div class="urgency__card">
         <span class="urgency__badge"><span class="pulse-dot" aria-hidden="true"></span> Founding 500 · Limited</span>
-        <h2 class="urgency__headline">Only the first <span class="hl"><span data-price="spots">500</span> members</span> lock in this rate — for life.</h2>
-        <p class="urgency__sub">When the founding 500 are gone, membership returns to the regular rate. Join now and your price never goes up.</p>
+        <h2 class="urgency__headline">Save <span class="hl"><span data-price="saveFirstYear">$560</span></span> in your first year.</h2>
+        <p class="urgency__sub">The first <span data-price="spots">500</span> founding members lock in <strong>full gym&nbsp;+&nbsp;pool access</strong> at the lowest rate we&rsquo;ll ever offer — no <span data-price="regularDown">$299</span> enrollment, and your monthly rate held for a full year.</p>
 
         <div class="price-flip">
-          <div class="price-flip__now">
+          <div class="price-flip__col">
+            <s class="price-flip__was" data-price="regularDown">$299</s>
             <span class="amt"><span data-price="foundingDown">$99</span></span>
-            <span class="unit">down</span>
+            <span class="unit">Enrollment</span>
           </div>
-          <span class="price-flip__x" aria-hidden="true"></span>
-          <div class="price-flip__now">
+          <span class="price-flip__plus" aria-hidden="true">+</span>
+          <div class="price-flip__col">
+            <s class="price-flip__was" data-price="regularMonthly">$129</s>
             <span class="amt"><span data-price="foundingMonthly">$99</span></span>
-            <span class="unit">/month</span>
+            <span class="unit">/mo · full access</span>
           </div>
         </div>
-        <p class="price-flip__was">
-          Regularly <s><span data-price="regularDown">$299</span> down · <span data-price="regularMonthly">$129</span>/mo</s>
-        </p>
-        <div><span class="save-pill">Save <span data-price="saveDown">$200</span> today + <span data-price="saveMonthly">$30</span>/mo for life</span></div>
+
+        <div><span class="save-pill">Save <span data-price="saveDown">$200</span> on enrollment + <span data-price="saveMonthly">$30</span>/mo</span></div>
 
         <div class="scarcity" id="scarcityBar">
           <div class="scarcity__track"><div class="scarcity__fill"></div></div>
           <span class="scarcity__label"></span>
         </div>
+
+        <p class="urgency__fine">Founding rate locked for <span data-price="introMonths">12</span> months, then the standard <span data-price="regularMonthly">$129</span>/mo (gym&nbsp;+&nbsp;pool). Cancel anytime before opening.</p>
 
         <div class="urgency__actions">
           <a href="#" data-link="presale" class="btn btn--primary btn--lg">Claim a Founding Membership</a>

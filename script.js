@@ -17,15 +17,20 @@
   var pr = CFG.pricing || {};
   var cur = pr.currency || "$";
   function money(n) { return cur + Number(n).toLocaleString(); }
-  var saveDown = (pr.regularDown || 0) - (pr.foundingDown || 0);
-  var saveMonthly = (pr.regularMonthly || 0) - (pr.foundingMonthly || 0);
+  var introMonths = Number(pr.introMonths || 12);
+  var saveDown = (pr.regularDown || 0) - (pr.foundingDown || 0);            // enrollment savings
+  var saveMonthly = (pr.regularMonthly || 0) - (pr.foundingMonthly || 0);  // monthly savings
+  var saveFirstYear = saveDown + saveMonthly * introMonths;                // total year-one savings
   var priceValues = {
     foundingDown: money(pr.foundingDown),
     foundingMonthly: money(pr.foundingMonthly),
     regularDown: money(pr.regularDown),
     regularMonthly: money(pr.regularMonthly),
+    gymOnlyMonthly: money(pr.gymOnlyMonthly),
     saveDown: money(saveDown),
     saveMonthly: money(saveMonthly),
+    saveFirstYear: money(saveFirstYear),
+    introMonths: String(introMonths),
     spots: Number(pr.foundingSpots || 500).toLocaleString(),
   };
 
@@ -43,20 +48,14 @@
 
   /* ============================================================= HEADER */
   var announceText =
-    "Founding Member Presale — the first " + priceValues.spots +
-    " lock in " + money(pr.foundingMonthly) + "/mo <em>for life</em>. Regularly " +
-    money(pr.regularMonthly) + "/mo.";
+    "Founding Member Presale — the first " + priceValues.spots + " save <em>" +
+    priceValues.saveFirstYear + "</em> in year one: " + money(pr.foundingDown) +
+    " down (reg. " + money(pr.regularDown) + ") + " + money(pr.foundingMonthly) +
+    "/mo full access.";
 
   var brand =
-    '<a href="index.html" class="brand" aria-label="Atlantis Sports Club home">' +
-      '<span class="brand__mark" aria-hidden="true">' +
-        '<svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
-          '<path d="M2 22c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/>' +
-          '<path d="M2 27c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/>' +
-          '<path d="M16 4l3.2 6.5 7.2 1-5.2 5.1 1.2 7.1L16 20.4 9.4 23.7l1.2-7.1L5.4 11.5l7.2-1L16 4z"/>' +
-        '</svg>' +
-      '</span>' +
-      '<span class="brand__text">Atlantis<span class="brand__sub">Sports Club</span></span>' +
+    '<a href="index.html" class="brand" aria-label="Atlantis Sports Clubs home">' +
+      '<span class="brand__logo" role="img" aria-label="Atlantis Sports Clubs"></span>' +
     '</a>';
 
   function navLinks(cls) {
@@ -87,7 +86,7 @@
   var footerHTML =
     '<div class="container footer__inner">' +
       '<div class="footer__brand">' +
-        '<span class="brand__text">Atlantis<span class="brand__sub">Sports Club</span></span>' +
+        '<span class="brand__logo brand__logo--footer" role="img" aria-label="Atlantis Sports Clubs"></span>' +
         '<p>Opening <span data-opening-label>July 7, 2027</span> in East Sandwich, MA.</p>' +
       '</div>' +
       '<nav class="footer__links" aria-label="Footer">' +

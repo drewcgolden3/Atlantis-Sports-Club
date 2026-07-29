@@ -27,13 +27,17 @@ window.ATLANTIS_CONFIG = {
   pricing: {
     currency: "$",
 
-    // Regular membership (after presale / after the first 500)
-    regularDown:     299,
-    regularMonthly:  129,
+    // Regular rates (standard pricing after the founding deal)
+    regularDown:     299,   // up-front enrollment fee
+    regularMonthly:  129,   // monthly — FULL access (gym + pool)
+    gymOnlyMonthly:  99,    // monthly — gym only (no pool)
 
-    // Founding-member deal (first 500 only)
+    // Founding-member deal (first 500): $99 down + $99/mo FULL access,
+    // locked for the first year, then rolls to the regular $129/mo.
     foundingDown:    99,
     foundingMonthly: 99,
+    introMonths:     12,    // how long the founding rate is locked before it
+                            //   rolls to regularMonthly
 
     // Scarcity
     foundingSpots:   500,   // how many founding memberships exist
