@@ -33,6 +33,7 @@
     { key: "presale",   label: "Presale",   href: "index.html#offer" },
     { key: "amenities", label: "Amenities", href: "amenities.html" },
     { key: "booking",   label: "Book",      href: "booking.html" },
+    { key: "parties",   label: "Parties",   href: "parties.html" },
     { key: "location",  label: "Location",  href: "location.html" },
   ];
   // On the home page, in-page links to #offer shouldn't reload the page.
