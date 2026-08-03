@@ -621,6 +621,15 @@ ul { list-style: none; padding: 0; }
 .offer-timer .scarcity__label { color: var(--color-primary-strong); text-align: center; }
 
 .plan__fine { margin-top: 12px; font-size: .84rem; line-height: 1.45; color: var(--color-fg-soft); text-align: center; }
+/* What happens after the intro year. Given its own panel rather than left as
+   fine print — it's the thing people most need to understand before paying. */
+.plan__rollover {
+  margin-top: 12px; padding: 12px 14px;
+  background: var(--sky-50); border: 1px solid var(--color-border);
+  border-radius: var(--radius); font-size: .92rem; line-height: 1.5;
+  color: var(--color-fg-soft);
+}
+.plan__rollover strong { color: var(--color-fg); }
 
 /* ----------------------------------------------------- plan comparison cards --- */
 .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; align-items: stretch; }

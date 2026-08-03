@@ -57,7 +57,7 @@
     "Founding Member Presale — the first " + priceValues.spots + " save <em>" +
     priceValues.saveFirstYear + "</em> in year one: " + money(pr.foundingDown) +
     " down (reg. " + money(pr.regularDown) + ") + " + money(pr.foundingMonthly) +
-    "/mo full access.";
+    "/mo for " + introMonths + " months.";
   var announceShort =
     "Founding Presale — save <em>" + priceValues.saveFirstYear + "</em> in year one.";
 

@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=18" />
+  <link rel="stylesheet" href="styles.css?v=19" />
 </head>
 <body data-page="presale">
 
@@ -35,7 +35,7 @@
       <div class="section__head">
         <p class="section__eyebrow section__eyebrow--dot"><span class="pulse-dot pulse-dot--dark" aria-hidden="true"></span> Founding 500 · Limited</p>
         <h2 class="section__title">Save <span class="hl"><span data-price="saveFirstYear">$530</span></span> in your first year.</h2>
-        <p class="section__sub">Same access, same club. The only difference is when you joined.</p>
+        <p class="section__sub">Founding members pay <strong><span data-price="foundingDown">$99</span></strong> to enrol and <strong><span data-price="foundingMonthly">$99</span>/month for the first <span data-price="introMonths">12</span> months</strong> — after that it moves to the standard <strong><span data-price="regularMonthly">$129</span>/month</strong>.</p>
       </div>
 
       <div class="offer-timer">
@@ -64,8 +64,12 @@
             <span class="plan__unit">Enrollment</span>
           </div>
           <p class="plan__was"><s><span data-price="regularDown">$299</span></s> — you save <span data-price="saveDown">$200</span></p>
-          <p class="plan__monthly">then <strong><span data-price="foundingMonthly">$99</span></strong>/month</p>
-          <p class="plan__note">Held for <span data-price="introMonths">12</span> months from opening day.</p>
+          <p class="plan__monthly">then <strong><span data-price="foundingMonthly">$99</span></strong>/month for <strong><span data-price="introMonths">12</span> months</strong></p>
+          <p class="plan__rollover">
+            After those <span data-price="introMonths">12</span> months your rate becomes the
+            standard <strong><span data-price="regularMonthly">$129</span>/month</strong>.
+            No long-term contract — cancel anytime.
+          </p>
           <ul class="plan__list">
             <li>Full fitness floor — Life Fitness &amp; Hammer Strength</li>
             <li>Olympic-size pool, heated and lifeguarded</li>
@@ -126,7 +130,7 @@
         <div class="step">
           <div class="step__num">3</div>
           <h3>Doors open <span data-opening-label>July 7, 2027</span></h3>
-          <p>Your <span data-price="foundingMonthly">$99</span>/month starts the day we open, and holds for <span data-price="introMonths">12</span> months.</p>
+          <p>Your <span data-price="foundingMonthly">$99</span>/month starts the day we open and holds for <span data-price="introMonths">12</span> months, then moves to the standard <span data-price="regularMonthly">$129</span>/month.</p>
         </div>
       </div>
     </div>
@@ -185,7 +189,7 @@
   <footer class="footer" id="siteFooter"></footer>
 
   <script src="config.js?v=4"></script>
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
   <script src="assets/chat.js?v=3"></script>
 </body>
 </html>
