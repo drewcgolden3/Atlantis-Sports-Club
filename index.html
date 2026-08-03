@@ -15,14 +15,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=12" />
 </head>
 <body data-page="home">
 
   <div id="siteHeader"></div>
 
   <!-- ============================ HERO ============================ -->
-  <section class="hero" id="top">
+  <section class="hero hero--center" id="top">
     <div class="hero__media" id="heroMedia">
       <video class="hero__video" id="heroVideo" autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
         <source src="assets/video/hero.webm" type="video/webm" />
@@ -33,79 +33,28 @@
     </div>
 
     <div class="hero__content">
-      <p class="hero__eyebrow reveal">
-        <span class="pulse-dot" aria-hidden="true"></span>
-        Now in Presale · Opening <span data-opening-label>July 7, 2027</span>
-      </p>
-      <h1 class="hero__title reveal">
-        <span class="line">Dive Into</span>
-        <span class="line hero__title-accent">Something Bigger</span>
+      <h1 class="hero__logo reveal">
+        <span class="hero__logo-mark" aria-hidden="true"></span>
+        <span class="sr-only">Atlantis Sports Clubs — East Sandwich, MA</span>
       </h1>
-      <p class="hero__lede reveal">
-        East Sandwich&rsquo;s new home for swimming, sport, and community.
-        An Olympic-size pool, basketball court, and dance studio — all under one roof.
+      <p class="hero__tagline reveal">
+        State-of-the-art gym, brand-new equipment, dance studios,
+        and an Olympic-size pool.
       </p>
-
-      <div class="countdown reveal" id="countdown" aria-label="Countdown to opening day">
-        <div class="countdown__unit"><span class="countdown__num" data-cd="days">--</span><span class="countdown__lab">Days</span></div>
-        <div class="countdown__sep">:</div>
-        <div class="countdown__unit"><span class="countdown__num" data-cd="hours">--</span><span class="countdown__lab">Hrs</span></div>
-        <div class="countdown__sep">:</div>
-        <div class="countdown__unit"><span class="countdown__num" data-cd="mins">--</span><span class="countdown__lab">Min</span></div>
-        <div class="countdown__sep">:</div>
-        <div class="countdown__unit"><span class="countdown__num" data-cd="secs">--</span><span class="countdown__lab">Sec</span></div>
-      </div>
 
       <div class="hero__cta reveal">
-        <a href="presale.html" class="btn btn--primary btn--lg">
-          <span class="btn__label">Lock In <span data-price="foundingMonthly">$99</span>/mo — Founding Deal</span>
-        </a>
-        <a href="amenities.html" class="btn btn--ghost btn--lg">Explore the Club</a>
+        <a href="presale.html" class="btn btn--primary btn--lg">Join the Presale</a>
+        <a href="amenities.html" class="btn btn--ghost btn--lg">Explore the Amenities</a>
       </div>
+
+      <p class="hero__trust reveal">Now in presale · Opening <span data-opening-label>July 7, 2027</span> · East Sandwich, MA</p>
     </div>
 
-    <a href="#offer" class="hero__scroll" aria-label="Scroll to the founding offer"><span class="hero__scroll-mouse"><span></span></span></a>
-  </section>
-
-  <!-- ============================ URGENCY / OFFER ============================ -->
-  <section class="urgency" id="offer">
-    <div class="container">
-      <div class="urgency__card">
-        <span class="urgency__badge"><span class="pulse-dot" aria-hidden="true"></span> Founding 500 · Limited</span>
-        <h2 class="urgency__headline">Save <span class="hl"><span data-price="saveFirstYear">$530</span></span> in your first year.</h2>
-        <p class="urgency__sub">The first <span data-price="spots">500</span> founding members lock in <strong>full gym&nbsp;+&nbsp;pool access</strong> at the lowest rate we&rsquo;ll ever offer — no <span data-price="regularDown">$299</span> enrollment, and your monthly rate held for a full year.</p>
-
-        <div class="price-flip">
-          <div class="price-flip__col">
-            <s class="price-flip__was" data-price="regularDown">$299</s>
-            <span class="amt"><span data-price="foundingDown">$99</span></span>
-            <span class="unit">Enrollment</span>
-          </div>
-          <span class="price-flip__plus" aria-hidden="true">+</span>
-          <div class="price-flip__col">
-            <s class="price-flip__was" data-price="regularMonthly">$129</s>
-            <span class="amt"><span data-price="foundingMonthly">$99</span></span>
-            <span class="unit">/mo · full access</span>
-          </div>
-        </div>
-
-        <div><span class="save-pill">Save <span data-price="saveDown">$200</span> on enrollment + <span data-price="saveMonthly">$30</span>/mo</span></div>
-
-        <div class="scarcity" id="scarcityBar">
-          <div class="scarcity__track"><div class="scarcity__fill"></div></div>
-          <span class="scarcity__label"></span>
-        </div>
-
-        <div class="urgency__actions">
-          <a href="presale.html" class="btn btn--primary btn--lg">See the Founding Deal</a>
-          <p class="urgency__fine">Full terms, what&rsquo;s included, and checkout — all on one page.</p>
-        </div>
-      </div>
-    </div>
+    <a href="#explore" class="hero__scroll" aria-label="Scroll to explore the club"><span class="hero__scroll-mouse"><span></span></span></a>
   </section>
 
   <!-- ============================ EXPLORE ============================ -->
-  <section class="section section--alt">
+  <section class="section section--alt" id="explore">
     <div class="container">
       <div class="section__head">
         <p class="section__eyebrow">Explore</p>
@@ -172,7 +121,7 @@
   <footer class="footer" id="siteFooter"></footer>
 
   <script src="config.js"></script>
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 <script src="assets/chat.js?v=3"></script>
 </body>
 </html>

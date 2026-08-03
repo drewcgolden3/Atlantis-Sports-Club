@@ -38,7 +38,8 @@
   };
 
   var NAV = [
-    { key: "presale",   label: "Presale",   href: "presale.html" },
+    // No "Presale" link here — the "Join the Presale" button beside it goes to
+    // the same page, and two links to one destination just split the click.
     { key: "amenities", label: "Amenities", href: "amenities.html" },
     { key: "booking",   label: "Book",      href: "booking.html" },
     { key: "parties",   label: "Parties",   href: "parties.html" },

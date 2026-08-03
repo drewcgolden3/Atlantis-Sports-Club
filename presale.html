@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=12" />
 </head>
 <body data-page="presale">
 
@@ -29,36 +29,18 @@
     </div>
   </section>
 
-  <!-- ============================ THE OFFER ============================ -->
-  <section class="urgency" id="offer">
+  <!-- ============================ THE OFFER (comparison) ============================ -->
+  <section class="section" id="offer">
     <div class="container">
-      <div class="urgency__card">
-        <span class="urgency__badge"><span class="pulse-dot" aria-hidden="true"></span> Founding 500 · Limited</span>
-        <h2 class="urgency__headline">Save <span class="hl"><span data-price="saveFirstYear">$530</span></span> in your first year.</h2>
-        <p class="urgency__sub">Founding members lock in <strong>full gym&nbsp;+&nbsp;pool access</strong> at the lowest rate we&rsquo;ll ever offer — no <span data-price="regularDown">$299</span> enrollment, and your monthly rate held for a full year.</p>
+      <div class="section__head">
+        <p class="section__eyebrow section__eyebrow--dot"><span class="pulse-dot pulse-dot--dark" aria-hidden="true"></span> Founding 500 · Limited</p>
+        <h2 class="section__title">Save <span class="hl"><span data-price="saveFirstYear">$530</span></span> in your first year.</h2>
+        <p class="section__sub">Same access, same club. The only difference is when you joined.</p>
+      </div>
 
-        <div class="price-flip">
-          <div class="price-flip__col">
-            <s class="price-flip__was" data-price="regularDown">$299</s>
-            <span class="amt"><span data-price="foundingDown">$99</span></span>
-            <span class="unit">Enrollment</span>
-          </div>
-          <span class="price-flip__plus" aria-hidden="true">+</span>
-          <div class="price-flip__col">
-            <s class="price-flip__was" data-price="regularMonthly">$129</s>
-            <span class="amt"><span data-price="foundingMonthly">$99</span></span>
-            <span class="unit">/mo · full access</span>
-          </div>
-        </div>
-
-        <div><span class="save-pill">Save <span data-price="saveDown">$200</span> on enrollment + <span data-price="saveMonthly">$30</span>/mo</span></div>
-
-        <div class="scarcity" id="scarcityBar">
-          <div class="scarcity__track"><div class="scarcity__fill"></div></div>
-          <span class="scarcity__label"></span>
-        </div>
-
-        <div class="countdown" id="countdown" aria-label="Countdown to opening day">
+      <div class="offer-timer">
+        <p class="offer-timer__lab">Founding rate closes when we open</p>
+        <div class="countdown countdown--ink" id="countdown" aria-label="Countdown to opening day">
           <div class="countdown__unit"><span class="countdown__num" data-cd="days">--</span><span class="countdown__lab">Days</span></div>
           <div class="countdown__sep">:</div>
           <div class="countdown__unit"><span class="countdown__num" data-cd="hours">--</span><span class="countdown__lab">Hrs</span></div>
@@ -67,24 +49,10 @@
           <div class="countdown__sep">:</div>
           <div class="countdown__unit"><span class="countdown__num" data-cd="secs">--</span><span class="countdown__lab">Sec</span></div>
         </div>
-
-        <div class="urgency__actions">
-          <a href="#" data-link="presale" class="btn btn--primary btn--lg">
-            <span class="btn__label">Claim Your Founding Membership</span>
-          </a>
-          <p class="urgency__fine">Secure checkout through Mindbody, our membership system. Cancel anytime before opening for a full refund.</p>
+        <div class="scarcity" id="scarcityBar">
+          <div class="scarcity__track"><div class="scarcity__fill"></div></div>
+          <span class="scarcity__label"></span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ COMPARISON ============================ -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow">The Numbers</p>
-        <h2 class="section__title">Founding rate vs. standard rate</h2>
-        <p class="section__sub">Same access, same club. The only difference is when you joined.</p>
       </div>
 
       <div class="plans">
@@ -106,7 +74,10 @@
             <li>Rate locked before any future increase</li>
           </ul>
           <div class="plan__cta">
-            <a href="#" data-link="presale" class="btn btn--primary btn--block">Claim This Rate</a>
+            <a href="#" data-link="presale" class="btn btn--primary btn--lg btn--block">
+              <span class="btn__label">Claim Your Founding Membership</span>
+            </a>
+            <p class="plan__fine">Secure checkout through Mindbody, our membership system. Cancel anytime before opening for a full refund.</p>
           </div>
         </div>
 
@@ -214,7 +185,7 @@
   <footer class="footer" id="siteFooter"></footer>
 
   <script src="config.js"></script>
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
   <script src="assets/chat.js?v=3"></script>
 </body>
 </html>

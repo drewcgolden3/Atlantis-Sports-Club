@@ -255,6 +255,34 @@ ul { list-style: none; padding: 0; }
 }
 .hero__lede { max-width: 40ch; font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: rgba(255,255,255,.9); margin-top: 16px; }
 
+/* ---- centred hero: the logo carries the headline ---- */
+.hero--center { text-align: center; }
+.hero--center .hero__content { display: flex; flex-direction: column; align-items: center; }
+.hero__logo { margin: 0; }
+.hero__logo-mark {
+  display: block;
+  width: clamp(200px, 34vw, 420px);
+  aspect-ratio: 1828 / 858;              /* matches assets/logo.svg */
+  background-color: #fff;
+  -webkit-mask: url('assets/logo.svg') no-repeat center / contain;
+          mask: url('assets/logo.svg') no-repeat center / contain;
+  filter: drop-shadow(0 8px 34px rgba(4,27,43,.55));
+}
+.hero__tagline {
+  margin-top: 26px; max-width: 30ch;
+  font-family: var(--font-head); font-weight: 600;
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem); line-height: 1.35;
+  color: rgba(255,255,255,.94);
+  text-shadow: 0 2px 20px rgba(4,27,43,.5);
+}
+.hero--center .hero__cta { justify-content: center; margin-top: 32px; }
+.hero__trust {
+  margin-top: 30px;
+  font-family: var(--font-head); font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase;
+  font-size: .78rem; color: rgba(255,255,255,.72);
+}
+
 .hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
 
 .hero__sound {
@@ -564,6 +592,31 @@ ul { list-style: none; padding: 0; }
 .scarcity__track { height: 12px; border-radius: 999px; background: rgba(255,255,255,.16); overflow: hidden; }
 .scarcity__fill { height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--cyan-400), var(--sky-300)); transition: width 1s var(--ease); }
 .scarcity__label { display: block; margin-top: 10px; font-family: var(--font-head); font-weight: 600; letter-spacing: .04em; font-size: .95rem; color: var(--cyan-300); }
+
+/* ------------------------------------------- offer timer above the plans --- */
+.section__eyebrow--dot { display: inline-flex; align-items: center; gap: 9px; justify-content: center; }
+.section__title .hl { color: var(--color-primary); }
+
+.offer-timer { display: flex; flex-direction: column; align-items: center; margin: -20px 0 40px; }
+.offer-timer__lab {
+  font-family: var(--font-head); font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  font-size: .76rem; color: var(--color-fg-soft); margin-bottom: 12px;
+}
+/* Countdown on a light section, rather than over the dark hero/offer card. */
+.countdown--ink {
+  background: var(--sky-50);
+  border-color: var(--color-border);
+  color: var(--color-fg);
+  backdrop-filter: none;
+  margin-top: 0;
+}
+.countdown--ink .countdown__num { color: var(--color-primary-strong); }
+.countdown--ink .countdown__lab { color: var(--color-fg-soft); opacity: 1; }
+.countdown--ink .countdown__sep { color: var(--sky-300); opacity: 1; }
+.offer-timer .scarcity { margin-top: 20px; width: 100%; }
+.offer-timer .scarcity__label { color: var(--color-primary-strong); text-align: center; }
+
+.plan__fine { margin-top: 12px; font-size: .84rem; line-height: 1.45; color: var(--color-fg-soft); text-align: center; }
 
 /* ----------------------------------------------------- plan comparison cards --- */
 .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; align-items: stretch; }
