@@ -67,6 +67,9 @@ body {
   overflow-x: hidden;
 }
 img, video, iframe, svg { display: block; max-width: 100%; }
+/* Any explicit display (flex, inline-flex, grid) outranks the UA rule for the
+   hidden attribute, which silently leaves "hidden" elements on screen. */
+[hidden] { display: none !important; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; padding: 0; }
 .sr-only {
@@ -276,8 +279,9 @@ ul { list-style: none; padding: 0; }
   text-shadow: 0 2px 20px rgba(4,27,43,.5);
 }
 .hero--center .hero__cta { justify-content: center; margin-top: 32px; }
+.hero--center .countdown { margin-top: 30px; }
 .hero__trust {
-  margin-top: 30px;
+  margin-top: 22px;
   font-family: var(--font-head); font-weight: 600;
   letter-spacing: .16em; text-transform: uppercase;
   font-size: .78rem; color: rgba(255,255,255,.72);
@@ -642,19 +646,91 @@ ul { list-style: none; padding: 0; }
 .plan__was { color: var(--color-fg-soft); font-size: 1.05rem; }
 .plan__was s { text-decoration-thickness: 2px; }
 
+/* ------------------------------------------- one-question-at-a-time form --- */
+.qform {
+  max-width: 620px; margin: 0 auto;
+  background: var(--color-card); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow);
+  padding: clamp(24px, 4vw, 40px);
+}
+.qform__bar { height: 6px; border-radius: 999px; background: var(--sky-100); overflow: hidden; }
+.qform__bar-fill {
+  height: 100%; width: 0; border-radius: 999px;
+  background: linear-gradient(90deg, var(--sky-400), var(--sky-600));
+  transition: width .35s var(--ease);
+}
+.qform__count {
+  margin-top: 10px; font-family: var(--font-head); font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; font-size: .72rem; color: var(--color-fg-soft);
+}
+
+.qstep { border: 0; padding: 0; margin: 26px 0 0; min-width: 0; }
+.qstep[hidden] { display: none; }
+.qstep__q {
+  font-family: var(--font-head); font-weight: 800;
+  font-size: clamp(1.5rem, 3.4vw, 2rem); line-height: 1.12; color: var(--color-fg);
+  padding: 0;
+}
+.qstep__hint { color: var(--color-fg-soft); margin-top: 8px; font-size: 1rem; }
+/* Each question fades up as it takes over the frame. */
+.qstep.is-entering { animation: qstepIn .32s var(--ease) both; }
+@keyframes qstepIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.qfield { margin-top: 20px; }
+.qfield input, .qfield textarea, .qfield select {
+  width: 100%; font-family: var(--font-body); font-size: 1.1rem;
+  padding: 15px 18px; border-radius: var(--radius);
+  border: 1.5px solid var(--color-border); background: #fff; color: var(--color-fg);
+}
+.qfield textarea { min-height: 118px; resize: vertical; }
+.qfield input:focus-visible, .qfield textarea:focus-visible {
+  outline: 3px solid var(--sky-300); outline-offset: 1px; border-color: var(--sky-400);
+}
+
+.qchoices { display: grid; gap: 10px; margin-top: 20px; }
+.qchoice { position: relative; display: block; cursor: pointer; }
+.qchoice input { position: absolute; opacity: 0; width: 0; height: 0; }
+.qchoice span {
+  display: block; padding: 16px 18px; border-radius: var(--radius);
+  border: 1.5px solid var(--color-border); background: var(--color-bg-alt);
+  font-family: var(--font-head); font-weight: 600; font-size: 1.06rem;
+  transition: border-color .18s var(--ease), background .18s var(--ease), transform .18s var(--ease);
+}
+.qchoice:hover span { border-color: var(--sky-400); transform: translateY(-1px); }
+.qchoice input:checked + span { border-color: var(--sky-500); background: var(--sky-100); color: var(--color-primary-strong); }
+.qchoice input:focus-visible + span { outline: 3px solid var(--sky-300); outline-offset: 2px; }
+
+.qform__nav { display: flex; align-items: center; gap: 12px; margin-top: 26px; }
+.qform__back {
+  border: 0; background: none; cursor: pointer; padding: 10px 4px;
+  font-family: var(--font-head); font-weight: 600; color: var(--color-fg-soft);
+}
+.qform__back:hover { color: var(--color-primary-strong); }
+.qform__back[hidden] { display: none; }
+.qform__nav .btn { margin-left: auto; }
+.qform__err {
+  margin-top: 12px; color: #B42318; font-family: var(--font-head); font-weight: 600; font-size: .95rem;
+}
+.qform__err:empty { display: none; }
+
+.qform__done { text-align: center; padding: 12px 0 6px; }
+.qform__done h3 { font-family: var(--font-head); font-weight: 800; font-size: 1.9rem; color: var(--color-fg); }
+.qform__done p { color: var(--color-fg-soft); margin-top: 12px; }
+.qform__done[hidden] { display: none; }
+
 /* ---------------------------------------------------------- explore cards --- */
 .explore-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .explore-card { position: relative; display: flex; flex-direction: column; background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .3s var(--ease), box-shadow .3s var(--ease); color: inherit; }
 .explore-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .explore-card__media { aspect-ratio: 16/10; background: linear-gradient(140deg, var(--sky-300), var(--sky-700)); background-size: cover; background-position: center; }
-/* The parties card shows the studio, pool and court at once. A mosaic rather
-   than three equal columns — inside a ~260px card, thirds are unreadable slivers. */
-.explore-card__media--split {
+/* Three spaces in one frame: a mosaic rather than three equal columns — inside a
+   ~260px card, thirds read as unidentifiable slivers. */
+.media-mosaic {
   display: grid; gap: 2px; background: var(--color-border);
   grid-template-columns: 1.15fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
-.explore-card__media--split .split-pane:first-child { grid-row: span 2; }
+.media-mosaic > .split-pane:first-child { grid-row: span 2; }
 .split-pane {
   display: block; min-width: 0;
   background: linear-gradient(140deg, var(--sky-300), var(--sky-700));

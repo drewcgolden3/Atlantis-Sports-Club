@@ -59,6 +59,24 @@ window.ATLANTIS_CONFIG = {
     bookDance:      "assets/images/dance.jpg",
   },
 
+  /* -- 3b) PARTY REQUEST FORM ------------------------------------------------
+     The birthday-party form on parties.html emails its answers through
+     Web3Forms (free, no server needed).
+
+     TO TURN IT ON:
+       1. Go to https://web3forms.com
+       2. Enter  pkearney.atlantis@gmail.com  and press "Create Access Key"
+       3. Check that inbox for the access key and paste it below
+
+     Until a key is pasted in, the form still collects the answers but ends by
+     opening the visitor's email app addressed to `recipient` instead — so no
+     enquiry is ever silently lost. */
+  partyForm: {
+    web3formsKey: "",                              // paste the access key here
+    recipient:    "pkearney.atlantis@gmail.com",   // where party requests go
+    subject:      "New birthday party request — Atlantis Sports Club",
+  },
+
   /* -- 4) OPENING DATE & DETAILS -------------------------------------------- */
   openingDate: "2027-07-07T09:00:00",   // drives the countdown
   openingLabel: "July 7, 2027",

@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="styles.css?v=17" />
 </head>
 <body data-page="home">
 
@@ -45,6 +45,16 @@
       <div class="hero__cta reveal">
         <a href="presale.html" class="btn btn--primary btn--lg">Join the Presale</a>
         <a href="amenities.html" class="btn btn--ghost btn--lg">Explore the Amenities</a>
+      </div>
+
+      <div class="countdown reveal" id="countdown" aria-label="Countdown to opening day">
+        <div class="countdown__unit"><span class="countdown__num" data-cd="days">--</span><span class="countdown__lab">Days</span></div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit"><span class="countdown__num" data-cd="hours">--</span><span class="countdown__lab">Hrs</span></div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit"><span class="countdown__num" data-cd="mins">--</span><span class="countdown__lab">Min</span></div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit"><span class="countdown__num" data-cd="secs">--</span><span class="countdown__lab">Sec</span></div>
       </div>
 
       <p class="hero__trust reveal">Now in presale · Opening <span data-opening-label>July 7, 2027</span> · East Sandwich, MA</p>
@@ -79,7 +89,7 @@
           </span>
         </a>
         <a href="parties.html" class="explore-card">
-          <span class="explore-card__media explore-card__media--split" aria-hidden="true">
+          <span class="explore-card__media media-mosaic" aria-hidden="true">
             <span class="split-pane" data-img="dance"></span>
             <span class="split-pane" data-img="pool"></span>
             <span class="split-pane" data-img="basketball"></span>
@@ -124,8 +134,8 @@
 
   <footer class="footer" id="siteFooter"></footer>
 
-  <script src="config.js?v=2"></script>
-  <script src="script.js?v=5"></script>
+  <script src="config.js?v=3"></script>
+  <script src="script.js?v=6"></script>
 <script src="assets/chat.js?v=3"></script>
 </body>
 </html>

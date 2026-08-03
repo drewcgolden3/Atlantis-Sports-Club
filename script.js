@@ -361,6 +361,162 @@
     });
   }
 
+  /* ============================================================= PARTY REQUEST
+     One question per screen. Each answer is small and the next question only
+     appears once the current one is filled — far higher completion than the
+     same fields stacked into one long form. */
+  var qform = $("#partyForm");
+  if (qform) {
+    var steps = $all("[data-qstep]", qform);
+    var barFill = $("[data-qbar]", qform);
+    var nowEl = $("[data-qnow]", qform), totalEl = $("[data-qtotal]", qform);
+    var backBtn = $("[data-qback]", qform), nextBtn = $("[data-qnext]", qform);
+    var submitBtn = $("[data-qsubmit]", qform), errEl = $("[data-qerr]", qform);
+    var doneEl = $("[data-qdone]", qform);
+    var at = 0;
+
+    if (totalEl) totalEl.textContent = String(steps.length);
+
+    function fieldsIn(step) { return $all("input, textarea, select", step); }
+
+    function stepFilled(step) {
+      var fields = fieldsIn(step);
+      var required = fields.filter(function (f) { return f.required || f.type === "radio"; });
+      if (!required.length) return true;                       // optional step
+      if (required[0].type === "radio") {
+        return required.some(function (f) { return f.checked; });
+      }
+      var v = (required[0].value || "").trim();
+      if (!v) return false;
+      if (required[0].type === "email") return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      if (required[0].type === "tel") return v.replace(/\D/g, "").length >= 10;
+      return true;
+    }
+
+    function messageFor(step) {
+      var f = fieldsIn(step)[0];
+      if (!f) return "Please answer to continue.";
+      if (f.type === "radio") return "Pick one to continue.";
+      if (f.type === "email") return "That email doesn’t look right — mind checking it?";
+      if (f.type === "tel") return "Please enter a phone number we can reach you on.";
+      if (f.type === "date") return "Please choose a date.";
+      return "Please fill this in to continue.";
+    }
+
+    function render(entering) {
+      steps.forEach(function (s, i) {
+        s.hidden = i !== at;
+        if (i === at && entering) {
+          s.classList.remove("is-entering");
+          void s.offsetWidth;                                   // restart the animation
+          s.classList.add("is-entering");
+        }
+      });
+      var last = at === steps.length - 1;
+      if (backBtn) backBtn.hidden = at === 0;
+      if (nextBtn) nextBtn.hidden = last;
+      if (submitBtn) submitBtn.hidden = !last;
+      if (nowEl) nowEl.textContent = String(at + 1);
+      if (barFill) barFill.style.width = ((at + (last ? 1 : 0)) / steps.length * 100) + "%";
+      if (errEl) errEl.textContent = "";
+    }
+
+    function focusStep() {
+      var f = fieldsIn(steps[at])[0];
+      if (f && f.type !== "radio") { try { f.focus({ preventScroll: true }); } catch (e) { f.focus(); } }
+    }
+
+    function goNext() {
+      if (!stepFilled(steps[at])) {
+        if (errEl) errEl.textContent = messageFor(steps[at]);
+        return;
+      }
+      if (at < steps.length - 1) { at++; render(true); focusStep(); }
+    }
+    function goBack() { if (at > 0) { at--; render(true); focusStep(); } }
+
+    if (nextBtn) nextBtn.addEventListener("click", goNext);
+    if (backBtn) backBtn.addEventListener("click", goBack);
+
+    // Enter moves forward instead of submitting a half-filled form.
+    qform.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter") return;
+      if (e.target.tagName === "TEXTAREA") return;
+      if (at < steps.length - 1) { e.preventDefault(); goNext(); }
+    });
+
+    // Choosing an option is an answer — advance without a second click.
+    qform.addEventListener("change", function (e) {
+      if (e.target.type === "radio" && !reduceMotion) setTimeout(goNext, 260);
+      else if (e.target.type === "radio") goNext();
+    });
+
+    function answers() {
+      var out = {};
+      steps.forEach(function (s) {
+        fieldsIn(s).forEach(function (f) {
+          if (f.type === "radio") { if (f.checked) out[f.name] = f.value; }
+          else if ((f.value || "").trim()) out[f.name] = f.value.trim();
+        });
+      });
+      return out;
+    }
+
+    // No access key configured yet → hand the answers to the visitor's mail app
+    // so the enquiry reaches the inbox anyway rather than vanishing.
+    function mailtoFallback(data, cfg) {
+      var body = Object.keys(data).map(function (k) { return k + ": " + data[k]; }).join("\n");
+      var href = "mailto:" + encodeURIComponent(cfg.recipient) +
+        "?subject=" + encodeURIComponent(cfg.subject || "Birthday party request") +
+        "&body=" + encodeURIComponent(body);
+      window.location.href = href;
+    }
+
+    qform.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!stepFilled(steps[at])) { if (errEl) errEl.textContent = messageFor(steps[at]); return; }
+
+      var cfg = CFG.partyForm || {};
+      var data = answers();
+      var showDone = function () {
+        steps.forEach(function (s) { s.hidden = true; });
+        $(".qform__nav", qform).hidden = true;
+        $(".qform__count", qform).hidden = true;
+        if (barFill) barFill.style.width = "100%";
+        if (errEl) errEl.textContent = "";
+        if (doneEl) doneEl.hidden = false;
+      };
+
+      if (!cfg.web3formsKey) { mailtoFallback(data, cfg); showDone(); return; }
+
+      submitBtn.disabled = true;
+      var original = submitBtn.textContent;
+      submitBtn.textContent = "Sending…";
+
+      var payload = { access_key: cfg.web3formsKey, subject: cfg.subject, from_name: "Atlantis Sports Club website" };
+      Object.keys(data).forEach(function (k) { payload[k] = data[k]; });
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (r) {
+          if (r && r.success) { showDone(); return; }
+          throw new Error("send failed");
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = original;
+          if (errEl) errEl.textContent = "That didn’t send — opening your email app instead.";
+          mailtoFallback(data, cfg);
+        });
+    });
+
+    render(false);
+  }
+
   /* ============================================================= YEAR */
   var yearEl = $("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();

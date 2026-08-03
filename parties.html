@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="styles.css?v=17" />
 </head>
 <body data-page="parties">
 
@@ -21,7 +21,7 @@
       <p class="page-hero__eyebrow">Celebrate</p>
       <h1 class="page-hero__title">Birthday parties at Atlantis</h1>
       <p class="page-hero__sub">Pool parties, court parties, and dance-studio parties — we host, you celebrate. We handle setup, hosting, and cleanup so you can just enjoy the day.</p>
-      <div class="page-hero__cta"><a href="#" data-link="birthday" class="btn btn--primary btn--lg">Book a Party</a></div>
+      <div class="page-hero__cta"><a href="#request" class="btn btn--primary btn--lg">Request a Party Date</a></div>
     </div>
   </section>
 
@@ -29,13 +29,17 @@
   <section class="section">
     <div class="container">
       <div class="feature-row">
-        <div class="feature-row__media" data-img="birthday"></div>
+        <div class="feature-row__media media-mosaic" aria-hidden="true">
+          <span class="split-pane" data-img="pool"></span>
+          <span class="split-pane" data-img="basketball"></span>
+          <span class="split-pane" data-img="dance"></span>
+        </div>
         <div class="feature-row__body">
           <span class="feature-row__tag">Party Packages</span>
           <h2>Three ways to celebrate</h2>
           <p><strong>Pool parties</strong> in the Olympic-size pool, <strong>court parties</strong> on the full basketball court, and <strong>studio parties</strong> on the sprung dance floor. Packages for every age, with a private space reserved just for your group.</p>
           <div class="mt-cta" style="justify-content:flex-start;margin-top:22px">
-            <a href="#" data-link="birthday" class="btn btn--primary">Book a Party</a>
+            <a href="#request" class="btn btn--primary">Request a Party Date</a>
           </div>
         </div>
       </div>
@@ -66,14 +70,98 @@
           <p>Show up and have fun. We&rsquo;ll take care of the rest.</p>
         </div>
       </div>
-      <div class="mt-cta"><a href="#" data-link="birthday" class="btn btn--primary btn--lg">Book a Party</a></div>
+      <div class="mt-cta"><a href="#request" class="btn btn--primary btn--lg">Request a Party Date</a></div>
+    </div>
+  </section>
+
+  <!-- ============================ REQUEST FORM ============================ -->
+  <section class="section" id="request">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Request a Date</p>
+        <h2 class="section__title">Let&rsquo;s plan the party</h2>
+        <p class="section__sub">A few quick questions — about 30 seconds. We&rsquo;ll get back to you with availability and pricing.</p>
+      </div>
+
+      <form class="qform" id="partyForm" novalidate>
+        <div class="qform__bar" aria-hidden="true"><div class="qform__bar-fill" data-qbar></div></div>
+        <p class="qform__count">Question <span data-qnow>1</span> of <span data-qtotal>8</span></p>
+
+        <fieldset class="qstep" data-qstep>
+          <legend class="qstep__q">What kind of party?</legend>
+          <p class="qstep__hint">Pick the space you&rsquo;d like to book.</p>
+          <div class="qchoices">
+            <label class="qchoice"><input type="radio" name="Party type" value="Pool party" required /><span>Pool party</span></label>
+            <label class="qchoice"><input type="radio" name="Party type" value="Court party" /><span>Court party</span></label>
+            <label class="qchoice"><input type="radio" name="Party type" value="Dance studio party" /><span>Dance studio party</span></label>
+            <label class="qchoice"><input type="radio" name="Party type" value="Not sure yet" /><span>Not sure yet</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="qstep" data-qstep hidden>
+          <legend class="qstep__q">How many guests?</legend>
+          <p class="qstep__hint">A rough headcount is fine.</p>
+          <div class="qchoices">
+            <label class="qchoice"><input type="radio" name="Guest count" value="Up to 10" required /><span>Up to 10</span></label>
+            <label class="qchoice"><input type="radio" name="Guest count" value="11–20" /><span>11&ndash;20</span></label>
+            <label class="qchoice"><input type="radio" name="Guest count" value="21–30" /><span>21&ndash;30</span></label>
+            <label class="qchoice"><input type="radio" name="Guest count" value="More than 30" /><span>More than 30</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="qstep" data-qstep hidden>
+          <legend class="qstep__q">What date do you have in mind?</legend>
+          <p class="qstep__hint">We&rsquo;ll confirm availability — nothing is booked yet.</p>
+          <div class="qfield"><input type="date" name="Preferred date" required /></div>
+        </fieldset>
+
+        <fieldset class="qstep" data-qstep hidden>
+          <legend class="qstep__q">How old is the birthday kid turning?</legend>
+          <p class="qstep__hint">Helps us match the right package.</p>
+          <div class="qfield"><input type="text" name="Birthday age" inputmode="numeric" placeholder="e.g. 8" required /></div>
+        </fieldset>
+
+        <fieldset class="qstep" data-qstep hidden>
+          <legend class="qstep__q">What&rsquo;s your name?</legend>
+          <div class="qfield"><input type="text" name="Name" autocomplete="name" placeholder="First and last name" required /></div>
+        </fieldset>
+
+        <fieldset class="qstep" data-qstep hidden>
+          <legend class="qstep__q">Where should we email you?</legend>
+          <div class="qfield"><input type="email" name="Email" autocomplete="email" placeholder="you@email.com" required /></div>
+        </fieldset>
+
+        <fieldset class="qstep" data-qstep hidden>
+          <legend class="qstep__q">Best phone number?</legend>
+          <p class="qstep__hint">Easiest way to sort out the details.</p>
+          <div class="qfield"><input type="tel" name="Phone" autocomplete="tel" placeholder="(508) 555-0199" required /></div>
+        </fieldset>
+
+        <fieldset class="qstep" data-qstep hidden>
+          <legend class="qstep__q">Anything we should know?</legend>
+          <p class="qstep__hint">Optional — allergies, theme, timing, anything at all.</p>
+          <div class="qfield"><textarea name="Notes" placeholder="Optional"></textarea></div>
+        </fieldset>
+
+        <div class="qform__nav">
+          <button type="button" class="qform__back" data-qback hidden>&larr; Back</button>
+          <button type="button" class="btn btn--primary btn--lg" data-qnext>Continue</button>
+          <button type="submit" class="btn btn--primary btn--lg" data-qsubmit hidden>Send Request</button>
+        </div>
+        <p class="qform__err" role="alert" data-qerr></p>
+
+        <div class="qform__done" data-qdone hidden>
+          <h3>Request sent!</h3>
+          <p>Thanks — we&rsquo;ll be in touch shortly with availability and pricing for your party.</p>
+        </div>
+      </form>
     </div>
   </section>
 
   <footer class="footer" id="siteFooter"></footer>
 
-  <script src="config.js?v=2"></script>
-  <script src="script.js?v=5"></script>
+  <script src="config.js?v=3"></script>
+  <script src="script.js?v=6"></script>
   <script src="assets/chat.js?v=3"></script>
 </body>
 </html>
