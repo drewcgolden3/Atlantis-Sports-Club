@@ -38,7 +38,7 @@
   };
 
   var NAV = [
-    { key: "presale",   label: "Presale",   href: "index.html#offer" },
+    { key: "presale",   label: "Presale",   href: "presale.html" },
     { key: "amenities", label: "Amenities", href: "amenities.html" },
     { key: "booking",   label: "Book",      href: "booking.html" },
     { key: "parties",   label: "Parties",   href: "parties.html" },
@@ -72,7 +72,9 @@
     }).join("");
   }
 
-  var offerHref = pageHref("index.html#offer");
+  // The presale lives on its own page now — the bar and the header CTA both
+  // send visitors to the full offer, not to a section anchor.
+  var offerHref = "presale.html";
   var headerHTML =
     '<div class="announce">' +
       '<span class="announce__long">' + announceLong + '</span>' +

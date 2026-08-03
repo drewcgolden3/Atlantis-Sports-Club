@@ -48,6 +48,7 @@ window.ATLANTIS_CONFIG = {
   /* -- 3) IMAGES  (file name -> put a matching file in assets/images/) --------
      Example: save your pool photo as  assets/images/pool.jpg  */
   images: {
+    exterior:    "assets/images/exterior.jpg",
     pool:        "assets/images/pool.jpg",
     basketball:  "assets/images/basketball.jpg",
     dance:       "assets/images/dance.jpg",

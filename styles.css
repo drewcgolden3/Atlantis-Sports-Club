@@ -509,6 +509,20 @@ ul { list-style: none; padding: 0; }
 /* generic page section wrapper */
 .section { padding: clamp(64px, 9vw, 118px) 0; }
 .section--alt { background: var(--sky-50); }
+.section--tight { padding-bottom: 0; }
+
+/* ------------------------------------------------------- building shot --- */
+.building-shot { margin: 0; }
+.building-shot img {
+  width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
+}
+.building-shot figcaption {
+  margin-top: 14px; text-align: center;
+  font-family: var(--font-head); font-weight: 600; letter-spacing: .02em;
+  color: var(--color-fg-soft); font-size: .98rem;
+}
 .lede { font-size: 1.2rem; color: var(--color-fg-soft); max-width: 60ch; }
 
 /* ------------------------------------------------------------- urgency band --- */
