@@ -50,11 +50,15 @@
   }
 
   /* ============================================================= HEADER */
-  var announceText =
+  // Two lengths of the same message: the full pitch has room on desktop, but on a
+  // phone it ran to three lines and pushed the whole hero down the screen.
+  var announceLong =
     "Founding Member Presale — the first " + priceValues.spots + " save <em>" +
     priceValues.saveFirstYear + "</em> in year one: " + money(pr.foundingDown) +
     " down (reg. " + money(pr.regularDown) + ") + " + money(pr.foundingMonthly) +
     "/mo full access.";
+  var announceShort =
+    "Founding Presale — save <em>" + priceValues.saveFirstYear + "</em> in year one.";
 
   var brand =
     '<a href="index.html" class="brand" aria-label="Atlantis Sports Clubs home">' +
@@ -70,8 +74,10 @@
 
   var offerHref = pageHref("index.html#offer");
   var headerHTML =
-    '<div class="announce"><span>' + announceText +
-      ' <a href="' + offerHref + '">See the deal &rarr;</a></span></div>' +
+    '<div class="announce">' +
+      '<span class="announce__long">' + announceLong + '</span>' +
+      '<span class="announce__short">' + announceShort + '</span>' +
+      ' <a href="' + offerHref + '">See the deal &rarr;</a></div>' +
     '<header class="nav" id="nav"><div class="nav__inner">' +
       brand +
       '<nav class="nav__links" aria-label="Primary">' + navLinks() + '</nav>' +
@@ -84,6 +90,23 @@
 
   var headerMount = $("#siteHeader");
   if (headerMount) headerMount.innerHTML = headerHTML;
+
+  // The header is fixed and its height changes with the announcement bar's line
+  // count, so publish the real measured height and let the layout key off it
+  // instead of hard-coded padding that only happened to fit one breakpoint.
+  function syncHeaderHeight() {
+    if (!headerMount) return;
+    var bar = $(".announce", headerMount);
+    // .nav__inner, not .nav — the open mobile menu must not inflate the offset.
+    var navEl = $(".nav__inner", headerMount);
+    var h = (bar ? bar.offsetHeight : 0) + (navEl ? navEl.offsetHeight : 0);
+    if (h) document.documentElement.style.setProperty("--header-h", h + "px");
+  }
+  syncHeaderHeight();
+  window.addEventListener("resize", syncHeaderHeight, { passive: true });
+  window.addEventListener("orientationchange", syncHeaderHeight);
+  // Fonts land after first paint and change the bar's wrap point.
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncHeaderHeight);
 
   /* ============================================================= FOOTER */
   var footerHTML =
@@ -257,11 +280,16 @@
       var open = mobile.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      // Solid bar while the panel is down — otherwise the white logo and burger
+      // sit on bare hero video directly above an opaque white menu.
+      if (nav) nav.classList.toggle("is-menu-open", open);
     });
     $all("a", mobile).forEach(function (a) {
       a.addEventListener("click", function () {
         mobile.classList.remove("is-open");
         toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
+        if (nav) nav.classList.remove("is-menu-open");
       });
     });
   }
@@ -282,7 +310,11 @@
   } else if (glow) { glow.style.opacity = "0"; }
 
   var heroContent = $(".hero__content"), heroVideo = $("#heroVideo");
-  if (!reduceMotion && heroContent) {
+  // Skip the parallax on phones: the hero fills the screen there, so drifting the
+  // content upward slid the buttons underneath the fixed header while they were
+  // still tappable.
+  var wideEnoughForParallax = window.matchMedia("(min-width: 761px)").matches;
+  if (!reduceMotion && heroContent && wideEnoughForParallax) {
     window.addEventListener("scroll", function () {
       var y = window.scrollY;
       if (y < window.innerHeight) {

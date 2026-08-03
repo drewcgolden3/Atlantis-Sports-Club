@@ -19,6 +19,7 @@
   var CHAT_SVG = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>';
 
   function css(el, s) { for (var k in s) el.style[k] = s[k]; }
+  function isNarrow() { return window.matchMedia("(max-width: 760px)").matches; }
   function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
 
   /* page-view tracking — fire-and-forget, never blocks the page */
@@ -58,6 +59,7 @@
   promoX.type = "button"; promoX.setAttribute("aria-label", "Dismiss"); promoX.innerHTML = "&times;";
   css(promoX, { position: "absolute", top: "5px", right: "8px", border: "none", background: "transparent", color: SOFT, fontSize: "18px", lineHeight: "1", cursor: "pointer", padding: "2px 4px" });
   promo.appendChild(promoX); promo.appendChild(promoText);
+  if (isNarrow()) css(promo, { maxWidth: "212px", fontSize: "14px", padding: "12px 14px", bottom: "88px" });
 
   /* ---- panel ---- */
   var panel = document.createElement("div");
@@ -133,6 +135,9 @@
     if (open) return;
     promo.style.display = "block";
     requestAnimationFrame(function () { promo.style.opacity = "1"; promo.style.transform = "translateY(0)"; });
+    // On a phone the bubble lands on top of the hero's primary CTA, so it retires
+    // on its own rather than camping over the button until it's dismissed by hand.
+    if (isNarrow()) setTimeout(function () { if (!open) hidePromo(false); }, 6000);
   }
   function hidePromo(remember) {
     promo.style.opacity = "0"; promo.style.transform = "translateY(10px)";
@@ -148,5 +153,25 @@
   document.body.appendChild(promo);
   document.body.appendChild(panel);
 
-  setTimeout(showPromo, 1400);
+  /* ---- phones: stay out of the hero ----
+     A full-width hero CTA runs the whole width of a small screen, so a launcher
+     pinned bottom-right lands on top of it. Hold the launcher back until the
+     visitor has scrolled past the first screen, then bring it in for good. */
+  if (isNarrow()) {
+    var revealed = false;
+    css(launcher, { opacity: "0", pointerEvents: "none", transition: "opacity .3s ease, transform .2s ease" });
+    ring.style.display = "none";
+    var revealLauncher = function () {
+      if (revealed || window.scrollY < window.innerHeight * 0.75) return;
+      revealed = true;
+      css(launcher, { opacity: "1", pointerEvents: "auto" });
+      if (!reduce) ring.style.display = "";
+      window.removeEventListener("scroll", revealLauncher);
+      setTimeout(showPromo, 600);
+    };
+    window.addEventListener("scroll", revealLauncher, { passive: true });
+    revealLauncher();
+  } else {
+    setTimeout(showPromo, 1400);
+  }
 })();
