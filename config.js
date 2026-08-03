@@ -52,9 +52,7 @@ window.ATLANTIS_CONFIG = {
     pool:        "assets/images/pool.jpg",
     basketball:  "assets/images/basketball.jpg",
     dance:       "assets/images/dance.jpg",
-    birthday:    "assets/images/birthday.jpg",
     // Booking card photos (can reuse the amenity photos above)
-    bookBirthday:   "assets/images/birthday.jpg",
     bookLapLanes:   "assets/images/pool.jpg",
     bookDance:      "assets/images/dance.jpg",
   },
