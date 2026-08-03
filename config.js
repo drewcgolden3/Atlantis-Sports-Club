@@ -60,21 +60,25 @@ window.ATLANTIS_CONFIG = {
   },
 
   /* -- 3b) PARTY REQUEST FORM ------------------------------------------------
-     The birthday-party form on parties.html emails its answers through
-     Web3Forms (free, no server needed).
+     The birthday-party form on parties.html sends every request to Switchboard
+     OS, where it appears under Leads on the dashboard and triggers a "new lead"
+     notification. This needs no setup — it reuses the same backend and client
+     slug as the chat widget below.
 
-     TO TURN IT ON:
-       1. Go to https://web3forms.com
-       2. Enter  pkearney.atlantis@gmail.com  and press "Create Access Key"
-       3. Check that inbox for the access key and paste it below
+     OPTIONAL second copy by email: paste a Web3Forms access key (free, from
+     https://web3forms.com, created with the `recipient` address) and each
+     request is also emailed straight to that inbox. Leave it blank to rely on
+     the dashboard notification alone.
 
-     Until a key is pasted in, the form still collects the answers but ends by
-     opening the visitor's email app addressed to `recipient` instead — so no
-     enquiry is ever silently lost. */
+     If the dashboard can't be reached, the form falls back to opening the
+     visitor's email app addressed to `recipient`, so no enquiry is ever lost. */
   partyForm: {
-    web3formsKey: "",                              // paste the access key here
-    recipient:    "pkearney.atlantis@gmail.com",   // where party requests go
+    web3formsKey: "",                              // optional — see above
+    recipient:    "pkearney.atlantis@gmail.com",   // fallback / email copy
     subject:      "New birthday party request — Atlantis Sports Club",
+    // Leave blank to reuse the chat widget's apiBase + clientSlug below.
+    apiBase:      "",
+    clientSlug:   "",
   },
 
   /* -- 4) OPENING DATE & DETAILS -------------------------------------------- */

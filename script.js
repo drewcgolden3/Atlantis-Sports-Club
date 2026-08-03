@@ -487,25 +487,60 @@
         if (doneEl) doneEl.hidden = false;
       };
 
-      if (!cfg.web3formsKey) { mailtoFallback(data, cfg); showDone(); return; }
-
       submitBtn.disabled = true;
       var original = submitBtn.textContent;
       submitBtn.textContent = "Sending…";
 
-      var payload = { access_key: cfg.web3formsKey, subject: cfg.subject, from_name: "Atlantis Sports Club website" };
-      Object.keys(data).forEach(function (k) { payload[k] = data[k]; });
+      // 1) Switchboard OS — the request lands in the Leads list on the dashboard
+      //    and the club gets a "new lead" notification. Same backend the chat
+      //    widget already reports to, so it reuses that client slug.
+      var sb = CFG.chat || {};
+      var apiBase = cfg.apiBase || sb.apiBase || "https://switchboard-os.vercel.app";
+      var clientSlug = cfg.clientSlug || sb.clientSlug || "atlantis-sports-club";
 
-      fetch("https://api.web3forms.com/submit", {
+      // One readable line for the dashboard's "interested in" column.
+      var interest = ["Party type", "Guest count", "Preferred date"]
+        .map(function (k) { return data[k]; })
+        .filter(Boolean).join(" · ");
+      var noteBits = [];
+      if (data["Birthday age"]) noteBits.push("Turning " + data["Birthday age"]);
+      if (data["Notes"]) noteBits.push(data["Notes"]);
+
+      var toLead = fetch(apiBase + "/api/lead", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-      })
-        .then(function (r) { return r.json(); })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          clientSlug: clientSlug,
+          name: data["Name"],
+          email: data["Email"],
+          phone: data["Phone"],
+          interest: interest || "Birthday party",
+          source: "Website — Party Form",
+          notes: noteBits.join(" — "),
+          company: "",                       // honeypot, always empty for a human
+        }),
+      }).then(function (r) { return r.json(); });
+
+      // 2) Optional second copy straight to the party inbox, if a Web3Forms key
+      //    is configured. Never blocks the visitor: a rejected email must not
+      //    make a successfully-recorded lead look like a failure.
+      var toEmail = Promise.resolve(null);
+      if (cfg.web3formsKey) {
+        var payload = { access_key: cfg.web3formsKey, subject: cfg.subject, from_name: "Atlantis Sports Club website" };
+        Object.keys(data).forEach(function (k) { payload[k] = data[k]; });
+        toEmail = fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload),
+        }).catch(function () { return null; });
+      }
+
+      toLead
         .then(function (r) {
-          if (r && r.success) { showDone(); return; }
-          throw new Error("send failed");
+          if (!r || !r.ok) throw new Error("lead not recorded");
+          return toEmail;
         })
+        .then(function () { showDone(); })
         .catch(function () {
           submitBtn.disabled = false;
           submitBtn.textContent = original;
