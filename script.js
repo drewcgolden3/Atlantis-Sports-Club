@@ -127,7 +127,12 @@
         '<div class="footer__social" id="footerSocial"></div>' +
       '</div>' +
     '</div>' +
-    '<div class="footer__legal"><div class="container"><span>&copy; <span id="year">2027</span> Atlantis Sports Club. All rights reserved.</span></div></div>';
+    '<div class="footer__legal"><div class="container footer__legal-inner">' +
+      '<span>&copy; <span id="year">2027</span> Atlantis Sports Club. All rights reserved.</span>' +
+      '<span class="footer__credit">Website and lead capture by ' +
+        '<a href="https://switchboardcompany.com" target="_blank" rel="noopener">The Switchboard Company</a>' +
+      '</span>' +
+    '</div></div>';
 
   var footerMount = $("#siteFooter");
   if (footerMount) footerMount.innerHTML = footerHTML;
@@ -340,25 +345,6 @@
     reveals.forEach(function (el) { io.observe(el); });
   } else {
     reveals.forEach(function (el) { el.classList.add("is-in"); });
-  }
-
-  /* ============================================================= SIGNUP */
-  var form = $("#signupForm");
-  if (form) {
-    var msg = $("#signupMsg");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var input = $("#email", form);
-      var val = (input.value || "").trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-        msg.textContent = "Please enter a valid email address."; msg.classList.add("is-error"); input.focus(); return;
-      }
-      msg.classList.remove("is-error");
-      msg.textContent = "You're on the list! We'll be in touch with presale details.";
-      form.reset();
-      var wl = (CFG.links && CFG.links.membership) || "";
-      if (wl && wl !== "#") window.open(wl, "_blank", "noopener");
-    });
   }
 
   /* ============================================================= PARTY REQUEST

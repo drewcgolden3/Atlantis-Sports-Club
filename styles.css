@@ -441,6 +441,10 @@ ul { list-style: none; padding: 0; }
 .footer__social a { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: #fff; transition: background .2s var(--ease); }
 .footer__social a:hover { background: rgba(255,255,255,.18); }
 .footer__legal { border-top: 1px solid rgba(255,255,255,.12); padding: 20px 0; font-size: .9rem; }
+.footer__legal-inner { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; }
+.footer__credit { color: rgba(255,255,255,.62); }
+.footer__credit a { color: rgba(255,255,255,.85); text-decoration: underline; text-underline-offset: 2px; transition: color .2s var(--ease); }
+.footer__credit a:hover { color: var(--cyan-300); }
 
 /* --------------------------------------------------------------- reveal --- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
