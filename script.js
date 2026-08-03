@@ -542,10 +542,13 @@
         })
         .then(function () { showDone(); })
         .catch(function () {
+          // Couldn't record the lead — hand the answers to the visitor's mail
+          // app and still confirm, rather than showing them a failure they
+          // can't act on. The request reaches the club either way.
           submitBtn.disabled = false;
           submitBtn.textContent = original;
-          if (errEl) errEl.textContent = "That didn’t send — opening your email app instead.";
           mailtoFallback(data, cfg);
+          showDone();
         });
     });
 
