@@ -363,6 +363,16 @@
 
     if (totalEl) totalEl.textContent = String(steps.length);
 
+    // There's no club to hold a party in before opening day, so don't let the
+    // date picker offer one. Falls back to "not in the past" if no date is set.
+    (function () {
+      var dateField = $('input[type="date"]', qform);
+      if (!dateField) return;
+      var opening = CFG.openingDate ? new Date(CFG.openingDate) : null;
+      var earliest = opening && !isNaN(opening) && opening > new Date() ? opening : new Date();
+      dateField.min = earliest.toISOString().slice(0, 10);
+    })();
+
     function fieldsIn(step) { return $all("input, textarea, select", step); }
 
     function stepFilled(step) {
