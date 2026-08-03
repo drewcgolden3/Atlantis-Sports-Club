@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="stylesheet" href="styles.css?v=23" />
 </head>
 <body data-page="parties">
 
@@ -34,9 +34,14 @@
           <span class="feature-row__tag">Party Packages</span>
           <h2>Three ways to celebrate</h2>
           <p><strong>Pool parties</strong> in the Olympic-size pool, <strong>party-room parties</strong> in a private room of your own, and <strong>studio parties</strong> on the sprung dance floor. Packages for every age, with a private space reserved just for your group.</p>
-          <div class="media-mosaic media-mosaic--two party-split__media" aria-hidden="true">
+          <div class="media-mosaic media-mosaic--stack party-split__media" aria-hidden="true">
             <span class="split-pane" data-img="pool"></span>
-            <span class="split-pane" data-img="dance"></span>
+            <span class="split-pane split-pane--video" data-img="dance">
+              <video class="split-pane__video" muted loop playsinline preload="none">
+                <source src="assets/video/studio.webm" type="video/webm" />
+                <source src="assets/video/studio.mp4" type="video/mp4" />
+              </video>
+            </span>
           </div>
         </div>
 
@@ -154,7 +159,7 @@
   <footer class="footer" id="siteFooter"></footer>
 
   <script src="config.js?v=7"></script>
-  <script src="script.js?v=12"></script>
+  <script src="script.js?v=13"></script>
   <script src="assets/chat.js?v=3"></script>
 </body>
 </html>

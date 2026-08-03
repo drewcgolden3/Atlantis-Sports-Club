@@ -251,6 +251,36 @@
     probe.src = src;
   });
 
+  /* ============================================================= HOVER CLIPS
+     Panes that play a short clip while the pointer is over them. Nothing is
+     fetched until the first hover, so the page cost is unchanged for everyone
+     who never touches it. */
+  (function () {
+    var panes = $all(".split-pane--video");
+    if (!panes.length) return;
+    if (reduceMotion || !window.matchMedia("(hover: hover)").matches) return;
+
+    panes.forEach(function (pane) {
+      var video = $("video", pane);
+      if (!video) return;
+
+      pane.addEventListener("mouseenter", function () {
+        if (video.preload === "none") video.preload = "auto";
+        var played = video.play();
+        // Autoplay can still be refused; leave the still image up if it is.
+        if (played && played.catch) played.catch(function () {});
+        pane.classList.add("is-playing");
+      });
+
+      pane.addEventListener("mouseleave", function () {
+        pane.classList.remove("is-playing");
+        video.pause();
+        // Back to the first frame so the next hover starts the clip again.
+        try { video.currentTime = 0; } catch (e) {}
+      });
+    });
+  })();
+
   /* ============================================================= LINKS (Mindbody) */
   var links = CFG.links || {};
   $all("[data-link]").forEach(function (el) {
