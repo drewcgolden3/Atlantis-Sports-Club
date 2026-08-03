@@ -116,13 +116,15 @@
     '<div class="container footer__inner">' +
       '<div class="footer__brand">' +
         '<span class="brand__logo brand__logo--footer" role="img" aria-label="Atlantis Sports Clubs"></span>' +
-        '<p>Opening <span data-opening-label>July 7, 2027</span> in East Sandwich, MA.</p>' +
+        '<p>Opening <span data-opening-label>July 7, 2027</span> in Hyannis, MA.</p>' +
       '</div>' +
       '<nav class="footer__links" aria-label="Footer">' +
         NAV.map(function (n) { return '<a href="' + pageHref(n.href) + '">' + n.label + "</a>"; }).join("") +
       '</nav>' +
       '<div class="footer__contact">' +
-        '<a href="#" data-link="email" id="emailLink">hello@atlantissportsclub.com</a>' +
+        // Rendered from config rather than a hardcoded placeholder — a stale
+        // address baked in here would show for real if the fill ever failed.
+        '<a href="#" data-link="email" id="emailLink">' + ((CFG.contact && CFG.contact.email) || "") + '</a>' +
         '<p class="footer__phone" data-phone-wrap></p>' +
         '<div class="footer__social" id="footerSocial"></div>' +
       '</div>' +
@@ -165,9 +167,16 @@
 
   if (CFG.contact) {
     var c = CFG.contact;
-    if ($("[data-addr1]") && c.addressLine1) $("[data-addr1]").textContent = c.addressLine1;
-    if ($("[data-addr2]") && c.addressLine2) $("[data-addr2]").textContent = c.addressLine2;
-    if ($("[data-venue]") && c.venue) $("[data-venue]").textContent = c.venue;
+    // Every match, not just the first — the address appears on more than one
+    // page and, on the presale page, more than once.
+    if (c.addressLine1) $all("[data-addr1]").forEach(function (el) { el.textContent = c.addressLine1; });
+    if (c.addressLine2) $all("[data-addr2]").forEach(function (el) { el.textContent = c.addressLine2; });
+    // An empty venue has to clear the element, not leave whatever the markup
+    // shipped with — otherwise removing it from config leaves it on the page.
+    $all("[data-venue]").forEach(function (el) {
+      el.textContent = c.venue || "";
+      el.hidden = !c.venue;
+    });
 
     var emailLink = $("#emailLink");
     if (emailLink && c.email) { emailLink.textContent = c.email; emailLink.href = "mailto:" + c.email; }

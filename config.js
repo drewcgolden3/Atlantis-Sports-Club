@@ -84,13 +84,13 @@ window.ATLANTIS_CONFIG = {
   openingLabel: "July 7, 2027",
 
   contact: {
-    email: "hello@atlantissportsclub.com",
-    phone: "",  // e.g. "(508) 555-0199" — leave "" to hide
-    addressLine1: "551 MA-6A",
-    addressLine2: "East Sandwich, MA 02537",
-    venue: "at Riverview School",
-    mapEmbed: "https://www.google.com/maps?q=551+MA-6A,+East+Sandwich,+MA+02537&output=embed",
-    mapLink:  "https://www.google.com/maps/search/?api=1&query=551+MA-6A+East+Sandwich+MA+02537",
+    email: "pkearney.atlantis@gmail.com",
+    phone: "(508) 862-2535",  // leave "" to hide
+    addressLine1: "35 Scudder Ave",
+    addressLine2: "Hyannis, MA 02601",
+    venue: "",  // optional building/host name — leave "" to hide
+    mapEmbed: "https://www.google.com/maps?q=35+Scudder+Ave,+Hyannis,+MA+02601&output=embed",
+    mapLink:  "https://www.google.com/maps/search/?api=1&query=35+Scudder+Ave+Hyannis+MA+02601",
   },
 
   social: {
