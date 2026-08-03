@@ -646,6 +646,35 @@ ul { list-style: none; padding: 0; }
 .plan__was { color: var(--color-fg-soft); font-size: 1.05rem; }
 .plan__was s { text-decoration-thickness: 2px; }
 
+/* --------------------------------- parties: packages beside the request --- */
+.party-split {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4.5vw, 60px); align-items: start;
+}
+.party-split__copy h2 {
+  font-family: var(--font-head); font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.02; color: var(--color-fg);
+}
+.party-split__copy > p { color: var(--color-fg-soft); font-size: 1.1rem; margin-top: 14px; }
+.party-split__media {
+  margin-top: 28px; aspect-ratio: 16 / 11;
+  border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow); border: 1px solid var(--color-border);
+}
+.party-split__title {
+  font-family: var(--font-head); font-weight: 800;
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem); line-height: 1.04; color: var(--color-fg);
+}
+.party-split__sub { color: var(--color-fg-soft); font-size: 1.05rem; margin: 12px 0 22px; }
+/* The form is already a card; inside a column it should fill it. */
+.party-split__form .qform { max-width: none; margin: 0; }
+
+@media (max-width: 940px) {
+  .party-split { grid-template-columns: 1fr; }
+  /* Stacked, the picture has already made the case — keep it tighter. */
+  .party-split__media { margin-top: 22px; aspect-ratio: 16 / 10; }
+}
+
 /* ------------------------------------------- one-question-at-a-time form --- */
 .qform {
   max-width: 620px; margin: 0 auto;

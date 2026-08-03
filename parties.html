@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=17" />
+  <link rel="stylesheet" href="styles.css?v=18" />
 </head>
 <body data-page="parties">
 
@@ -25,65 +25,28 @@
     </div>
   </section>
 
-  <!-- ============================ PARTY TYPES ============================ -->
-  <section class="section">
+  <!-- ================= PARTY TYPES + REQUEST FORM (side by side) ================= -->
+  <section class="section" id="request">
     <div class="container">
-      <div class="feature-row">
-        <div class="feature-row__media media-mosaic" aria-hidden="true">
-          <span class="split-pane" data-img="pool"></span>
-          <span class="split-pane" data-img="basketball"></span>
-          <span class="split-pane" data-img="dance"></span>
-        </div>
-        <div class="feature-row__body">
+      <div class="party-split">
+
+        <div class="party-split__copy">
           <span class="feature-row__tag">Party Packages</span>
           <h2>Three ways to celebrate</h2>
           <p><strong>Pool parties</strong> in the Olympic-size pool, <strong>court parties</strong> on the full basketball court, and <strong>studio parties</strong> on the sprung dance floor. Packages for every age, with a private space reserved just for your group.</p>
-          <div class="mt-cta" style="justify-content:flex-start;margin-top:22px">
-            <a href="#request" class="btn btn--primary">Request a Party Date</a>
+          <div class="media-mosaic party-split__media" aria-hidden="true">
+            <span class="split-pane" data-img="pool"></span>
+            <span class="split-pane" data-img="basketball"></span>
+            <span class="split-pane" data-img="dance"></span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============================ WHAT'S INCLUDED ============================ -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow">Easy &amp; Handled</p>
-        <h2 class="section__title">We do the work</h2>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step__num">1</div>
-          <h3>Pick your party</h3>
-          <p>Choose a pool, court, or dance-studio party and a date that works for you.</p>
-        </div>
-        <div class="step">
-          <div class="step__num">2</div>
-          <h3>We set up</h3>
-          <p>A dedicated host and a private space — setup and cleanup are on us.</p>
-        </div>
-        <div class="step">
-          <div class="step__num">3</div>
-          <h3>Just celebrate</h3>
-          <p>Show up and have fun. We&rsquo;ll take care of the rest.</p>
-        </div>
-      </div>
-      <div class="mt-cta"><a href="#request" class="btn btn--primary btn--lg">Request a Party Date</a></div>
-    </div>
-  </section>
+        <div class="party-split__form">
+          <p class="section__eyebrow">Request a Date</p>
+          <h2 class="party-split__title">Let&rsquo;s plan the party</h2>
+          <p class="party-split__sub">A few quick questions — about 30 seconds. We&rsquo;ll get back to you with availability and pricing.</p>
 
-  <!-- ============================ REQUEST FORM ============================ -->
-  <section class="section" id="request">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow">Request a Date</p>
-        <h2 class="section__title">Let&rsquo;s plan the party</h2>
-        <p class="section__sub">A few quick questions — about 30 seconds. We&rsquo;ll get back to you with availability and pricing.</p>
-      </div>
-
-      <form class="qform" id="partyForm" novalidate>
+          <form class="qform" id="partyForm" novalidate>
         <div class="qform__bar" aria-hidden="true"><div class="qform__bar-fill" data-qbar></div></div>
         <p class="qform__count">Question <span data-qnow>1</span> of <span data-qtotal>8</span></p>
 
@@ -154,7 +117,38 @@
           <h3>Request sent!</h3>
           <p>Thanks — we&rsquo;ll be in touch shortly with availability and pricing for your party.</p>
         </div>
-      </form>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT'S INCLUDED ============================ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Easy &amp; Handled</p>
+        <h2 class="section__title">We do the work</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">1</div>
+          <h3>Pick your party</h3>
+          <p>Choose a pool, court, or dance-studio party and a date that works for you.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">2</div>
+          <h3>We set up</h3>
+          <p>A dedicated host and a private space — setup and cleanup are on us.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <h3>Just celebrate</h3>
+          <p>Show up and have fun. We&rsquo;ll take care of the rest.</p>
+        </div>
+      </div>
+      <div class="mt-cta"><a href="#request" class="btn btn--primary btn--lg">Request a Party Date</a></div>
     </div>
   </section>
 
