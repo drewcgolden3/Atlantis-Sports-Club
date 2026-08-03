@@ -773,6 +773,9 @@ ul { list-style: none; padding: 0; }
   grid-template-rows: 1fr 1fr;
 }
 .media-mosaic > .split-pane:first-child { grid-row: span 2; }
+/* Two spaces instead of three: side by side, no tall pane to fill. */
+.media-mosaic--two { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; }
+.media-mosaic--two > .split-pane:first-child { grid-row: auto; }
 .split-pane {
   display: block; min-width: 0;
   background: linear-gradient(140deg, var(--sky-300), var(--sky-700));
