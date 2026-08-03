@@ -188,6 +188,28 @@
       a.textContent = c.phone;
       phoneWrap.appendChild(a);
     }
+    // Contact cards on the location page — same values as the footer, so they
+    // can never drift apart.
+    var phoneCard = $("#contactPhone");
+    if (phoneCard) {
+      if (c.phone) {
+        phoneCard.href = "tel:" + c.phone.replace(/[^0-9+]/g, "");
+        $("[data-contact-phone]", phoneCard).textContent = c.phone;
+      } else { phoneCard.hidden = true; }
+    }
+    var emailCard = $("#contactEmail");
+    if (emailCard) {
+      if (c.email) {
+        emailCard.href = "mailto:" + c.email;
+        $("[data-contact-email]", emailCard).textContent = c.email;
+      } else { emailCard.hidden = true; }
+    }
+    var fbCard = $("#contactFacebook");
+    if (fbCard) {
+      var fb = (CFG.social || {}).facebook;
+      if (fb) fbCard.href = fb; else fbCard.hidden = true;
+    }
+
     var mapFrame = $("#mapFrame");
     if (mapFrame && c.mapEmbed) mapFrame.src = c.mapEmbed;
     var dirBtn = $("#directionsBtn");

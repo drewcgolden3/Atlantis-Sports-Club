@@ -95,7 +95,7 @@ window.ATLANTIS_CONFIG = {
 
   social: {
     instagram: "",
-    facebook:  "",
+    facebook:  "https://www.facebook.com/ATLANTISSPORTSCLUBANDSPAHYANNIS/",
   },
 
   /* -- 5) AI CHAT WIDGET (Switchboard OS) ----------------------------------- */
