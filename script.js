@@ -77,7 +77,7 @@
     // No "Presale" link here — the "Join the Presale" button beside it goes to
     // the same page, and two links to one destination just split the click.
     { key: "amenities", label: "Amenities", href: "amenities.html" },
-    { key: "booking",   label: "Book",      href: "booking.html" },
+    { key: "aquatics",  label: "Aquatics",  href: "aquatics.html" },
     { key: "parties",   label: "Parties",   href: "parties.html" },
     { key: "location",  label: "Location",  href: "location.html" },
   ];
@@ -347,6 +347,80 @@
 
     vids.forEach(function (v) { io.observe(v); });
   })();
+
+  /* ====================================================== SIGNUP FORMS
+     The short name/email/phone forms — newsletter on the home page, swim-lesson
+     interest on the aquatics page. Every one lands in the Leads list on the
+     Switchboard OS dashboard, tagged by the interest and source the markup
+     declares, so the club can tell a lesson enquiry from a mailing-list signup.
+     The long party questionnaire has its own handler further down. */
+  $all("form[data-signup]").forEach(function (form) {
+    var msg = $("[data-signup-msg]", form);
+    var btn = $("button[type=submit]", form);
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var field = function (n) {
+        var el = form.querySelector("[name='" + n + "']");
+        return el ? el.value.trim() : "";
+      };
+      var name = field("name"), email = field("email"), phone = field("phone");
+
+      var say = function (text, isError) {
+        if (!msg) return;
+        msg.textContent = text;
+        msg.classList.toggle("is-error", !!isError);
+      };
+
+      if (!name || !email) { say("Please add your name and email.", true); return; }
+
+      var sb = CFG.chat || {};
+      var apiBase = sb.apiBase || "https://switchboard-os.vercel.app";
+      var clientSlug = sb.clientSlug || "atlantis-sports-club";
+
+      btn.disabled = true;
+      var original = btn.textContent;
+      btn.textContent = "Sending…";
+      say("");
+
+      fetch(apiBase + "/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          clientSlug: clientSlug,
+          name: name,
+          email: email,
+          phone: phone,
+          interest: form.getAttribute("data-signup-interest") || "Club updates",
+          source: form.getAttribute("data-signup-source") || "Website — Signup",
+          notes: form.getAttribute("data-signup-notes") || "",
+          utm_source: ATTRIBUTION.utm_source,
+          utm_medium: ATTRIBUTION.utm_medium,
+          utm_campaign: ATTRIBUTION.utm_campaign,
+          utm_content: ATTRIBUTION.utm_content,
+          utm_term: ATTRIBUTION.utm_term,
+          landing_path: ATTRIBUTION.landing_path,
+          referrer: ATTRIBUTION.referrer,
+          company: field("company"),         // honeypot
+        }),
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (r) {
+          if (!r || !r.ok) throw new Error("not recorded");
+          form.reset();
+          say(form.getAttribute("data-signup-done") || "You’re on the list — we’ll be in touch.");
+          btn.textContent = "Thanks!";
+          // Leave the button spent rather than re-armed: the same person
+          // submitting twice is a duplicate the dashboard has to clean up.
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = original;
+          say("Something went wrong — please try again, or call us.", true);
+        });
+    });
+  });
 
   /* ============================================================= LINKS (Mindbody) */
   var links = CFG.links || {};

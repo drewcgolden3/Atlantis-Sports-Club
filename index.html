@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=26" />
+  <link rel="stylesheet" href="styles.css?v=27" />
 </head>
 <body data-page="home">
 
@@ -80,12 +80,12 @@
             <span class="explore-card__link">See the club</span>
           </span>
         </a>
-        <a href="booking.html" class="explore-card">
+        <a href="aquatics.html" class="explore-card">
           <span class="explore-card__media" data-img="pool"></span>
           <span class="explore-card__body">
-            <h3>Book</h3>
-            <p>Lap lanes and dance-studio time — reserved in seconds.</p>
-            <span class="explore-card__link">Reserve now</span>
+            <h3>Aquatics</h3>
+            <p>An Olympic-size pool, plus swim lessons with Aquasafe Programs.</p>
+            <span class="explore-card__link">Dive in</span>
           </span>
         </a>
         <a href="parties.html" class="explore-card">
@@ -108,13 +108,36 @@
           </span>
         </a>
       </div>
+
+      <!-- ---------------------------------------------- newsletter signup --- -->
+      <div class="signup reveal">
+        <div class="signup__copy">
+          <p class="signup__eyebrow">Stay in the Loop</p>
+          <h3 class="signup__title">Be first to know</h3>
+          <p class="signup__sub">Opening-day news, founding-member offers, class schedules, and swim-lesson dates — straight to your inbox. No spam, unsubscribe anytime.</p>
+        </div>
+        <form class="signup__form" data-signup data-signup-interest="Newsletter &amp; club updates" data-signup-source="Website — Newsletter">
+          <div class="signup__fields">
+            <label class="sr-only" for="nlName">Name</label>
+            <input id="nlName" type="text" name="name" autocomplete="name" placeholder="First and last name" required />
+            <label class="sr-only" for="nlEmail">Email</label>
+            <input id="nlEmail" type="email" name="email" autocomplete="email" placeholder="you@email.com" required />
+            <label class="sr-only" for="nlPhone">Phone</label>
+            <input id="nlPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone (optional)" />
+            <button type="submit" class="btn btn--primary">Keep Me Posted</button>
+          </div>
+          <!-- Bots fill every field they can see; people never see this one. -->
+          <input type="text" name="company" class="signup__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <p class="signup__msg" role="status" data-signup-msg></p>
+        </form>
+      </div>
     </div>
   </section>
 
   <footer class="footer" id="siteFooter"></footer>
 
   <script src="config.js?v=8"></script>
-  <script src="script.js?v=17"></script>
+  <script src="script.js?v=18"></script>
 <script src="assets/chat.js?v=4"></script>
 </body>
 </html>

@@ -738,6 +738,8 @@ ul { list-style: none; padding: 0; }
   width: 17px; height: 17px; border-radius: 50%;
   background: var(--sky-100) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230369A1' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/10px no-repeat;
 }
+/* Marks a line that only applies to one party type. */
+.includes__only { color: var(--color-primary); font-weight: 600; font-size: .88em; white-space: nowrap; }
 
 /* ------------------------------------------- one-question-at-a-time form --- */
 .qform {
@@ -1123,3 +1125,67 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
   .cine__stats { grid-template-columns: 1fr; gap: 14px; }
   .cine__badge { left: 12px; bottom: 10px; font-size: .68rem; }
 }
+
+/* ------------------------------------------------- newsletter signup --- */
+.signup {
+  margin-top: clamp(40px, 6vw, 72px);
+  display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+  background: linear-gradient(135deg, var(--ocean) 0%, var(--sky-800) 100%);
+  border-radius: var(--radius-xl); padding: clamp(28px, 4vw, 52px);
+  box-shadow: var(--shadow);
+}
+.signup__eyebrow {
+  font-family: var(--font-head); font-weight: 700; text-transform: uppercase;
+  letter-spacing: .18em; font-size: .76rem; color: var(--sky-300); margin-bottom: 10px;
+}
+.signup__title {
+  font-family: var(--font-display); font-weight: 600; color: #fff;
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.05; letter-spacing: -0.02em;
+}
+.signup__sub { color: rgba(224,242,254,.82); margin-top: 12px; line-height: 1.6; max-width: 46ch; }
+.signup__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.signup__fields input {
+  font: inherit; padding: 13px 16px; border-radius: var(--radius);
+  border: 1px solid rgba(125,211,252,.3); background: rgba(255,255,255,.08);
+  color: #fff; transition: border-color .35s var(--ease), background .35s var(--ease);
+}
+.signup__fields input::placeholder { color: rgba(224,242,254,.6); }
+.signup__fields input:focus {
+  outline: none; border-color: var(--cyan-400); background: rgba(255,255,255,.14);
+}
+.signup__fields input[name="name"] { grid-column: span 2; }
+.signup__fields .btn { grid-column: span 2; width: 100%; }
+/* Off-screen rather than display:none — a bot that skips hidden fields still fills this. */
+.signup__hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.signup__msg { margin-top: 12px; font-size: .94rem; color: var(--cyan-300); min-height: 1.3em; }
+.signup__msg.is-error { color: #FCA5A5; }
+@media (max-width: 860px) {
+  .signup { grid-template-columns: 1fr; }
+  .signup__fields { grid-template-columns: 1fr; }
+  .signup__fields input[name="name"], .signup__fields .btn { grid-column: span 1; }
+}
+
+/* ------------------------------------------------------- aquatics page --- */
+/* The stat row again, on a light section: same rhythm, inverted ink. */
+.cine__stats--light li { border-top-color: var(--color-border); }
+.cine__stats--light strong { color: var(--color-fg); }
+.cine__stats--light span { color: var(--color-fg-soft); }
+.cine__sub a { color: var(--sky-300); text-decoration: none; border-bottom: 1px solid rgba(125,211,252,.45); transition: color .35s var(--ease), border-color .35s var(--ease); }
+.cine__sub a:hover { color: var(--cyan-300); border-bottom-color: var(--cyan-300); }
+.cine__note { margin-top: 22px; }
+.cine__link {
+  font-family: var(--font-head); font-weight: 700; text-transform: uppercase;
+  letter-spacing: .1em; font-size: .82rem; color: var(--cyan-400);
+  text-decoration: none; transition: color .35s var(--ease);
+}
+.cine__link:hover { color: #fff; }
+/* Inside a cine split the signup is one column, and the surrounding section
+   already supplies the dark ground — so it drops its own gradient. */
+.signup--panel {
+  grid-template-columns: 1fr; margin-top: 0; gap: 22px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(125,211,252,.22);
+  box-shadow: none;
+}
+.signup--panel .signup__fields input { background: rgba(4,27,43,.35); }
