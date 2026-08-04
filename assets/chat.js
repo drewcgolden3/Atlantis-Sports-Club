@@ -26,7 +26,13 @@
   try {
     fetch(apiBase + "/api/track", {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ clientSlug: clientSlug, path: location.pathname, referrer: document.referrer || null }),
+      body: JSON.stringify(Object.assign(
+        { clientSlug: clientSlug, path: location.pathname, referrer: document.referrer || null },
+        // Same campaign tags script.js captured on the first page of the visit,
+        // so traffic and leads can be compared on one axis and a real
+        // conversion rate per campaign becomes possible.
+        window.ATLANTIS_ATTRIBUTION || {}
+      )),
       keepalive: true,
     }).catch(function () {});
   } catch (e) {}

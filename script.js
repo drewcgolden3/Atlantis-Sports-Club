@@ -13,6 +13,42 @@
   function $(s, c) { return (c || document).querySelector(s); }
   function $all(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
 
+  /* ---------- campaign attribution ----------
+     An ad link lands on the home page carrying ?utm_source=facebook, but the
+     form is two pages later, by which point the URL is clean. So the tags are
+     read on the first page of the visit and kept for the session, then sent
+     with whatever the visitor eventually submits. First touch wins: a later
+     untagged page never overwrites the ad that actually earned the visit. */
+  var ATTRIBUTION = (function () {
+    var KEY = "asc_attribution";
+    var params = new URLSearchParams(window.location.search);
+    var fromUrl = {
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_content: params.get("utm_content") || "",
+      utm_term: params.get("utm_term") || "",
+      landing_path: window.location.pathname,
+      referrer: document.referrer || "",
+    };
+
+    var stored = null;
+    try { stored = JSON.parse(sessionStorage.getItem(KEY) || "null"); } catch (e) {}
+
+    // Keep what's stored, unless this page carries tags and the stored visit
+    // didn't — someone who browsed organically then clicked an ad should be
+    // credited to the ad.
+    var useUrl = !stored || (fromUrl.utm_source && !stored.utm_source);
+    var attribution = useUrl ? fromUrl : stored;
+
+    if (useUrl) {
+      try { sessionStorage.setItem(KEY, JSON.stringify(attribution)); } catch (e) {}
+    }
+    // Exposed so the chat widget can tag its page views the same way.
+    window.ATLANTIS_ATTRIBUTION = attribution;
+    return attribution;
+  })();
+
   /* ---------- pricing helpers ---------- */
   var pr = CFG.pricing || {};
   var cur = pr.currency || "$";
@@ -585,6 +621,13 @@
           // Every party request is worth the package price at minimum, so the
           // dashboard's pipeline total is money rather than a headcount.
           estimatedValue: (CFG.party && CFG.party.startingPrice) || null,
+          utm_source: ATTRIBUTION.utm_source,
+          utm_medium: ATTRIBUTION.utm_medium,
+          utm_campaign: ATTRIBUTION.utm_campaign,
+          utm_content: ATTRIBUTION.utm_content,
+          utm_term: ATTRIBUTION.utm_term,
+          landing_path: ATTRIBUTION.landing_path,
+          referrer: ATTRIBUTION.referrer,
           company: "",                       // honeypot, always empty for a human
         }),
       }).then(function (r) { return r.json(); });
