@@ -333,6 +333,34 @@
     var url = links[key];
     if (url && url !== "#") {
       el.href = url; el.target = "_blank"; el.rel = "noopener";
+      // Count the handoff to the booking system. sendBeacon so the request
+      // survives the tab losing focus, and never blocks the click either way.
+      el.addEventListener("click", function () {
+        var sb = CFG.chat || {};
+        var payload = JSON.stringify({
+          clientSlug: sb.clientSlug || "atlantis-sports-club",
+          origin: "website",
+          label: (el.textContent || "").trim().slice(0, 120),
+          path: window.location.pathname,
+          utm_source: ATTRIBUTION.utm_source,
+          utm_medium: ATTRIBUTION.utm_medium,
+          utm_campaign: ATTRIBUTION.utm_campaign,
+          utm_content: ATTRIBUTION.utm_content,
+        });
+        var endpoint = (sb.apiBase || "https://switchboard-os.vercel.app") + "/api/booking-click";
+        try {
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon(endpoint, new Blob([payload], { type: "application/json" }));
+          } else {
+            fetch(endpoint, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: payload,
+              keepalive: true,
+            }).catch(function () {});
+          }
+        } catch (e) {}
+      });
     } else {
       el.addEventListener("click", function (e) {
         e.preventDefault();
