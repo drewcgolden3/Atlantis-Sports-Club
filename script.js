@@ -251,6 +251,14 @@
     probe.src = src;
   });
 
+  /* ============================================================= PARTY PACKAGE */
+  var party = CFG.party || {};
+  $all("[data-party]").forEach(function (el) {
+    var key = el.getAttribute("data-party");
+    if (key === "price" && party.startingPrice != null) el.textContent = money(party.startingPrice);
+    if (key === "max" && party.maxGuests != null) el.textContent = String(party.maxGuests);
+  });
+
   /* ============================================================= HOVER CLIPS
      Panes that play a short clip while the pointer is over them. Nothing is
      fetched until the first hover, so the page cost is unchanged for everyone
@@ -574,6 +582,9 @@
           interest: interest || "Birthday party",
           source: "Website — Party Form",
           notes: noteBits.join(" — "),
+          // Every party request is worth the package price at minimum, so the
+          // dashboard's pipeline total is money rather than a headcount.
+          estimatedValue: (CFG.party && CFG.party.startingPrice) || null,
           company: "",                       // honeypot, always empty for a human
         }),
       }).then(function (r) { return r.json(); });

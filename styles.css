@@ -688,6 +688,57 @@ ul { list-style: none; padding: 0; }
   .party-split__media { margin-top: 22px; aspect-ratio: 16 / 10; }
 }
 
+/* ---------------------------------------------- party price + includes --- */
+.price-badge {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+  margin-top: 26px; padding: 18px 22px;
+  background: linear-gradient(135deg, var(--sky-600), var(--sky-800));
+  color: #fff; border-radius: var(--radius-lg);
+  box-shadow: 0 14px 30px -16px rgba(2,132,199,.8);
+}
+.price-badge__lab {
+  font-family: var(--font-head); font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; font-size: .72rem; color: rgba(255,255,255,.8);
+}
+.price-badge__amt {
+  font-family: var(--font-head); font-weight: 800; line-height: 1;
+  font-size: clamp(2.4rem, 6vw, 3.2rem);
+}
+.price-badge__note { font-size: .95rem; color: rgba(255,255,255,.9); margin-top: 4px; }
+
+.includes { margin-top: 22px; display: grid; gap: 8px; }
+.includes__group {
+  border: 1px solid var(--color-border); border-radius: var(--radius);
+  background: var(--color-card); overflow: hidden;
+}
+.includes__group > summary {
+  cursor: pointer; list-style: none; padding: 14px 18px;
+  font-family: var(--font-head); font-weight: 700; font-size: 1.02rem;
+  color: var(--color-fg); display: flex; align-items: center; justify-content: space-between;
+  transition: background .2s var(--ease);
+}
+.includes__group > summary::-webkit-details-marker { display: none; }
+.includes__group > summary::after {
+  content: ""; flex: none; width: 9px; height: 9px; margin-left: 12px;
+  border-right: 2px solid var(--color-primary); border-bottom: 2px solid var(--color-primary);
+  transform: rotate(45deg) translateY(-2px); transition: transform .25s var(--ease);
+}
+.includes__group[open] > summary::after { transform: rotate(-135deg) translateY(-2px); }
+.includes__group > summary:hover { background: var(--color-bg-alt); }
+.includes__group > summary:focus-visible { outline: 3px solid var(--sky-300); outline-offset: -3px; }
+.includes__group ul { margin: 0; padding: 0 18px 16px; display: grid; gap: 8px; }
+/* Not flex: a value span inside the text would become its own flex item and
+   get the gap applied around it, breaking the sentence into spaced fragments. */
+.includes__group li {
+  position: relative; padding-left: 27px;
+  font-size: .98rem; line-height: 1.5; color: var(--color-fg-soft);
+}
+.includes__group li::before {
+  content: ""; position: absolute; left: 0; top: 3px;
+  width: 17px; height: 17px; border-radius: 50%;
+  background: var(--sky-100) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230369A1' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/10px no-repeat;
+}
+
 /* ------------------------------------------- one-question-at-a-time form --- */
 .qform {
   max-width: 620px; margin: 0 auto;

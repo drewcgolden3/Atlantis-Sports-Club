@@ -70,6 +70,12 @@ window.ATLANTIS_CONFIG = {
 
      If the dashboard can't be reached, the form falls back to opening the
      visitor's email app addressed to `recipient`, so no enquiry is ever lost. */
+  /* -- 3c) BIRTHDAY PARTY PACKAGE ------------------------------------------- */
+  party: {
+    startingPrice: 749,   // "starting at" price shown on the page
+    maxGuests: 20,        // package covers up to this many people
+  },
+
   partyForm: {
     web3formsKey: "",                              // optional — see above
     recipient:    "pkearney.atlantis@gmail.com",   // fallback / email copy

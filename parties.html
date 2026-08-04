@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=23" />
+  <link rel="stylesheet" href="styles.css?v=25" />
 </head>
 <body data-page="parties">
 
@@ -34,6 +34,69 @@
           <span class="feature-row__tag">Party Packages</span>
           <h2>Three ways to celebrate</h2>
           <p><strong>Pool parties</strong> in the Olympic-size pool, <strong>party-room parties</strong> in a private room of your own, and <strong>studio parties</strong> on the sprung dance floor. Packages for every age, with a private space reserved just for your group.</p>
+
+          <div class="price-badge">
+            <span class="price-badge__lab">Starting at</span>
+            <span class="price-badge__amt" data-party="price">$749</span>
+            <span class="price-badge__note">Up to <span data-party="max">20</span> people · everything included</span>
+          </div>
+
+          <div class="includes">
+            <details class="includes__group" open>
+              <summary>Every party includes</summary>
+              <ul>
+                <li>Private heated indoor pool</li>
+                <li>Up to <span data-party="max">20</span> guests</li>
+                <li>Reserved party area</li>
+                <li>Birthday child&rsquo;s name on the big screen</li>
+                <li>Certified lifeguard on duty</li>
+                <li>Music &amp; fun atmosphere</li>
+                <li>Time for cake &amp; presents</li>
+                <li>Pool games &amp; floats</li>
+              </ul>
+            </details>
+
+            <details class="includes__group">
+              <summary>Supplies &mdash; no extra cost</summary>
+              <ul>
+                <li>Balloons</li>
+                <li>Tablecloths</li>
+                <li>Paper plates, cups, napkins &amp; utensils</li>
+                <li>Straws</li>
+                <li>Candles &amp; matches</li>
+                <li>Cake cutting knife</li>
+                <li>Party favors</li>
+                <li>Clean-up supplies</li>
+              </ul>
+            </details>
+
+            <details class="includes__group">
+              <summary>Signs, décor &amp; photos</summary>
+              <ul>
+                <li>Welcome sign</li>
+                <li>Happy birthday sign</li>
+                <li>Signs &amp; banners</li>
+                <li>Gift table setup</li>
+                <li>Photo booth props</li>
+                <li>Amazing photo opportunities</li>
+              </ul>
+            </details>
+
+            <details class="includes__group">
+              <summary>Planning help</summary>
+              <ul>
+                <li>Printable invitations</li>
+                <li>Printable thank you cards</li>
+                <li>Party planning checklist</li>
+                <li>Decorating ideas</li>
+                <li>Food &amp; snack ideas</li>
+                <li>Drink ideas</li>
+                <li>Goodie bag ideas</li>
+                <li>Music playlist ideas</li>
+              </ul>
+            </details>
+          </div>
+
           <div class="media-mosaic media-mosaic--stack party-split__media" aria-hidden="true">
             <span class="split-pane" data-img="pool"></span>
             <span class="split-pane split-pane--video" data-img="dance">
@@ -67,12 +130,11 @@
 
         <fieldset class="qstep" data-qstep hidden>
           <legend class="qstep__q">How many guests?</legend>
-          <p class="qstep__hint">A rough headcount is fine.</p>
+          <p class="qstep__hint">The package covers up to <span data-party="max">20</span> people. A rough headcount is fine.</p>
           <div class="qchoices">
             <label class="qchoice"><input type="radio" name="Guest count" value="Up to 10" required /><span>Up to 10</span></label>
             <label class="qchoice"><input type="radio" name="Guest count" value="11–20" /><span>11&ndash;20</span></label>
-            <label class="qchoice"><input type="radio" name="Guest count" value="21–30" /><span>21&ndash;30</span></label>
-            <label class="qchoice"><input type="radio" name="Guest count" value="More than 30" /><span>More than 30</span></label>
+            <label class="qchoice"><input type="radio" name="Guest count" value="More than 20 — need a larger party" /><span>More than 20 &mdash; we&rsquo;ll need a bigger party</span></label>
           </div>
         </fieldset>
 
@@ -158,8 +220,8 @@
 
   <footer class="footer" id="siteFooter"></footer>
 
-  <script src="config.js?v=7"></script>
-  <script src="script.js?v=13"></script>
+  <script src="config.js?v=8"></script>
+  <script src="script.js?v=14"></script>
   <script src="assets/chat.js?v=3"></script>
 </body>
 </html>
