@@ -1189,3 +1189,18 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
   box-shadow: none;
 }
 .signup--panel .signup__fields input { background: rgba(4,27,43,.35); }
+
+/* The pool gets the whole width on the aquatics page — it's the reason the
+   page exists, and a half-column crop sold it short. */
+.pool-showcase {
+  border-radius: var(--radius-xl); overflow: hidden;
+  aspect-ratio: 21 / 9; min-height: 340px;
+  background-size: cover; background-position: center;
+  background-image: linear-gradient(140deg, var(--sky-400), var(--sky-700));
+  border: 1px solid var(--color-border); box-shadow: var(--shadow-lg);
+}
+@media (max-width: 760px) { .pool-showcase { aspect-ratio: 4 / 3; } }
+/* Same stat row, three across instead of four. */
+.cine__stats--three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .cine__stats--three { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .cine__stats--three { grid-template-columns: 1fr; } }
