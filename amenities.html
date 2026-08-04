@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=25" />
+  <link rel="stylesheet" href="styles.css?v=26" />
 </head>
 <body data-page="amenities">
 
@@ -20,18 +20,42 @@
     <div class="container">
       <p class="page-hero__eyebrow">The Club</p>
       <h1 class="page-hero__title">A brand-new club, built to a higher standard</h1>
-      <p class="page-hero__sub">A state-of-the-art fitness floor and an Olympic-size pool at the heart of it — plus a full basketball court and a dedicated dance studio.</p>
+      <p class="page-hero__sub">Walk the floor before it opens — a state-of-the-art fitness floor, glass-walled studios, a dedicated stretch &amp; recovery zone, and an Olympic-size pool at the heart of it all.</p>
       <div class="page-hero__cta"><a href="presale.html" class="btn btn--primary btn--lg">Join the Founding 500</a></div>
     </div>
   </section>
 
-  <!-- ============================ GYM (primary) ============================ -->
+  <!-- ============================ FLYTHROUGH (gym floor) ============================ -->
+  <section class="cine">
+    <div class="container">
+      <div class="cine__head reveal">
+        <p class="cine__eyebrow">Step Inside</p>
+        <h2 class="cine__title">Walk the fitness floor</h2>
+        <p class="cine__sub">A full flythrough of the new floor — a cardio deck with touchscreen consoles, a plate-loaded power area, free weights, and a training lane running the length of the room.</p>
+      </div>
+      <figure class="cine__frame reveal">
+        <video muted loop playsinline preload="none" data-scrollplay poster="assets/images/gym-floor-poster.jpg">
+          <source src="assets/video/gym-floor.webm" type="video/webm" />
+          <source src="assets/video/gym-floor.mp4" type="video/mp4" />
+        </video>
+        <figcaption class="cine__badge">Architect&rsquo;s rendering &middot; the new fitness floor</figcaption>
+      </figure>
+      <ul class="cine__stats reveal">
+        <li><strong>Life Fitness</strong><span>Cardio deck with integrated touchscreens</span></li>
+        <li><strong>Hammer Strength</strong><span>Racks, platforms &amp; plate-loaded power area</span></li>
+        <li><strong>Training Lane</strong><span>A functional lane running the length of the floor</span></li>
+        <li><strong>All Brand New</strong><span>Every piece, top of the line — day one</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ GYM EQUIPMENT ============================ -->
   <section class="section">
     <div class="container">
       <div class="section__head" style="text-align:left;margin-bottom:32px;max-width:760px">
-        <p class="section__eyebrow">The Fitness Floor</p>
-        <h2 class="section__title">State of the art. Brand new.</h2>
-        <p class="section__sub">Every piece is brand-new, top-tier equipment — a full selectorized strength line, a plate-loaded power area, free weights and lifting platforms, and a cardio deck with integrated touchscreen consoles.</p>
+        <p class="section__eyebrow">The Equipment</p>
+        <h2 class="section__title">Every piece, up close</h2>
+        <p class="section__sub">Nothing inherited, nothing worn in. A full selectorized strength line, a plate-loaded power area, free weights and lifting platforms, and a cardio deck with integrated touchscreen consoles.</p>
         <div class="brand-strip">
           <span>Life Fitness</span>
           <span>Hammer Strength</span>
@@ -51,6 +75,47 @@
         <figure><img src="assets/images/gym/gym-6.jpg" alt="Life Fitness leg machines — leg curl, leg extension and leg press" loading="lazy" /></figure>
         <figure><img src="assets/images/gym/gym-7.jpg" alt="Life Fitness cable multi-jungle and upright bikes" loading="lazy" /></figure>
         <figure><img src="assets/images/gym/gym-1.jpg" alt="The Atlantis Sports Club fitness floor — Life Fitness and Hammer Strength equipment" loading="lazy" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FLYTHROUGH (studio) ============================ -->
+  <section class="cine cine--split">
+    <div class="container">
+      <div class="cine__split">
+        <figure class="cine__frame reveal">
+          <video muted loop playsinline preload="none" data-scrollplay poster="assets/images/studio-tour-poster.jpg">
+            <source src="assets/video/studio-tour.webm" type="video/webm" />
+            <source src="assets/video/studio-tour.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="cine__badge">Architect&rsquo;s rendering &middot; the glass-walled studio</figcaption>
+        </figure>
+        <div class="cine__body reveal">
+          <p class="cine__eyebrow">The Studios</p>
+          <h2 class="cine__title">Group fitness, behind glass</h2>
+          <p class="cine__sub">A glass-walled studio right off the main floor — spin, group fitness, and instructor-led classes in a space built for energy, with its own lighting and sound.</p>
+          <ul class="cine__list">
+            <li>Spin &amp; cycle classes</li>
+            <li>Instructor-led group fitness</li>
+            <li>Dedicated lighting &amp; sound</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STRETCH & RECOVERY ============================ -->
+  <section class="section">
+    <div class="container">
+      <div class="feature-row">
+        <div class="feature-row__media feature-row__media--img">
+          <img src="assets/images/stretch.jpg" alt="The Balance stretch and recovery zone — mats, dumbbells, and stability balls" loading="lazy" />
+        </div>
+        <div class="feature-row__body">
+          <span class="feature-row__tag">Stretch &amp; Recovery</span>
+          <h2>The Balance Zone</h2>
+          <p>A dedicated stretch and recovery area just off the main floor — mats, stability balls, and light dumbbells in a calm, open space with guided routines on screen. Warm up right, cool down right, and keep your body moving well.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -112,7 +177,7 @@
   <footer class="footer" id="siteFooter"></footer>
 
   <script src="config.js?v=8"></script>
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=17"></script>
   <script src="assets/chat.js?v=4"></script>
 </body>
 </html>

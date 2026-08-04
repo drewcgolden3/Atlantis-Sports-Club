@@ -325,6 +325,29 @@
     });
   })();
 
+  /* ======================================================== FLYTHROUGHS
+     Cinematic renders that play while on screen and pause off screen. With
+     reduced motion the poster frame stays up and nothing is fetched. */
+  (function () {
+    var vids = $all("video[data-scrollplay]");
+    if (!vids.length || reduceMotion || !("IntersectionObserver" in window)) return;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) {
+          if (v.preload === "none") v.preload = "auto";
+          var played = v.play();
+          if (played && played.catch) played.catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+
+    vids.forEach(function (v) { io.observe(v); });
+  })();
+
   /* ============================================================= LINKS (Mindbody) */
   var links = CFG.links || {};
   $all("[data-link]").forEach(function (el) {
