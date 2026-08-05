@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Training — Atlantis Sports Club</title>
+  <meta name="description" content="Group classes and personal training at Atlantis Sports Club in Hyannis, MA. Schedules and trainer matching are set up as we approach opening day — tell us what you're interested in and we'll be in touch first." />
+  <meta name="theme-color" content="#0EA5E9" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%230284C7'/%3E%3Cpath d='M24 9L35 24C31 21.6 17 21.6 13 24Z' fill='%23fff'/%3E%3Cpath d='M10 31C16.5 24.2 31.5 24.2 38 31C31.5 27.6 16.5 27.6 10 31Z' fill='%23fff'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=29" />
+</head>
+<body data-page="training">
+
+  <div id="siteHeader"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero__eyebrow">Training</p>
+      <h1 class="page-hero__title">Group classes and personal training</h1>
+      <p class="page-hero__sub">Both launch with the club. Schedules, instructors, and trainer matching are set up as we get closer to opening day — tell us what you&rsquo;re interested in and you&rsquo;ll hear first.</p>
+      <div class="page-hero__cta"><a href="#interest" class="btn btn--primary btn--lg">Register Your Interest</a></div>
+    </div>
+  </section>
+
+  <!-- ============================ GROUP CLASSES ============================ -->
+  <section class="cine">
+    <div class="container">
+      <div class="cine__split">
+        <figure class="cine__frame reveal">
+          <video muted loop playsinline preload="none" data-scrollplay poster="assets/images/studio-tour-poster.jpg">
+            <source src="assets/video/studio-tour.webm" type="video/webm" />
+            <source src="assets/video/studio-tour.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="cine__badge">Architect&rsquo;s rendering &middot; the glass-walled studio</figcaption>
+        </figure>
+        <div class="cine__body reveal">
+          <p class="cine__eyebrow">Group Classes</p>
+          <h2 class="cine__title">Classes in a room built for them</h2>
+          <p class="cine__sub">A glass-walled studio off the main floor with its own lighting and sound, plus a sprung dance floor next door — the spaces are built and ready. Spin, instructor-led group fitness, dance and barre all run out of them.</p>
+          <ul class="cine__list">
+            <li>Spin &amp; cycle</li>
+            <li>Instructor-led group fitness</li>
+            <li>Dance &amp; barre on the sprung floor</li>
+          </ul>
+          <p class="cine__note"><span class="cine__soon">Schedule announced closer to opening day</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ PERSONAL TRAINING ============================ -->
+  <section class="section">
+    <div class="container">
+      <div class="feature-row">
+        <div class="feature-row__media feature-row__media--img">
+          <img src="assets/images/gym/gym-4.jpg" alt="Hammer Strength power racks and Olympic lifting platforms on the fitness floor" loading="lazy" />
+        </div>
+        <div class="feature-row__body">
+          <span class="feature-row__tag">Personal Training</span>
+          <h2>One-on-one, on brand-new equipment</h2>
+          <p>Personal training runs on the same floor as everything else — a full selectorized strength line, a plate-loaded power area, free weights and lifting platforms, and a dedicated stretch and recovery zone to work in.</p>
+          <p>Whether you&rsquo;re starting from scratch, coming back from a layoff, or training for something specific, we&rsquo;ll match you with a trainer when the club opens.</p>
+          <p class="feature-row__soon">Trainer matching opens as we approach opening day</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ INTEREST FORM ============================ -->
+  <section class="cine cine--split" id="interest">
+    <div class="container">
+      <div class="cine__split">
+        <div class="cine__body reveal">
+          <p class="cine__eyebrow">Be First in Line</p>
+          <h2 class="cine__title">Tell us what you&rsquo;re after</h2>
+          <p class="cine__sub">Classes and personal training are both being set up for opening day. Leave your details and we&rsquo;ll come to you first — with the class schedule, trainer availability, and any founding-member rates before they go public.</p>
+          <p class="cine__sub">No obligation, and nothing to pay now.</p>
+        </div>
+
+        <div class="signup signup--panel reveal">
+          <div class="signup__copy">
+            <p class="signup__eyebrow">Interested?</p>
+            <h3 class="signup__title">Get training updates</h3>
+          </div>
+          <form class="signup__form" data-signup
+                data-signup-interest="Classes &amp; personal training"
+                data-signup-source="Website — Training"
+                data-signup-done="Thanks — we’ll be in touch before schedules go public.">
+            <div class="signup__fields">
+              <label class="sr-only" for="trChoice">What are you interested in?</label>
+              <select id="trChoice" data-signup-choice class="signup__select">
+                <option value="Group classes">Group classes</option>
+                <option value="Personal training">Personal training</option>
+                <option value="Group classes &amp; personal training" selected>Both</option>
+              </select>
+              <label class="sr-only" for="trName">Name</label>
+              <input id="trName" type="text" name="name" autocomplete="name" placeholder="First and last name" required />
+              <label class="sr-only" for="trEmail">Email</label>
+              <input id="trEmail" type="email" name="email" autocomplete="email" placeholder="you@email.com" required />
+              <label class="sr-only" for="trPhone">Phone</label>
+              <input id="trPhone" type="tel" name="phone" autocomplete="tel" placeholder="(508) 555-0199" required />
+              <button type="submit" class="btn btn--primary">Keep Me Posted</button>
+            </div>
+            <!-- Bots fill every field they can see; people never see this one. -->
+            <input type="text" name="company" class="signup__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <p class="signup__msg" role="status" data-signup-msg></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CTA ============================ -->
+  <section class="section center">
+    <div class="container">
+      <h2 class="section__title">Train here from day one</h2>
+      <p class="section__sub" style="margin-left:auto;margin-right:auto">Founding members save <strong><span data-price="saveFirstYear">$530</span></strong> in year one — <s><span data-price="regularDown">$299</span></s> <strong><span data-price="foundingDown">$99</span></strong> enrollment + <s><span data-price="regularMonthly">$129</span></s> <strong><span data-price="foundingMonthly">$99</span></strong>/mo for full gym&nbsp;+&nbsp;pool access.</p>
+      <div class="mt-cta"><a href="presale.html" class="btn btn--primary btn--lg">See the Founding Deal</a></div>
+    </div>
+  </section>
+
+  <footer class="footer" id="siteFooter"></footer>
+
+  <script src="config.js?v=8"></script>
+  <script src="script.js?v=19"></script>
+  <script src="assets/chat.js?v=4"></script>
+</body>
+</html>

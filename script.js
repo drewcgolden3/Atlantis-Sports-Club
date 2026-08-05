@@ -78,6 +78,7 @@
     // the same page, and two links to one destination just split the click.
     { key: "amenities", label: "Amenities", href: "amenities.html" },
     { key: "aquatics",  label: "Aquatics",  href: "aquatics.html" },
+    { key: "training",  label: "Training",  href: "training.html" },
     { key: "parties",   label: "Parties",   href: "parties.html" },
     { key: "location",  label: "Location",  href: "location.html" },
   ];
@@ -367,6 +368,14 @@
       };
       var name = field("name"), email = field("email"), phone = field("phone");
 
+      // An optional "what are you interested in" picker. Folded into the
+      // interest line rather than posted as its own lead: /api/lead dedupes on
+      // email inside a 10-minute window, so a visitor who wanted both classes
+      // and personal training would have had their second form silently
+      // swallowed as a duplicate.
+      var choiceEl = form.querySelector("[data-signup-choice]");
+      var choice = choiceEl ? choiceEl.value.trim() : "";
+
       var say = function (text, isError) {
         if (!msg) return;
         msg.textContent = text;
@@ -392,7 +401,7 @@
           name: name,
           email: email,
           phone: phone,
-          interest: form.getAttribute("data-signup-interest") || "Club updates",
+          interest: choice || form.getAttribute("data-signup-interest") || "Club updates",
           source: form.getAttribute("data-signup-source") || "Website — Signup",
           notes: form.getAttribute("data-signup-notes") || "",
           utm_source: ATTRIBUTION.utm_source,

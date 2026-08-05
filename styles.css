@@ -1204,3 +1204,26 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
 .cine__stats--three { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .cine__stats--three { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .cine__stats--three { grid-template-columns: 1fr; } }
+
+/* ------------------------------------------------------- training page --- */
+/* Matches the signup inputs so the picker doesn't read as a different control. */
+.signup__select {
+  font: inherit; padding: 13px 16px; border-radius: var(--radius);
+  border: 1px solid rgba(125,211,252,.3); background: rgba(4,27,43,.35);
+  color: #fff; grid-column: span 2; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237DD3FC' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; background-size: 14px;
+  padding-right: 40px; cursor: pointer;
+  transition: border-color .35s var(--ease);
+}
+.signup__select:focus { outline: none; border-color: var(--cyan-400); }
+.signup__select option { background: var(--ocean); color: #fff; }
+/* Says "not yet, but it's coming" without dressing it up as a live offering. */
+.cine__soon, .feature-row__soon {
+  display: inline-block; font-family: var(--font-head); font-weight: 600;
+  text-transform: uppercase; letter-spacing: .12em; font-size: .74rem;
+  padding: 7px 14px; border-radius: 999px;
+}
+.cine__soon { color: var(--sky-200); background: rgba(125,211,252,.12); border: 1px solid rgba(125,211,252,.28); }
+.feature-row__soon { color: var(--color-primary); background: var(--sky-50); border: 1px solid var(--sky-100); margin-top: 18px; }
+@media (max-width: 860px) { .signup__select { grid-column: span 1; } }
