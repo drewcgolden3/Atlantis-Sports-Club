@@ -333,20 +333,28 @@
     var vids = $all("video[data-scrollplay]");
     if (!vids.length || reduceMotion || !("IntersectionObserver" in window)) return;
 
+    var start = function (v) {
+      if (v.preload === "none") v.preload = "auto";
+      var played = v.play();
+      if (played && played.catch) played.catch(function () {});
+    };
+
+    // A sliver on screen is enough to start. At 0.25 a tall frame below the
+    // fold stayed unfetched — and therefore blank — until it was a quarter
+    // visible, which on a first load reads as a broken page rather than a
+    // deliberate one.
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        var v = en.target;
-        if (en.isIntersecting) {
-          if (v.preload === "none") v.preload = "auto";
-          var played = v.play();
-          if (played && played.catch) played.catch(function () {});
-        } else {
-          v.pause();
-        }
+        if (en.isIntersecting) start(en.target);
+        else en.target.pause();
       });
-    }, { threshold: 0.25 });
+    }, { threshold: 0.01 });
 
-    vids.forEach(function (v) { io.observe(v); });
+    vids.forEach(function (v) {
+      // Already on the first screen: fetch and play now, don't wait to be told.
+      if (v.getBoundingClientRect().top < window.innerHeight) start(v);
+      io.observe(v);
+    });
   })();
 
   /* ====================================================== SIGNUP FORMS
@@ -581,7 +589,17 @@
         if (entry.isIntersecting) { entry.target.classList.add("is-in"); io.unobserve(entry.target); }
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
-    reveals.forEach(function (el) { io.observe(el); });
+
+    // Anything already on the first screen is shown outright rather than
+    // observed. The 12% threshold is right for a section scrolled up into view,
+    // but a tall block sitting just below the fold — a video frame, say — can
+    // never satisfy it from a standing start, so it sat invisible until the
+    // visitor happened to scroll. Landing on a page should never mean landing
+    // on blank space.
+    reveals.forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("is-in");
+      else io.observe(el);
+    });
   } else {
     reveals.forEach(function (el) { el.classList.add("is-in"); });
   }
