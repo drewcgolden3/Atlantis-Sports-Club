@@ -489,10 +489,10 @@ ul { list-style: none; padding: 0; }
 .reveal:nth-child(6) { transition-delay: .30s; }
 
 /* ---------------------------------------------------------- responsive --- */
-/* The full nine-item bar needs room. Below this it becomes the hamburger,
-   which lists every destination anyway — better than a squeezed, unreadable
-   row or links silently dropping off the end. */
-@media (max-width: 1080px) {
+/* The eight-item bar needs room. Measured: it still clears the CTA with ~24px
+   to spare at 1000px, so that's where it hands over to the hamburger — which
+   lists every destination anyway. Re-measure if a nav item is ever added back. */
+@media (max-width: 999px) {
   .nav__links, .nav__cta { display: none; }
   .nav__toggle { display: flex; }
 }

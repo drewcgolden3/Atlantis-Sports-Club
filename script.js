@@ -91,9 +91,8 @@
   var NAV = [
     { key: "memberships", label: "Memberships",     href: "memberships.html" },
     { key: "amenities",   label: "Fitness",         href: "amenities.html" },
-    { key: "aquatics",    label: "Pool",            href: "aquatics.html" },
+    { key: "aquatics",    label: "Swim Lessons",    href: "aquatics.html" },
     { key: "training",    label: "Classes",         href: "training.html" },
-    { key: "swim",        label: "Swim Lessons",    href: "aquatics.html#swim-lessons" },
     { key: "parties",     label: "Birthday Parties", href: "parties.html" },
     { key: "community",   label: "Community",       href: "community.html" },
     { key: "careers",     label: "Join the Team",   href: "careers.html" },
