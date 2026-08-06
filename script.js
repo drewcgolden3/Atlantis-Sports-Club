@@ -89,7 +89,6 @@
     "subject to change.";
 
   var NAV = [
-    { key: "memberships", label: "Memberships",     href: "memberships.html" },
     { key: "amenities",   label: "Fitness",         href: "amenities.html" },
     { key: "aquatics",    label: "Swim Lessons",    href: "aquatics.html" },
     { key: "training",    label: "Classes",         href: "training.html" },
