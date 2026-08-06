@@ -28,6 +28,11 @@
       utm_campaign: params.get("utm_campaign") || "",
       utm_content: params.get("utm_content") || "",
       utm_term: params.get("utm_term") || "",
+      // Printed QR codes carry ?src=fitness-flyer so the dashboard can tell a
+      // scan off a gym flyer from a scan off a radio ad. Kept for the whole
+      // session like the utm tags, because the scan lands on /join but the
+      // form they fill in is a page or two later.
+      qr_source: params.get("src") || "",
       landing_path: window.location.pathname,
       referrer: document.referrer || "",
     };
@@ -38,7 +43,9 @@
     // Keep what's stored, unless this page carries tags and the stored visit
     // didn't — someone who browsed organically then clicked an ad should be
     // credited to the ad.
-    var useUrl = !stored || (fromUrl.utm_source && !stored.utm_source);
+    var useUrl = !stored ||
+      (fromUrl.utm_source && !stored.utm_source) ||
+      (fromUrl.qr_source && !stored.qr_source);
     var attribution = useUrl ? fromUrl : stored;
 
     if (useUrl) {
@@ -49,38 +56,48 @@
     return attribution;
   })();
 
-  /* ---------- pricing helpers ---------- */
+  /* ---------- pricing helpers ----------
+     Every membership price on this site is BIWEEKLY — 26 payments a year. The
+     word "biweekly" is baked into the tokens below rather than left to each
+     page's markup, because a stray "/month" on one page is the single most
+     expensive mistake this site can make. */
   var pr = CFG.pricing || {};
   var cur = pr.currency || "$";
   function money(n) { return cur + Number(n).toLocaleString(); }
-  var introMonths = Number(pr.introMonths || 12);
-  var saveDown = (pr.regularDown || 0) - (pr.foundingDown || 0);            // enrollment savings
-  var saveMonthly = (pr.regularMonthly || 0) - (pr.foundingMonthly || 0);  // monthly savings
-  // The down payment covers month one on BOTH plans, so only the remaining
-  // (introMonths - 1) months are billed monthly in year one.
-  var billedMonths = Math.max(introMonths - 1, 0);
-  var saveFirstYear = saveDown + saveMonthly * billedMonths;               // total year-one savings
+  var saveEnrollment = (pr.regularEnrollment || 0) - (pr.enrollment || 0);
   var priceValues = {
-    foundingDown: money(pr.foundingDown),
-    foundingMonthly: money(pr.foundingMonthly),
-    regularDown: money(pr.regularDown),
-    regularMonthly: money(pr.regularMonthly),
-    gymOnlyMonthly: money(pr.gymOnlyMonthly),
-    saveDown: money(saveDown),
-    saveMonthly: money(saveMonthly),
-    saveFirstYear: money(saveFirstYear),
-    introMonths: String(introMonths),
+    // The three individual membership levels
+    fitness:      money(pr.fitness),
+    fitnessPool:  money(pr.fitnessPool),
+    complete:     money(pr.complete),
+    // Enrollment
+    enrollment:        money(pr.enrollment),
+    regularEnrollment: money(pr.regularEnrollment),
+    saveEnrollment:    money(saveEnrollment),
+    // Billing cadence
+    paymentsPerYear: String(pr.paymentsPerYear || 26),
     spots: Number(pr.foundingSpots || 500).toLocaleString(),
   };
 
+  // The disclaimer Paul requires under every pricing table. Written once here
+  // so it can never drift between pages.
+  var PRICING_DISCLAIMER =
+    "Membership dues are billed every two weeks. There are " +
+    priceValues.paymentsPerYear + " biweekly payments each year. Certain programs, " +
+    "services, and amenities may require additional fees or advance reservations. " +
+    "Membership terms, operating hours, availability, and program schedules are " +
+    "subject to change.";
+
   var NAV = [
-    // No "Presale" link here — the "Join the Presale" button beside it goes to
-    // the same page, and two links to one destination just split the click.
-    { key: "amenities", label: "Amenities", href: "amenities.html" },
-    { key: "aquatics",  label: "Aquatics",  href: "aquatics.html" },
-    { key: "training",  label: "Training",  href: "training.html" },
-    { key: "parties",   label: "Parties",   href: "parties.html" },
-    { key: "location",  label: "Location",  href: "location.html" },
+    { key: "memberships", label: "Memberships",     href: "memberships.html" },
+    { key: "amenities",   label: "Fitness",         href: "amenities.html" },
+    { key: "aquatics",    label: "Pool",            href: "aquatics.html" },
+    { key: "training",    label: "Classes",         href: "training.html" },
+    { key: "swim",        label: "Swim Lessons",    href: "aquatics.html#swim-lessons" },
+    { key: "parties",     label: "Birthday Parties", href: "parties.html" },
+    { key: "community",   label: "Community",       href: "community.html" },
+    { key: "careers",     label: "Join the Team",   href: "careers.html" },
+    { key: "location",    label: "Contact",         href: "location.html" },
   ];
   // On the home page, in-page links to #offer shouldn't reload the page.
   function pageHref(href) {
@@ -91,12 +108,11 @@
   // Two lengths of the same message: the full pitch has room on desktop, but on a
   // phone it ran to three lines and pushed the whole hero down the screen.
   var announceLong =
-    "Founding Member Presale — the first " + priceValues.spots + " save <em>" +
-    priceValues.saveFirstYear + "</em> in year one: " + money(pr.foundingDown) +
-    " down (reg. " + money(pr.regularDown) + ") + " + money(pr.foundingMonthly) +
-    "/mo for " + introMonths + " months.";
+    "Founding Members — three levels from <em>" + priceValues.fitness +
+    " biweekly</em>, plus " + priceValues.enrollment + " enrollment (reg. " +
+    priceValues.regularEnrollment + "). Only " + priceValues.spots + " available.";
   var announceShort =
-    "Founding Presale — save <em>" + priceValues.saveFirstYear + "</em> in year one.";
+    "Founding Members — from <em>" + priceValues.fitness + " biweekly</em>.";
 
   var brand =
     '<a href="index.html" class="brand" aria-label="Atlantis Sports Clubs home">' +
@@ -112,7 +128,7 @@
 
   // The presale lives on its own page now — the bar and the header CTA both
   // send visitors to the full offer, not to a section anchor.
-  var offerHref = "presale.html";
+  var offerHref = "memberships.html";
   var headerHTML =
     '<div class="announce">' +
       '<span class="announce__long">' + announceLong + '</span>' +
@@ -121,11 +137,11 @@
     '<header class="nav" id="nav"><div class="nav__inner">' +
       brand +
       '<nav class="nav__links" aria-label="Primary">' + navLinks() + '</nav>' +
-      '<a href="' + offerHref + '" class="btn btn--primary btn--sm nav__cta">Join the Presale</a>' +
+      '<a href="' + offerHref + '" class="btn btn--gold btn--sm nav__cta">Join Atlantis</a>' +
       '<button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
     '</div>' +
     '<div class="nav__mobile" id="navMobile">' + navLinks() +
-      '<a href="' + offerHref + '" class="btn btn--primary">Join the Presale</a>' +
+      '<a href="' + offerHref + '" class="btn btn--gold">Join Atlantis</a>' +
     '</div></header>';
 
   var headerMount = $("#siteHeader");
@@ -181,6 +197,11 @@
     var key = el.getAttribute("data-price");
     if (priceValues[key] != null) el.textContent = priceValues[key];
   });
+
+  // The required legal line under every pricing table. Any page that wants it
+  // just drops <p class="disclaimer" data-disclaimer></p> and it fills itself,
+  // so the wording stays identical everywhere it appears.
+  $all("[data-disclaimer]").forEach(function (el) { el.textContent = PRICING_DISCLAIMER; });
 
   // Scarcity progress bar (only if spotsRemaining is a number)
   (function () {
@@ -410,7 +431,10 @@
           email: email,
           phone: phone,
           interest: choice || form.getAttribute("data-signup-interest") || "Club updates",
-          source: form.getAttribute("data-signup-source") || "Website — Signup",
+          // Same QR labelling as the long forms, so a newsletter signup off a
+          // printed sign is traceable to that sign.
+          source: (form.getAttribute("data-signup-source") || "Website — Signup") +
+                  (ATTRIBUTION.qr_source ? " (QR: " + ATTRIBUTION.qr_source + ")" : ""),
           notes: form.getAttribute("data-signup-notes") || "",
           utm_source: ATTRIBUTION.utm_source,
           utm_medium: ATTRIBUTION.utm_medium,
@@ -435,6 +459,172 @@
           btn.disabled = false;
           btn.textContent = original;
           say("Something went wrong — please try again, or call us.", true);
+        });
+    });
+  });
+
+  /* ====================================================== LEAD FORMS (long)
+     The multi-field forms: Founders membership enquiries, job applications, and
+     community partnership requests. One handler drives all three — the markup
+     declares which config block pays for the email copy, what the lead's
+     "interested in" line should be built from, and what to say when it lands.
+
+     Everything reaches the Leads list on the Switchboard OS dashboard. If that
+     call fails the answers are handed to the visitor's mail app instead, so an
+     application is never silently lost. */
+  $all("form[data-leadform]").forEach(function (form) {
+    var msg = $("[data-leadform-msg]", form);
+    var btn = $("button[type=submit]", form);
+    var cfgKey = form.getAttribute("data-leadform-config") || "foundersForm";
+    var cfg = CFG[cfgKey] || {};
+
+    // The resume box is only shown when an email key is configured to carry it.
+    // Without one there is nowhere for the file to go, and a file input that
+    // silently drops the attachment is worse than no file input at all.
+    var fileWrap = $("[data-leadform-file]", form);
+    if (fileWrap && !cfg.web3formsKey) fileWrap.remove();
+
+    function say(text, isError) {
+      if (!msg) return;
+      msg.textContent = text;
+      msg.classList.toggle("is-error", !!isError);
+    }
+
+    // Every named field, keyed by its own label. The honeypot never travels.
+    function answers() {
+      var out = {};
+      $all("input, textarea, select", form).forEach(function (f) {
+        if (!f.name || f.name === "company" || f.type === "file") return;
+        if (f.type === "checkbox") { if (f.checked) out[f.name] = f.value || "Yes"; return; }
+        if (f.type === "radio") { if (f.checked) out[f.name] = f.value; return; }
+        var v = (f.value || "").trim();
+        if (v) out[f.name] = v;
+      });
+      return out;
+    }
+
+    function pick(data, re) {
+      var key = Object.keys(data).filter(function (k) { return re.test(k); })[0];
+      return key ? data[key] : "";
+    }
+
+    function mailtoFallback(data) {
+      var body = Object.keys(data).map(function (k) { return k + ": " + data[k]; }).join("\n");
+      window.location.href = "mailto:" + encodeURIComponent(cfg.recipient || "") +
+        "?subject=" + encodeURIComponent(cfg.subject || "Website enquiry") +
+        "&body=" + encodeURIComponent(body);
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var data = answers();
+      var name = pick(data, /^(full name|name)$/i);
+      var email = pick(data, /email/i);
+      var phone = pick(data, /phone|telephone/i);
+
+      if (!name || !email) { say("Please add your name and email.", true); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        say("That email doesn’t look right — mind checking it?", true); return;
+      }
+
+      // The dashboard's "interested in" column: a short readable summary built
+      // from whichever fields this form says matter most.
+      var interestFields = (form.getAttribute("data-leadform-interest-fields") || "")
+        .split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+      var interest = interestFields.map(function (k) { return data[k]; }).filter(Boolean).join(" · ") ||
+        form.getAttribute("data-leadform-interest") || "Website enquiry";
+
+      // Everything else becomes the note, so nothing the visitor typed is lost.
+      var notes = Object.keys(data).filter(function (k) {
+        return !/^(full name|name)$/i.test(k) && !/email/i.test(k) && !/phone|telephone/i.test(k) &&
+               interestFields.indexOf(k) === -1;
+      }).map(function (k) { return k + ": " + data[k]; }).join(" — ");
+
+      var sb = CFG.chat || {};
+      var apiBase = cfg.apiBase || sb.apiBase || "https://switchboard-os.vercel.app";
+      var clientSlug = cfg.clientSlug || sb.clientSlug || "atlantis-sports-club";
+
+      // A QR scan keeps its label all the way to the lead, so the dashboard can
+      // show which flyer or sign the enquiry actually came from.
+      var source = form.getAttribute("data-leadform-source") || "Website — Enquiry";
+      if (ATTRIBUTION.qr_source) source += " (QR: " + ATTRIBUTION.qr_source + ")";
+
+      btn.disabled = true;
+      var original = btn.textContent;
+      btn.textContent = "Sending…";
+      say("");
+
+      var toLead = fetch(apiBase + "/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          clientSlug: clientSlug,
+          name: name, email: email, phone: phone,
+          interest: interest,
+          source: source,
+          notes: notes,
+          utm_source: ATTRIBUTION.utm_source,
+          utm_medium: ATTRIBUTION.utm_medium,
+          utm_campaign: ATTRIBUTION.utm_campaign,
+          utm_content: ATTRIBUTION.utm_content,
+          utm_term: ATTRIBUTION.utm_term,
+          landing_path: ATTRIBUTION.landing_path,
+          referrer: ATTRIBUTION.referrer,
+          company: (form.querySelector("[name=company]") || {}).value || "",
+        }),
+      }).then(function (r) { return r.json(); });
+
+      // Optional email copy. Sent as multipart when the form carries a file so
+      // the resume travels with it; never blocks the visitor either way.
+      var toEmail = Promise.resolve(null);
+      if (cfg.web3formsKey) {
+        var fileInput = form.querySelector("input[type=file]");
+        var hasFile = fileInput && fileInput.files && fileInput.files.length;
+        if (hasFile) {
+          var fd = new FormData();
+          fd.append("access_key", cfg.web3formsKey);
+          fd.append("subject", cfg.subject || "Website enquiry");
+          fd.append("from_name", "Atlantis Sports Club website");
+          Object.keys(data).forEach(function (k) { fd.append(k, data[k]); });
+          fd.append(fileInput.name || "Resume", fileInput.files[0]);
+          toEmail = fetch("https://api.web3forms.com/submit", { method: "POST", body: fd })
+            .catch(function () { return null; });
+        } else {
+          var payload = {
+            access_key: cfg.web3formsKey,
+            subject: cfg.subject || "Website enquiry",
+            from_name: "Atlantis Sports Club website",
+          };
+          Object.keys(data).forEach(function (k) { payload[k] = data[k]; });
+          toEmail = fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify(payload),
+          }).catch(function () { return null; });
+        }
+      }
+
+      var done = form.getAttribute("data-leadform-done") ||
+        "Thank you — we’ve got your details and will be in touch shortly.";
+
+      toLead
+        .then(function (r) {
+          if (!r || !r.ok) throw new Error("lead not recorded");
+          return toEmail;
+        })
+        .then(function () {
+          form.reset();
+          say(done);
+          btn.textContent = "Thanks!";
+          // Left spent rather than re-armed — a second submit is a duplicate
+          // the dashboard has to clean up by hand.
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = original;
+          mailtoFallback(data);
+          say(done);
         });
     });
   });

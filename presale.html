@@ -3,193 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Founding Member Presale — Atlantis Sports Club</title>
-  <meta name="description" content="The first 500 founding members at Atlantis Sports Club lock in $99 enrollment (reg. $299) and $99/month full gym + pool access (reg. $129), held for a full year. Hyannis, MA — opening July 7, 2027." />
-  <meta name="theme-color" content="#0EA5E9" />
-  <meta property="og:title" content="Founding Member Presale — Atlantis Sports Club" />
-  <meta property="og:description" content="The first 500 save on year one: $99 enrollment (reg. $299) + $99/mo full gym + pool access (reg. $129)." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/images/pool.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%230284C7'/%3E%3Cpath d='M24 9L35 24C31 21.6 17 21.6 13 24Z' fill='%23fff'/%3E%3Cpath d='M10 31C16.5 24.2 31.5 24.2 38 31C31.5 27.6 16.5 27.6 10 31Z' fill='%23fff'/%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=29" />
+  <title>Membership Options — Atlantis Sports Club</title>
+  <!-- The presale page has been replaced by the three-level Membership Options
+       page. This file stays put and forwards, because printed material, ads and
+       older links still point at /presale.html — those visitors must land on the
+       new pricing rather than a 404. Any ?utm_… or ?src= tags come along too, so
+       campaign and QR attribution survives the hop. -->
+  <link rel="canonical" href="memberships.html" />
+  <meta name="robots" content="noindex, follow" />
+  <script>
+    (function () {
+      var target = "memberships.html" + window.location.search + (window.location.hash || "");
+      window.location.replace(target);
+    })();
+  </script>
+  <noscript><meta http-equiv="refresh" content="0; url=memberships.html" /></noscript>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; display: grid; place-items: center;
+           min-height: 100dvh; margin: 0; color: #0B2233; text-align: center; padding: 24px; }
+    a { color: #0369A1; }
+  </style>
 </head>
-<body data-page="presale">
-
-  <div id="siteHeader"></div>
-
-  <section class="page-hero">
-    <div class="container">
-      <p class="page-hero__eyebrow">Founding Member Presale</p>
-      <h1 class="page-hero__title">Everything about the founding deal</h1>
-      <p class="page-hero__sub">The first <span data-price="spots">500</span> members set the rate they keep. Here&rsquo;s exactly what it costs, what it includes, and what happens after year one — then claim your spot.</p>
-    </div>
-  </section>
-
-  <!-- ============================ THE OFFER (comparison) ============================ -->
-  <section class="section" id="offer">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow section__eyebrow--dot"><span class="pulse-dot pulse-dot--dark" aria-hidden="true"></span> Founding 500 · Limited</p>
-        <h2 class="section__title">Save <span class="hl"><span data-price="saveFirstYear">$530</span></span> in your first year.</h2>
-        <p class="section__sub">Founding members pay <strong><span data-price="foundingDown">$99</span></strong> to enrol and <strong><span data-price="foundingMonthly">$99</span>/month for the first <span data-price="introMonths">12</span> months</strong> — after that it moves to the standard <strong><span data-price="regularMonthly">$129</span>/month</strong>.</p>
-      </div>
-
-      <div class="offer-timer">
-        <p class="offer-timer__lab">Founding rate closes when we open</p>
-        <div class="countdown countdown--ink" id="countdown" aria-label="Countdown to opening day">
-          <div class="countdown__unit"><span class="countdown__num" data-cd="days">--</span><span class="countdown__lab">Days</span></div>
-          <div class="countdown__sep">:</div>
-          <div class="countdown__unit"><span class="countdown__num" data-cd="hours">--</span><span class="countdown__lab">Hrs</span></div>
-          <div class="countdown__sep">:</div>
-          <div class="countdown__unit"><span class="countdown__num" data-cd="mins">--</span><span class="countdown__lab">Min</span></div>
-          <div class="countdown__sep">:</div>
-          <div class="countdown__unit"><span class="countdown__num" data-cd="secs">--</span><span class="countdown__lab">Sec</span></div>
-        </div>
-        <div class="scarcity" id="scarcityBar">
-          <div class="scarcity__track"><div class="scarcity__fill"></div></div>
-          <span class="scarcity__label"></span>
-        </div>
-      </div>
-
-      <div class="plans">
-        <div class="plan plan--founding">
-          <span class="plan__ribbon">First <span data-price="spots">500</span> only</span>
-          <p class="plan__name">Founding Member</p>
-          <div class="plan__price">
-            <span class="plan__amt"><span data-price="foundingDown">$99</span></span>
-            <span class="plan__unit">Enrollment</span>
-          </div>
-          <p class="plan__was"><s><span data-price="regularDown">$299</span></s> — you save <span data-price="saveDown">$200</span></p>
-          <p class="plan__monthly">then <strong><span data-price="foundingMonthly">$99</span></strong>/month for <strong><span data-price="introMonths">12</span> months</strong></p>
-          <p class="plan__rollover">
-            After those <span data-price="introMonths">12</span> months your rate becomes the
-            standard <strong><span data-price="regularMonthly">$129</span>/month</strong>.
-            No long-term contract — cancel anytime.
-          </p>
-          <ul class="plan__list">
-            <li>Full fitness floor — Life Fitness &amp; Hammer Strength</li>
-            <li>Olympic-size pool, heated and lifeguarded</li>
-            <li>Basketball court and group-fitness studio</li>
-            <li>First access to lane and studio booking</li>
-            <li>Rate locked before any future increase</li>
-          </ul>
-          <div class="plan__cta">
-            <a href="#" data-link="presale" class="btn btn--primary btn--lg btn--block">
-              <span class="btn__label">Claim Your Founding Membership</span>
-            </a>
-            <p class="plan__fine">Secure checkout through Mindbody, our membership system. Cancel anytime before opening for a full refund.</p>
-          </div>
-        </div>
-
-        <div class="plan plan--regular">
-          <p class="plan__name">Standard</p>
-          <div class="plan__price">
-            <span class="plan__amt"><span data-price="regularDown">$299</span></span>
-            <span class="plan__unit">Enrollment</span>
-          </div>
-          <p class="plan__was">Full price at opening</p>
-          <p class="plan__monthly">then <strong><span data-price="regularMonthly">$129</span></strong>/month</p>
-          <p class="plan__note">The rate once the founding <span data-price="spots">500</span> are gone.</p>
-          <ul class="plan__list">
-            <li>Full fitness floor — Life Fitness &amp; Hammer Strength</li>
-            <li>Olympic-size pool, heated and lifeguarded</li>
-            <li>Basketball court and group-fitness studio</li>
-            <li>Standard booking access</li>
-            <li>Subject to future rate changes</li>
-          </ul>
-          <div class="plan__cta">
-            <p class="plan__note" style="margin:0">Available after opening day.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ HOW IT WORKS ============================ -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow">How It Works</p>
-        <h2 class="section__title">Three steps to founding member</h2>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step__num">1</div>
-          <h3>Claim your spot</h3>
-          <p>Pay the <span data-price="foundingDown">$99</span> enrollment today. That reserves one of the <span data-price="spots">500</span> founding memberships in your name.</p>
-        </div>
-        <div class="step">
-          <div class="step__num">2</div>
-          <h3>Nothing until we open</h3>
-          <p>No monthly billing while the club is under construction. We&rsquo;ll keep you posted as opening day gets closer.</p>
-        </div>
-        <div class="step">
-          <div class="step__num">3</div>
-          <h3>Doors open <span data-opening-label>July 7, 2027</span></h3>
-          <p>Your <span data-price="foundingMonthly">$99</span>/month starts the day we open and holds for <span data-price="introMonths">12</span> months, then moves to the standard <span data-price="regularMonthly">$129</span>/month.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ FAQ ============================ -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow">Before You Join</p>
-        <h2 class="section__title">The fine print, in plain English</h2>
-      </div>
-      <div class="faq">
-        <div class="faq__item">
-          <h3>When does billing start?</h3>
-          <p>The <span data-price="foundingDown">$99</span> enrollment is charged today. Your <span data-price="foundingMonthly">$99</span> monthly dues don&rsquo;t begin until the club opens on <span data-opening-label>July 7, 2027</span> — you pay nothing monthly in the meantime.</p>
-        </div>
-        <div class="faq__item">
-          <h3>What happens after the first year?</h3>
-          <p>Your founding rate is held for <span data-price="introMonths">12</span> months from opening day. After that it moves to the standard <span data-price="regularMonthly">$129</span>/month for full gym&nbsp;+&nbsp;pool access. You&rsquo;re never locked into a long-term contract.</p>
-        </div>
-        <div class="faq__item">
-          <h3>Can I cancel before you open?</h3>
-          <p>Yes. Cancel any time before opening day and your enrollment is refunded in full.</p>
-        </div>
-        <div class="faq__item">
-          <h3>What does full access include?</h3>
-          <p>The entire club: the fitness floor, the Olympic-size pool, the basketball court, and the group-fitness studio. There&rsquo;s no separate pool fee on the founding membership.</p>
-        </div>
-        <div class="faq__item">
-          <h3>What happens when the <span data-price="spots">500</span> are gone?</h3>
-          <p>The founding rate closes for good. Memberships after that start at the standard <span data-price="regularDown">$299</span> enrollment and <span data-price="regularMonthly">$129</span>/month.</p>
-        </div>
-        <div class="faq__item">
-          <h3>Where is the club?</h3>
-          <p><span data-addr1>35 Scudder Ave</span>, <span data-addr2>Hyannis, MA 02601</span> — <a href="location.html">see the location and get directions</a>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ FINAL CTA ============================ -->
-  <section class="section section--alt center">
-    <div class="container">
-      <h2 class="section__title">Ready to lock in <span data-price="foundingMonthly">$99</span>/mo?</h2>
-      <p class="section__sub" style="margin-left:auto;margin-right:auto;max-width:56ch">Join the founding <span data-price="spots">500</span> and keep the lowest rate Atlantis will ever offer.</p>
-      <div class="mt-cta">
-        <a href="#" data-link="presale" class="btn btn--primary btn--lg">
-          <span class="btn__label">Claim Your Founding Membership</span>
-        </a>
-        <a href="amenities.html" class="btn btn--outline btn--lg">See the Club First</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer" id="siteFooter"></footer>
-
-  <script src="config.js?v=8"></script>
-  <script src="script.js?v=20"></script>
-  <script src="assets/chat.js?v=4"></script>
+<body>
+  <main>
+    <p>Taking you to our membership options&hellip;</p>
+    <p><a href="memberships.html">Continue to Membership Options</a></p>
+  </main>
 </body>
 </html>

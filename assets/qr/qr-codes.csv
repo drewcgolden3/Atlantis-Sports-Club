@@ -1,0 +1,13 @@
+Label,Scan tag (src),Destination,PNG,SVG
+Fitness Flyer QR,fitness-flyer,https://drewcgolden3.github.io/Atlantis-Sports-Club/memberships.html?src=fitness-flyer,assets/qr/fitness-flyer.png,assets/qr/fitness-flyer.svg
+Pool Membership QR,pool-membership,https://drewcgolden3.github.io/Atlantis-Sports-Club/memberships.html?src=pool-membership,assets/qr/pool-membership.png,assets/qr/pool-membership.svg
+Founders Promotion QR,founders-promo,https://drewcgolden3.github.io/Atlantis-Sports-Club/memberships.html?src=founders-promo#founders,assets/qr/founders-promo.png,assets/qr/founders-promo.svg
+Membership Flyer QR,membership-flyer,https://drewcgolden3.github.io/Atlantis-Sports-Club/join.html?src=membership-flyer,assets/qr/membership-flyer.png,assets/qr/membership-flyer.svg
+Community Outreach QR,community-outreach,https://drewcgolden3.github.io/Atlantis-Sports-Club/community.html?src=community-outreach,assets/qr/community-outreach.png,assets/qr/community-outreach.svg
+Business Partnership QR,business-partnership,https://drewcgolden3.github.io/Atlantis-Sports-Club/community.html?src=business-partnership,assets/qr/business-partnership.png,assets/qr/business-partnership.svg
+Join the Team QR,join-the-team,https://drewcgolden3.github.io/Atlantis-Sports-Club/careers.html?src=join-the-team,assets/qr/join-the-team.png,assets/qr/join-the-team.svg
+Swim Lessons QR,swim-lessons,https://drewcgolden3.github.io/Atlantis-Sports-Club/aquatics.html?src=swim-lessons#swim-lessons,assets/qr/swim-lessons.png,assets/qr/swim-lessons.svg
+Birthday Parties QR,birthday-parties,https://drewcgolden3.github.io/Atlantis-Sports-Club/parties.html?src=birthday-parties,assets/qr/birthday-parties.png,assets/qr/birthday-parties.svg
+Radio Show QR,radio-show,https://drewcgolden3.github.io/Atlantis-Sports-Club/join.html?src=radio-show,assets/qr/radio-show.png,assets/qr/radio-show.svg
+Social Media QR,social-media,https://drewcgolden3.github.io/Atlantis-Sports-Club/join.html?src=social-media,assets/qr/social-media.png,assets/qr/social-media.svg
+In-Club Sign QR,in-club-sign,https://drewcgolden3.github.io/Atlantis-Sports-Club/join.html?src=in-club-sign,assets/qr/in-club-sign.png,assets/qr/in-club-sign.svg

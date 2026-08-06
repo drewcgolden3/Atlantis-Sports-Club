@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your New Atlantis Starts Here — Atlantis Sports Club</title>
+  <meta name="description" content="Scan-to-join landing page for Atlantis Sports Club, Hyannis MA. View membership options, join the Founders list, schedule a club tour, or contact us." />
+  <meta name="theme-color" content="#06203A" />
+  <meta property="og:title" content="Your New Atlantis Starts Here" />
+  <meta property="og:description" content="Membership options, Founders list, club tours, and more — Atlantis Sports Club, Hyannis MA." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%230284C7'/%3E%3Cpath d='M24 9L35 24C31 21.6 17 21.6 13 24Z' fill='%23fff'/%3E%3Cpath d='M10 31C16.5 24.2 31.5 24.2 38 31C31.5 27.6 16.5 27.6 10 31Z' fill='%23fff'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=31" />
+</head>
+<body data-page="join">
+
+  <div id="siteHeader"></div>
+
+  <section class="qr-hero">
+    <div class="container">
+      <h1 class="qr-hero__title">Your New Atlantis Starts Here</h1>
+      <p class="qr-hero__sub">Opening <span data-opening-label>July 7, 2027</span> · Hyannis, MA</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(32px,5vw,52px)">
+    <div class="container">
+      <div class="qr-actions">
+        <a class="qr-action qr-action--gold" href="memberships.html">
+          <span>View Membership Options</span>
+          <svg class="qr-action__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="qr-action" href="memberships.html#founders">
+          <span>Join the Founders List</span>
+          <svg class="qr-action__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="qr-action" href="#tour">
+          <span>Schedule a Club Tour</span>
+          <svg class="qr-action__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="qr-action" href="location.html">
+          <span>Contact Atlantis</span>
+          <svg class="qr-action__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="qr-secondary" style="margin-top:36px">
+        <a href="careers.html"><span>Join the Team</span><span aria-hidden="true">&rarr;</span></a>
+        <a href="community.html"><span>Community Partnerships</span><span aria-hidden="true">&rarr;</span></a>
+        <a href="aquatics.html#swim-lessons"><span>Swim Lessons</span><span aria-hidden="true">&rarr;</span></a>
+        <a href="parties.html"><span>Birthday Parties</span><span aria-hidden="true">&rarr;</span></a>
+        <a href="index.html#signup"><span>Latest Club Updates</span><span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TOUR REQUEST ============================ -->
+  <section class="section section--alt" id="tour">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Club Tours</p>
+        <h2 class="section__title">Schedule a club tour</h2>
+        <p class="section__sub">Tours begin as construction wraps up. Leave your details and we&rsquo;ll book you in as soon as dates open.</p>
+      </div>
+
+      <form class="leadform"
+            data-leadform
+            data-leadform-config="foundersForm"
+            data-leadform-source="Website — Tour Request"
+            data-leadform-interest="Club tour request"
+            data-leadform-done="Thank you — you’re on the tour list. We’ll be in touch as soon as dates open."
+            novalidate>
+
+        <div class="field">
+          <label for="t-name">Full name <span aria-hidden="true">*</span></label>
+          <input id="t-name" name="Full name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="t-email">Email address <span aria-hidden="true">*</span></label>
+          <input id="t-email" name="Email address" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="t-phone">Phone number</label>
+          <input id="t-phone" name="Phone number" type="tel" autocomplete="tel" />
+        </div>
+        <div class="field">
+          <label for="t-time">Best time to contact</label>
+          <select id="t-time" name="Best time to contact">
+            <option value="Anytime">Anytime</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+            <option value="Weekends">Weekends</option>
+          </select>
+        </div>
+        <div class="field field--wide">
+          <label for="t-notes">Anything we should know?</label>
+          <textarea id="t-notes" name="Questions or comments" rows="3"></textarea>
+        </div>
+
+        <div class="leadform__hp" aria-hidden="true">
+          <label for="t-company">Company</label>
+          <input id="t-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <p class="leadform__req"><span aria-hidden="true">*</span> Required</p>
+
+        <div class="leadform__actions">
+          <button type="submit" class="btn btn--primary btn--lg">Request a Tour</button>
+          <p class="leadform__msg" data-leadform-msg role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer" id="siteFooter"></footer>
+
+  <script src="config.js?v=9"></script>
+  <script src="script.js?v=22"></script>
+  <script src="assets/chat.js?v=4"></script>
+</body>
+</html>

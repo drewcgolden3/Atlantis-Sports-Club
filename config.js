@@ -4,45 +4,56 @@
    This is the ONLY file you need to edit to go live. No coding required — just
    paste your links/text between the quotes.
 
-   1) BOOKING & PRESALE LINKS  → paste your Mindbody URLs
-   2) PRICING                  → the founding-member deal vs. regular price
-   3) IMAGES                   → drop photos in assets/images/
-   4) OPENING DATE / CONTACT   → date, address, email, phone
+   1) MEMBERSHIP LINKS  → your three Mindbody contract URLs
+   2) PRICING           → the three biweekly membership levels
+   3) IMAGES            → drop photos in assets/images/
+   4) FORMS             → where enquiries are sent
+   5) OPENING / CONTACT → date, address, email, phone
    ============================================================================ */
 
 window.ATLANTIS_CONFIG = {
 
-  /* -- 1) BOOKING & PRESALE LINKS (paste Mindbody URLs between the quotes) -- */
+  /* -- 1) BOOKING & MEMBERSHIP LINKS ---------------------------------------
+     The three membership links are Mindbody pre-sale contracts on Site 7396.
+       prodid 218 = Founding Gym Membership          ($49 biweekly)
+       prodid 219 = Founding Gym + Pool Membership   ($69 biweekly)
+       prodid 220 = Founding Total Access Membership ($99 biweekly)
+     Each charges the $99 enrollment today, then bills every two weeks starting
+     opening day. To swap a link, replace the number after "prodid=".         */
   links: {
-    presale:      "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=216",   // Direct add-to-cart: Founding Membership contract (Mindbody, Site ID 7396, prodid 216)
+    fitness:      "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=218",
+    fitnessPool:  "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=219",
+    complete:     "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=220",
+
+    // Kept so older links/buttons still work — points at the Complete membership.
+    membership:   "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=220",
+
     birthday:     "#",   // Birthday party booking
     lapLanes:     "#",   // Lap lane reservation
     danceStudio:  "#",   // Dance studio booking
-    membership:   "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=216",   // Direct add-to-cart: Founding Membership
   },
 
   /* -- 2) PRICING -----------------------------------------------------------
-     Enter numbers only (no “$”). The site fills in the “$”, works out the
-     savings, and shows the regular price struck through automatically. */
+     Enter numbers only (no "$"). Every price on the site is billed EVERY TWO
+     WEEKS — 26 payments a year. The site says so automatically and prints the
+     required disclaimer under each pricing table.                            */
   pricing: {
     currency: "$",
+    paymentsPerYear: 26,          // 26 biweekly payments — used in the disclaimer
 
-    // Regular rates (standard pricing after the founding deal)
-    regularDown:     299,   // up-front enrollment fee
-    regularMonthly:  129,   // monthly — FULL access (gym + pool)
-    gymOnlyMonthly:  99,    // monthly — gym only (no pool)
+    // One-time enrollment fee, charged when they join
+    enrollment:        99,        // founding rate
+    regularEnrollment: 299,       // the rate after the founding memberships are gone
 
-    // Founding-member deal (first 500): $99 down + $99/mo FULL access,
-    // locked for the first year, then rolls to the regular $129/mo.
-    foundingDown:    99,
-    foundingMonthly: 99,
-    introMonths:     12,    // how long the founding rate is locked before it
-                            //   rolls to regularMonthly
+    // The three individual membership levels (biweekly dues)
+    fitness:      49,
+    fitnessPool:  69,
+    complete:     99,
 
     // Scarcity
     foundingSpots:   500,   // how many founding memberships exist
     spotsRemaining:  null,  // OPTIONAL: set a number (e.g. 137) to show a
-                            // “X of 500 claimed” progress bar. Leave null to hide.
+                            // "X of 500 claimed" progress bar. Leave null to hide.
   },
 
   /* -- 3) IMAGES  (file name -> put a matching file in assets/images/) --------
@@ -57,35 +68,61 @@ window.ATLANTIS_CONFIG = {
     bookDance:      "assets/images/dance.jpg",
   },
 
-  /* -- 3b) PARTY REQUEST FORM ------------------------------------------------
-     The birthday-party form on parties.html sends every request to Switchboard
-     OS, where it appears under Leads on the dashboard and triggers a "new lead"
-     notification. This needs no setup — it reuses the same backend and client
-     slug as the chat widget below.
-
-     OPTIONAL second copy by email: paste a Web3Forms access key (free, from
-     https://web3forms.com, created with the `recipient` address) and each
-     request is also emailed straight to that inbox. Leave it blank to rely on
-     the dashboard notification alone.
-
-     If the dashboard can't be reached, the form falls back to opening the
-     visitor's email app addressed to `recipient`, so no enquiry is ever lost. */
   /* -- 3c) BIRTHDAY PARTY PACKAGE ------------------------------------------- */
   party: {
     startingPrice: 749,   // "starting at" price shown on the page
     maxGuests: 20,        // package covers up to this many people
   },
 
+  /* -- 4) FORMS -------------------------------------------------------------
+     Every form on the site sends the enquiry to Switchboard OS, where it shows
+     up under Leads on the dashboard and triggers a "new lead" notification.
+     That needs no setup — it reuses the client slug from the chat widget below.
+
+     OPTIONAL email copy: paste a Web3Forms access key (free, from
+     https://web3forms.com, created with the address you want it sent to) and
+     each enquiry is ALSO emailed to that inbox. Leave blank to rely on the
+     dashboard alone. If the dashboard can't be reached, the form falls back to
+     opening the visitor's email app, so no enquiry is ever lost.             */
+
   partyForm: {
     web3formsKey: "",                              // optional — see above
     recipient:    "pkearney.atlantis@gmail.com",   // fallback / email copy
     subject:      "New birthday party request — Atlantis Sports Club",
-    // Leave blank to reuse the chat widget's apiBase + clientSlug below.
-    apiBase:      "",
+    apiBase:      "",   // leave blank to reuse the chat widget's settings
     clientSlug:   "",
   },
 
-  /* -- 4) OPENING DATE & DETAILS -------------------------------------------- */
+  /* Founders membership enquiries (couples, family, senior, student, and the
+     short lead form on every membership page). */
+  foundersForm: {
+    web3formsKey: "",
+    recipient:    "pkearney.atlantis@gmail.com",
+    subject:      "New Founders membership enquiry — Atlantis Sports Club",
+  },
+
+  /* Job applications from the Join the Team page.
+
+     RESUME UPLOADS: the site has no file storage of its own, so applicants are
+     asked for a resume LINK (Google Drive, Dropbox, LinkedIn) — that always
+     works and always reaches the dashboard.
+     If you paste a Web3Forms key ABOVE on a plan that supports attachments, an
+     optional "attach a file" box also appears on the form. Leave it blank and
+     the file box stays hidden rather than promising an upload that won't send. */
+  careersForm: {
+    web3formsKey: "",
+    recipient:    "pkearney.atlantis@gmail.com",
+    subject:      "New job application — Atlantis Sports Club",
+  },
+
+  /* Community partnership enquiries. */
+  communityForm: {
+    web3formsKey: "",
+    recipient:    "pkearney.atlantis@gmail.com",
+    subject:      "New community partnership enquiry — Atlantis Sports Club",
+  },
+
+  /* -- 5) OPENING DATE & DETAILS -------------------------------------------- */
   openingDate: "2027-07-07T09:00:00",   // drives the countdown
   openingLabel: "July 7, 2027",
 
@@ -104,7 +141,7 @@ window.ATLANTIS_CONFIG = {
     facebook:  "https://www.facebook.com/ATLANTISSPORTSCLUBANDSPAHYANNIS/",
   },
 
-  /* -- 5) AI CHAT WIDGET (Switchboard OS) ----------------------------------- */
+  /* -- 6) AI CHAT WIDGET (Switchboard OS) ----------------------------------- */
   chat: {
     clientSlug: "atlantis-sports-club",              // your Switchboard OS client
     apiBase:    "https://switchboard-os.vercel.app", // Switchboard backend

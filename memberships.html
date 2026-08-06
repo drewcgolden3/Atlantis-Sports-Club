@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Membership Options — Atlantis Sports Club</title>
+  <meta name="description" content="Three membership levels at Atlantis Sports Club in Hyannis, MA: Fitness $49 biweekly, Fitness + Pool $69 biweekly, and Complete $99 biweekly. Membership dues are billed every two weeks — 26 payments a year." />
+  <meta name="theme-color" content="#0EA5E9" />
+  <meta property="og:title" content="Membership Options — Atlantis Sports Club" />
+  <meta property="og:description" content="Fitness $49 biweekly · Fitness + Pool $69 biweekly · Complete $99 biweekly. Founding enrollment $99 (reg. $299)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/pool.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%230284C7'/%3E%3Cpath d='M24 9L35 24C31 21.6 17 21.6 13 24Z' fill='%23fff'/%3E%3Cpath d='M10 31C16.5 24.2 31.5 24.2 38 31C31.5 27.6 16.5 27.6 10 31Z' fill='%23fff'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=31" />
+</head>
+<body data-page="memberships">
+
+  <div id="siteHeader"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero__eyebrow">Membership Options</p>
+      <h1 class="page-hero__title">Choose the Membership That Fits Your Lifestyle</h1>
+      <p class="page-hero__sub">Three straightforward levels. Every one is billed every two weeks — no monthly guesswork, no long-term contract.</p>
+    </div>
+  </section>
+
+  <!-- ============================ THE THREE BOARDS ============================ -->
+  <section class="section" id="levels">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow section__eyebrow--dot"><span class="pulse-dot pulse-dot--dark" aria-hidden="true"></span> <span>Founding Members · Limited to <span data-price="spots">500</span></span></p>
+        <h2 class="section__title">Three levels. One simple price each.</h2>
+        <p class="section__sub">Founding members pay <strong><span data-price="enrollment">$99</span></strong> to enroll instead of the standard <span data-price="regularEnrollment">$299</span> — a saving of <strong><span data-price="saveEnrollment">$200</span></strong>. Dues begin on opening day, <span data-opening-label>July 7, 2027</span>.</p>
+      </div>
+
+      <div class="boards">
+
+        <!-- ---------------- FITNESS ---------------- -->
+        <article class="board">
+          <h3 class="board__name">Fitness Membership</h3>
+          <div class="board__price">
+            <span class="board__amt" data-price="fitness">$49</span>
+            <span class="board__cadence">Biweekly</span>
+          </div>
+          <p class="board__enroll">Plus a one-time <span data-price="enrollment">$99</span> founding enrollment</p>
+
+          <p class="board__lead">Includes:</p>
+          <ul class="board__list">
+            <li>Unlimited fitness center access</li>
+            <li>Cardio equipment</li>
+            <li>Strength-training equipment</li>
+            <li>Free weights</li>
+            <li>Selectorized machines</li>
+            <li>Functional training areas</li>
+            <li>Stretch Zone</li>
+            <li>Locker rooms and showers</li>
+            <li>Sauna access</li>
+            <li>Member lounge</li>
+            <li>Complimentary fitness orientation</li>
+            <li>Free on-site parking</li>
+            <li>Wi-Fi throughout the club</li>
+          </ul>
+
+          <p class="board__excludes">Group fitness classes and pool access are <strong>not</strong> included in this membership.</p>
+
+          <div class="board__cta">
+            <a href="#" data-link="fitness" class="btn btn--primary btn--lg btn--block">
+              <span class="btn__label">Choose Fitness</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ---------------- FITNESS + POOL ---------------- -->
+        <article class="board">
+          <h3 class="board__name">Fitness + Pool Membership</h3>
+          <div class="board__price">
+            <span class="board__amt" data-price="fitnessPool">$69</span>
+            <span class="board__cadence">Biweekly</span>
+          </div>
+          <p class="board__enroll">Plus a one-time <span data-price="enrollment">$99</span> founding enrollment</p>
+
+          <p class="board__lead">Everything in the Fitness Membership, plus:</p>
+          <ul class="board__list">
+            <li>Pool access</li>
+            <li>Lap swimming</li>
+            <li>Recreational open swim</li>
+            <li>Aquatic wellness access</li>
+            <li>Scheduled member swim times</li>
+            <li>Use of designated pool amenities</li>
+          </ul>
+
+          <p class="board__excludes">Group fitness classes and instructional programs are <strong>not</strong> included.</p>
+
+          <div class="board__cta">
+            <a href="#" data-link="fitnessPool" class="btn btn--primary btn--lg btn--block">
+              <span class="btn__label">Choose Fitness + Pool</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ---------------- COMPLETE ---------------- -->
+        <article class="board board--featured">
+          <span class="board__ribbon">Everything included</span>
+          <h3 class="board__name">Complete Membership</h3>
+          <div class="board__price">
+            <span class="board__amt" data-price="complete">$99</span>
+            <span class="board__cadence">Biweekly</span>
+          </div>
+          <p class="board__enroll">Plus a one-time <span data-price="enrollment">$99</span> founding enrollment</p>
+
+          <p class="board__lead">Everything in the Fitness + Pool Membership, plus:</p>
+          <ul class="board__list">
+            <li>Group fitness classes</li>
+            <li>Yoga</li>
+            <li>Pilates</li>
+            <li>Zumba</li>
+            <li>Indoor cycling</li>
+            <li>Tai Chi</li>
+            <li>Water aerobics</li>
+            <li>Strength and conditioning classes</li>
+            <li>Stretch and mobility classes</li>
+            <li>Senior fitness classes</li>
+            <li>Dance-based fitness</li>
+            <li>Additional regularly scheduled group exercise classes</li>
+          </ul>
+
+          <div class="board__cta">
+            <a href="#" data-link="complete" class="btn btn--gold btn--lg btn--block">
+              <span class="btn__label">Choose Complete Membership</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="disclaimer" data-disclaimer></p>
+    </div>
+  </section>
+
+  <!-- ============================ PREMIUM PROGRAMS ============================ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Add-ons</p>
+        <h2 class="section__title">Premium Programs Available for an Additional Fee</h2>
+        <p class="section__sub">These are booked separately and are not automatically included in any membership level.</p>
+      </div>
+      <div class="chip-grid">
+        <span class="chip">Swim lessons</span>
+        <span class="chip">Karate</span>
+        <span class="chip">Personal training</span>
+        <span class="chip">Small-group training</span>
+        <span class="chip">Birthday parties</span>
+        <span class="chip">Specialty workshops</span>
+        <span class="chip">Clinics</span>
+        <span class="chip">Private instruction</span>
+        <span class="chip">Youth programs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ADDITIONAL MEMBERSHIP OPTIONS ==================== -->
+  <section class="section" id="household">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Households &amp; Groups</p>
+        <h2 class="section__title">Additional Membership Options</h2>
+        <p class="section__sub">Household rates are being finalised. Tell us which one fits and we&rsquo;ll send you Founders pricing before it&rsquo;s published. Each of these is available at all three levels — Fitness, Fitness&nbsp;+&nbsp;Pool, or Complete.</p>
+      </div>
+
+      <div class="option-grid">
+        <div class="option-card">
+          <h3>Couples Membership</h3>
+          <p>Two adults at the same address, at any of the three levels.</p>
+          <a href="#founders" class="btn btn--outline">Request Founders Pricing</a>
+        </div>
+        <div class="option-card">
+          <h3>Family Membership</h3>
+          <p>Adults and children in one household, at any of the three levels.</p>
+          <a href="#founders" class="btn btn--outline">Request Founders Pricing</a>
+        </div>
+        <div class="option-card">
+          <h3>Senior Membership</h3>
+          <p>Reduced rates for our older members, at any of the three levels.</p>
+          <a href="#founders" class="btn btn--outline">Request Founders Pricing</a>
+        </div>
+        <div class="option-card">
+          <h3>Student Membership</h3>
+          <p>For full-time students with valid ID, at any of the three levels.</p>
+          <a href="#founders" class="btn btn--outline">Request Founders Pricing</a>
+        </div>
+        <div class="option-card">
+          <h3>Additional Child Membership</h3>
+          <p>Add another child to an existing family membership.</p>
+          <a href="#founders" class="btn btn--outline">Request Founders Pricing</a>
+        </div>
+      </div>
+
+      <p class="disclaimer">Prices shown above are for an individual membership. Household rates for couples, families, seniors, and students are set separately and are not calculated from the individual price.</p>
+    </div>
+  </section>
+
+  <!-- ============================ FOUNDERS LEAD FORM ============================ -->
+  <section class="section section--alt" id="founders">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Founders List</p>
+        <h2 class="section__title">Reserve your Founders membership</h2>
+        <p class="section__sub">Tell us what you&rsquo;re after and we&rsquo;ll hold your Founders rate and be in touch with the details — including household pricing if you need it.</p>
+      </div>
+
+      <form class="leadform"
+            data-leadform
+            data-leadform-config="foundersForm"
+            data-leadform-source="Website — Founders Form"
+            data-leadform-interest-fields="Membership category,Preferred membership level"
+            data-leadform-done="Thank you — your Founders membership is reserved. We’ll be in touch shortly."
+            novalidate>
+
+        <div class="field">
+          <label for="f-name">Full name <span aria-hidden="true">*</span></label>
+          <input id="f-name" name="Full name" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="field">
+          <label for="f-email">Email address <span aria-hidden="true">*</span></label>
+          <input id="f-email" name="Email address" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="field">
+          <label for="f-phone">Phone number</label>
+          <input id="f-phone" name="Phone number" type="tel" autocomplete="tel" />
+        </div>
+
+        <div class="field">
+          <label for="f-category">Membership category</label>
+          <select id="f-category" name="Membership category">
+            <option value="Individual">Individual</option>
+            <option value="Couple">Couple</option>
+            <option value="Family">Family</option>
+            <option value="Senior">Senior</option>
+            <option value="Student">Student</option>
+          </select>
+        </div>
+
+        <div class="field field--wide">
+          <label for="f-level">Preferred membership level</label>
+          <select id="f-level" name="Preferred membership level">
+            <option value="Fitness — $49 biweekly for an individual">Fitness — $49 biweekly for an individual</option>
+            <option value="Fitness + Pool — $69 biweekly for an individual">Fitness + Pool — $69 biweekly for an individual</option>
+            <option value="Complete — $99 biweekly for an individual">Complete — $99 biweekly for an individual</option>
+            <option value="Not sure yet">Not sure yet — help me choose</option>
+          </select>
+          <span class="hint">Prices shown are for an individual. We&rsquo;ll quote household rates separately.</span>
+        </div>
+
+        <div class="field">
+          <label for="f-adults">Number of adults</label>
+          <input id="f-adults" name="Number of adults" type="number" min="0" max="20" inputmode="numeric" />
+        </div>
+
+        <div class="field">
+          <label for="f-children">Number of children</label>
+          <input id="f-children" name="Number of children" type="number" min="0" max="20" inputmode="numeric" />
+        </div>
+
+        <div class="field field--wide">
+          <label for="f-time">Best time to contact</label>
+          <select id="f-time" name="Best time to contact">
+            <option value="Anytime">Anytime</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+            <option value="Weekends">Weekends</option>
+          </select>
+        </div>
+
+        <div class="field field--wide">
+          <label for="f-notes">Questions or comments</label>
+          <textarea id="f-notes" name="Questions or comments" rows="4"></textarea>
+        </div>
+
+        <div class="leadform__hp" aria-hidden="true">
+          <label for="f-company">Company</label>
+          <input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <p class="leadform__req"><span aria-hidden="true">*</span> Required</p>
+
+        <div class="leadform__actions">
+          <button type="submit" class="btn btn--gold btn--lg">Reserve My Founders Membership</button>
+          <p class="leadform__msg" data-leadform-msg role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================ FAQ ============================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Before You Join</p>
+        <h2 class="section__title">The fine print, in plain English</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>How often am I billed?</h3>
+          <p>Every two weeks — <span data-price="paymentsPerYear">26</span> payments a year. These are not monthly rates.</p>
+        </div>
+        <div class="faq__item">
+          <h3>When does billing start?</h3>
+          <p>The <span data-price="enrollment">$99</span> enrollment is charged when you join. Your biweekly dues don&rsquo;t begin until the club opens on <span data-opening-label>July 7, 2027</span> — you pay nothing every two weeks in the meantime.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Are classes included?</h3>
+          <p>Group fitness classes are included in the <strong>Complete Membership</strong> only. The Fitness and Fitness&nbsp;+&nbsp;Pool memberships do not include classes.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Am I locked into a contract?</h3>
+          <p>No. There&rsquo;s no long-term commitment — cancel anytime. Cancel before opening day and your enrollment is refunded in full.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Can I move up a level later?</h3>
+          <p>Yes. You can move from Fitness to Fitness&nbsp;+&nbsp;Pool or Complete at any time, and your Founders enrollment rate carries over.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Where is the club?</h3>
+          <p><span data-addr1>35 Scudder Ave</span>, <span data-addr2>Hyannis, MA 02601</span> — <a href="location.html">see the location and get directions</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="siteFooter"></footer>
+
+  <script src="config.js?v=9"></script>
+  <script src="script.js?v=22"></script>
+  <script src="assets/chat.js?v=4"></script>
+</body>
+</html>

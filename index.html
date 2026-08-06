@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atlantis Sports Club — Opening July 7, 2027 · Founding Member Presale</title>
-  <meta name="description" content="Atlantis Sports Club is coming to Hyannis, MA — a brand-new gym and Olympic-size pool. The first 500 founding members save $530 in year one: $99 enrollment (reg. $299) + $99/month full access (reg. $129)." />
+  <title>Atlantis Sports Club — Opening July 7, 2027 · Hyannis, MA</title>
+  <meta name="description" content="Atlantis Sports Club is coming to Hyannis, MA — a brand-new gym and Olympic-size pool. Three membership levels: Fitness $49 biweekly, Fitness + Pool $69 biweekly, Complete $99 biweekly. Dues are billed every two weeks." />
   <meta name="theme-color" content="#0EA5E9" />
   <meta property="og:title" content="Atlantis Sports Club — Opening July 7, 2027" />
-  <meta property="og:description" content="Founding Member Presale: the first 500 save $530 in year one — $99 enrollment (reg. $299) + $99/mo full gym + pool access (reg. $129). Hyannis, MA." />
+  <meta property="og:description" content="Three membership levels — Fitness $49 biweekly, Fitness + Pool $69 biweekly, Complete $99 biweekly. Founding enrollment $99 (reg. $299). Hyannis, MA." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/images/hero-poster.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=29" />
+  <link rel="stylesheet" href="styles.css?v=31" />
 </head>
 <body data-page="home">
 
@@ -43,7 +43,7 @@
       </p>
 
       <div class="hero__cta reveal">
-        <a href="presale.html" class="btn btn--primary btn--lg">Join the Presale</a>
+        <a href="memberships.html" class="btn btn--gold btn--lg">Become a Member</a>
         <a href="amenities.html" class="btn btn--ghost btn--lg">Explore the Amenities</a>
       </div>
 
@@ -57,7 +57,7 @@
         <div class="countdown__unit"><span class="countdown__num" data-cd="secs">--</span><span class="countdown__lab">Sec</span></div>
       </div>
 
-      <p class="hero__trust reveal">Now in presale · Opening <span data-opening-label>July 7, 2027</span> · Hyannis, MA</p>
+      <p class="hero__trust reveal">Founding memberships from <strong>$49 biweekly</strong> · Opening <span data-opening-label>July 7, 2027</span> · Hyannis, MA</p>
     </div>
 
     <a href="#explore" class="hero__scroll" aria-label="Scroll to explore the club"><span class="hero__scroll-mouse"><span></span></span></a>
@@ -109,6 +109,52 @@
         </a>
       </div>
 
+      <!-- ---------------------------------------------- membership levels --- -->
+      <!-- The three tiers, on the home page, above the fold-and-a-half. Paul's
+           first priority is that nobody has to hunt to learn what it costs. -->
+      <div class="section__head" style="margin-top:clamp(60px,8vw,96px)">
+        <p class="section__eyebrow">Memberships</p>
+        <h2 class="section__title">Three levels, billed every two weeks</h2>
+        <p class="section__sub">Founding enrollment is <strong><span data-price="enrollment">$99</span></strong> instead of <span data-price="regularEnrollment">$299</span>. Dues start on opening day.</p>
+      </div>
+
+      <div class="boards">
+        <article class="board">
+          <h3 class="board__name">Fitness</h3>
+          <div class="board__price">
+            <span class="board__amt" data-price="fitness">$49</span>
+            <span class="board__cadence">Biweekly</span>
+          </div>
+          <p class="board__enroll">The full fitness floor, locker rooms, sauna, and member lounge.</p>
+          <p class="board__excludes">Classes and pool not included.</p>
+          <div class="board__cta"><a href="memberships.html" class="btn btn--outline btn--block">See what&rsquo;s included</a></div>
+        </article>
+
+        <article class="board">
+          <h3 class="board__name">Fitness + Pool</h3>
+          <div class="board__price">
+            <span class="board__amt" data-price="fitnessPool">$69</span>
+            <span class="board__cadence">Biweekly</span>
+          </div>
+          <p class="board__enroll">Everything in Fitness, plus the Olympic-size pool and open swim.</p>
+          <p class="board__excludes">Classes not included.</p>
+          <div class="board__cta"><a href="memberships.html" class="btn btn--outline btn--block">See what&rsquo;s included</a></div>
+        </article>
+
+        <article class="board board--featured">
+          <span class="board__ribbon">Everything included</span>
+          <h3 class="board__name">Complete</h3>
+          <div class="board__price">
+            <span class="board__amt" data-price="complete">$99</span>
+            <span class="board__cadence">Biweekly</span>
+          </div>
+          <p class="board__enroll">Everything in Fitness&nbsp;+&nbsp;Pool, plus every group fitness class — yoga, Pilates, Zumba, cycling, water aerobics and more.</p>
+          <div class="board__cta"><a href="memberships.html" class="btn btn--gold btn--block">Join Atlantis</a></div>
+        </article>
+      </div>
+
+      <p class="disclaimer" data-disclaimer></p>
+
       <!-- ---------------------------------------------- newsletter signup --- -->
       <div class="signup reveal">
         <div class="signup__copy">
@@ -136,8 +182,8 @@
 
   <footer class="footer" id="siteFooter"></footer>
 
-  <script src="config.js?v=8"></script>
-  <script src="script.js?v=20"></script>
+  <script src="config.js?v=9"></script>
+  <script src="script.js?v=22"></script>
 <script src="assets/chat.js?v=4"></script>
 </body>
 </html>
