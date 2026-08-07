@@ -100,7 +100,7 @@ Tours begin as construction wraps up. Anyone interested can request one here: ht
 ## Contact
 
 Phone: (508) 862-2535
-Email: hello@atlantissportsclub.com
+Email: pkearney.atlantis@gmail.com
 Website: https://drewcgolden3.github.io/Atlantis-Sports-Club/
 
 ## Rules for answering
