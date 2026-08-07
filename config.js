@@ -21,9 +21,21 @@ window.ATLANTIS_CONFIG = {
      Each charges the $99 enrollment today, then bills every two weeks starting
      opening day. To swap a link, replace the number after "prodid=".         */
   links: {
+    // Individual rates
     fitness:      "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=218",
     fitnessPool:  "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=219",
     complete:     "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=220",
+
+    // Student rates — 30% off, $49 enrollment, valid student ID at check-in
+    studentFitness:      "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=221",
+    studentFitnessPool:  "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=222",
+    studentComplete:     "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=223",
+
+    // Couples rates — 10% off each, ONE $99 enrollment covers both. The contract
+    // bills the pair total; the site shows the per-person figure beside it.
+    couplesFitness:      "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=224",
+    couplesFitnessPool:  "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=225",
+    couplesComplete:     "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=226",
 
     // Kept so older links/buttons still work — points at the Complete membership.
     membership:   "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=220",
@@ -49,6 +61,20 @@ window.ATLANTIS_CONFIG = {
     fitness:      49,
     fitnessPool:  69,
     complete:     99,
+
+    // Student rates — 30% off the individual rate, reduced enrollment.
+    // Requires a valid student ID at check-in.
+    studentEnrollment: 49,
+    studentFitness:     34,
+    studentFitnessPool: 49,
+    studentComplete:    69,
+
+    // Couples rates — 10% off each. Enter what ONE PERSON pays; the site works
+    // out the pair total (what the card is actually charged) by doubling it, so
+    // the two numbers can never drift apart. One $99 enrollment covers both.
+    couplesFitnessEach:     44,
+    couplesFitnessPoolEach: 62,
+    couplesCompleteEach:    89,
 
     // Scarcity
     foundingSpots:   500,   // how many founding memberships exist

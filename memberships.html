@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=32" />
+  <link rel="stylesheet" href="styles.css?v=34" />
 </head>
 <body data-page="memberships">
 
@@ -72,6 +72,17 @@
             <a href="#" data-link="fitness" class="btn btn--primary btn--lg btn--block">
               <span class="btn__label">Choose Fitness</span>
             </a>
+            <div class="board__alts">
+              <a href="#" data-link="studentFitness" class="board__alt">
+                <span class="board__alt-label">Student rate</span>
+                <span class="board__alt-price"><span data-price="studentFitness">$34</span> biweekly</span>
+              </a>
+              <a href="#" data-link="couplesFitness" class="board__alt">
+                <span class="board__alt-label">Couples rate</span>
+                <span class="board__alt-price"><span data-price="couplesFitnessEach">$44</span> each &middot; <span data-price="couplesFitnessPair">$88</span> per pair</span>
+              </a>
+            </div>
+            <p class="board__alt-note">Students save 30% (<span data-price="studentEnrollment">$49</span> enrollment, valid student ID required). Couples save 10% each and pay one enrollment.</p>
           </div>
         </article>
 
@@ -100,6 +111,17 @@
             <a href="#" data-link="fitnessPool" class="btn btn--primary btn--lg btn--block">
               <span class="btn__label">Choose Fitness + Pool</span>
             </a>
+            <div class="board__alts">
+              <a href="#" data-link="studentFitnessPool" class="board__alt">
+                <span class="board__alt-label">Student rate</span>
+                <span class="board__alt-price"><span data-price="studentFitnessPool">$49</span> biweekly</span>
+              </a>
+              <a href="#" data-link="couplesFitnessPool" class="board__alt">
+                <span class="board__alt-label">Couples rate</span>
+                <span class="board__alt-price"><span data-price="couplesFitnessPoolEach">$62</span> each &middot; <span data-price="couplesFitnessPoolPair">$124</span> per pair</span>
+              </a>
+            </div>
+            <p class="board__alt-note">Students save 30% (<span data-price="studentEnrollment">$49</span> enrollment, valid student ID required). Couples save 10% each and pay one enrollment.</p>
           </div>
         </article>
 
@@ -133,6 +155,17 @@
             <a href="#" data-link="complete" class="btn btn--gold btn--lg btn--block">
               <span class="btn__label">Choose Complete Membership</span>
             </a>
+            <div class="board__alts">
+              <a href="#" data-link="studentComplete" class="board__alt">
+                <span class="board__alt-label">Student rate</span>
+                <span class="board__alt-price"><span data-price="studentComplete">$69</span> biweekly</span>
+              </a>
+              <a href="#" data-link="couplesComplete" class="board__alt">
+                <span class="board__alt-label">Couples rate</span>
+                <span class="board__alt-price"><span data-price="couplesCompleteEach">$89</span> each &middot; <span data-price="couplesCompletePair">$178</span> per pair</span>
+              </a>
+            </div>
+            <p class="board__alt-note">Students save 30% (<span data-price="studentEnrollment">$49</span> enrollment, valid student ID required). Couples save 10% each and pay one enrollment.</p>
           </div>
         </article>
 
@@ -170,19 +203,24 @@
       <div class="section__head">
         <p class="section__eyebrow">Households &amp; Groups</p>
         <h2 class="section__title">Additional Membership Options</h2>
-        <p class="section__sub">Household rates are being finalised. Tell us which one fits and we&rsquo;ll send you Founders pricing before it&rsquo;s published. Each of these is available at all three levels — Fitness, Fitness&nbsp;+&nbsp;Pool, or Complete.</p>
+        <p class="section__sub">Every option below is available at all three levels — Fitness, Fitness&nbsp;+&nbsp;Pool, or Complete.</p>
       </div>
 
       <div class="option-grid">
         <div class="option-card">
           <h3>Couples Membership</h3>
-          <p>Two adults at the same address, at any of the three levels.</p>
-          <a href="#founders" class="btn btn--outline">Request Founders Pricing</a>
+          <p><strong>Save 10% each</strong> and pay a single <span data-price="enrollment">$99</span> enrollment for both. Two adults at the same address.</p>
+          <a href="#levels" class="btn btn--outline">See Couples Rates</a>
+        </div>
+        <div class="option-card">
+          <h3>Student Membership</h3>
+          <p><strong>Save 30%</strong> with a <span data-price="studentEnrollment">$49</span> enrollment. Full-time students, valid student ID at check-in.</p>
+          <a href="#levels" class="btn btn--outline">See Student Rates</a>
         </div>
         <div class="option-card">
           <h3>Family Membership</h3>
-          <p>Adults and children in one household, at any of the three levels.</p>
-          <a href="#founders" class="btn btn--outline">Request Founders Pricing</a>
+          <p>Adults and children in one household. Rates depend on family size — tell us about yours.</p>
+          <a href="#family" class="btn btn--gold">Ask About Family Rates</a>
         </div>
         <div class="option-card">
           <h3>Senior Membership</h3>
@@ -190,18 +228,116 @@
           <a href="#founders" class="btn btn--outline">Request Founders Pricing</a>
         </div>
         <div class="option-card">
-          <h3>Student Membership</h3>
-          <p>For full-time students with valid ID, at any of the three levels.</p>
-          <a href="#founders" class="btn btn--outline">Request Founders Pricing</a>
-        </div>
-        <div class="option-card">
           <h3>Additional Child Membership</h3>
           <p>Add another child to an existing family membership.</p>
-          <a href="#founders" class="btn btn--outline">Request Founders Pricing</a>
+          <a href="#family" class="btn btn--outline">Ask About Adding a Child</a>
         </div>
       </div>
 
-      <p class="disclaimer">Prices shown above are for an individual membership. Household rates for couples, families, seniors, and students are set separately and are not calculated from the individual price.</p>
+      <p class="disclaimer">Couples rates are shown both per person and as the total charged to one card each cycle. Family, senior, and additional-child rates are set separately and are not calculated from the individual price.</p>
+    </div>
+  </section>
+
+  <!-- ============================ FAMILY MEMBERSHIP ============================ -->
+  <section class="section" id="family">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Family Memberships</p>
+        <h2 class="section__title">Tell us about your family</h2>
+        <p class="section__sub">Family rates depend on how many of you there are and what you want access to, so we price them individually rather than publishing one number that fits nobody.</p>
+      </div>
+
+      <div class="family-panel">
+        <div class="family-panel__copy">
+          <h3>What happens next</h3>
+          <p>Fill this in and a membership advisor will come back to you with a family rate built around your household — usually within one business day.</p>
+          <ul class="family-panel__list">
+            <li>One enrollment fee for the whole household</li>
+            <li>Every level available — Fitness, Fitness&nbsp;+&nbsp;Pool, or Complete</li>
+            <li>Add children individually as they grow</li>
+            <li>Founders pricing held while we work it out with you</li>
+          </ul>
+          <p class="board__alt-note" style="margin-top:18px">Already know you want a couples membership for two adults? That&rsquo;s priced and ready — <a href="#levels" style="color:var(--color-primary-strong);text-decoration:underline">see couples rates</a>.</p>
+        </div>
+
+        <form class="leadform"
+              data-leadform
+              data-leadform-config="foundersForm"
+              data-leadform-source="Website — Family Membership"
+              data-leadform-interest-fields="Preferred membership level"
+              data-leadform-done="Thank you — we’ve got your details and a membership advisor will be in touch with your family rate."
+              novalidate>
+
+          <div class="field">
+            <label for="fam-name">Full name <span aria-hidden="true">*</span></label>
+            <input id="fam-name" name="Full name" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="fam-email">Email address <span aria-hidden="true">*</span></label>
+            <input id="fam-email" name="Email address" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="fam-phone">Phone number</label>
+            <input id="fam-phone" name="Phone number" type="tel" autocomplete="tel" />
+          </div>
+
+          <div class="field">
+            <label for="fam-level">What are you interested in?</label>
+            <select id="fam-level" name="Preferred membership level">
+              <option value="Fitness — fitness floor only">Fitness — fitness floor only</option>
+              <option value="Fitness + Pool">Fitness + Pool</option>
+              <option value="Complete — everything including classes" selected>Complete — everything including classes</option>
+              <option value="Not sure yet">Not sure yet — help us choose</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="fam-adults">Number of adults</label>
+            <input id="fam-adults" name="Number of adults" type="number" min="1" max="10" inputmode="numeric" />
+          </div>
+
+          <div class="field">
+            <label for="fam-children">Number of children</label>
+            <input id="fam-children" name="Number of children" type="number" min="0" max="12" inputmode="numeric" />
+          </div>
+
+          <div class="field field--wide">
+            <label for="fam-ages">Children&rsquo;s ages</label>
+            <input id="fam-ages" name="Children's ages" type="text" placeholder="e.g. 6, 9 and 14" />
+            <span class="hint">Some programs and pool times are age-based, so this helps us quote accurately.</span>
+          </div>
+
+          <div class="field field--wide">
+            <label for="fam-size">Anything else about your household?</label>
+            <textarea id="fam-size" name="Anything else about the household" rows="3" maxlength="600" placeholder="Grandparents joining, a child already in swim lessons, split households — whatever's useful."></textarea>
+          </div>
+
+          <div class="field field--wide">
+            <label for="fam-time">Best time to contact</label>
+            <select id="fam-time" name="Best time to contact">
+              <option value="Anytime">Anytime</option>
+              <option value="Morning">Morning</option>
+              <option value="Afternoon">Afternoon</option>
+              <option value="Evening">Evening</option>
+              <option value="Weekends">Weekends</option>
+            </select>
+          </div>
+
+          <div class="leadform__hp" aria-hidden="true">
+            <label for="fam-company">Company</label>
+            <input id="fam-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <p class="leadform__req"><span aria-hidden="true">*</span> Required</p>
+
+          <div class="leadform__actions">
+            <button type="submit" class="btn btn--gold btn--lg">Ask About Family Rates</button>
+            <p class="leadform__msg" data-leadform-msg role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -313,8 +449,8 @@
           <p>Every two weeks — <span data-price="paymentsPerYear">26</span> payments a year. These are not monthly rates.</p>
         </div>
         <div class="faq__item">
-          <h3>When does billing start?</h3>
-          <p>The <span data-price="enrollment">$99</span> enrollment is charged when you join. Your biweekly dues don&rsquo;t begin until the club opens on <span data-opening-label>July 7, 2027</span> — you pay nothing every two weeks in the meantime.</p>
+          <h3>What do I pay today, and when does billing start?</h3>
+          <p>Today you pay the <span data-price="enrollment">$99</span> enrollment plus your first payment, which covers your first period of membership once we open. Your ongoing biweekly dues then begin on opening day, <span data-opening-label>July 7, 2027</span> — nothing is billed in between.</p>
         </div>
         <div class="faq__item">
           <h3>Are classes included?</h3>
@@ -338,8 +474,8 @@
 
   <footer class="footer" id="siteFooter"></footer>
 
-  <script src="config.js?v=9"></script>
-  <script src="script.js?v=24"></script>
+  <script src="config.js?v=10"></script>
+  <script src="script.js?v=25"></script>
   <script src="assets/chat.js?v=4"></script>
 </body>
 </html>

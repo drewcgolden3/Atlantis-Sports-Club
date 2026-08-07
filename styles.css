@@ -1353,6 +1353,58 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
 }
 .board__cta { margin-top: auto; padding-top: 24px; }
 
+/* Student and couples rates sit UNDER the individual CTA, deliberately quieter.
+   Three equally-loud prices on one board makes the visitor do arithmetic before
+   they can choose; this way the individual rate stays the obvious default and
+   the other two are there for whoever they apply to. */
+.board__alts { margin-top: 14px; display: grid; gap: 8px; }
+/* The couples row ("Couples rate" + "$44 each · $88 per pair") is only just
+   narrower than a board at the 1000px breakpoint. Wrapping lets the price drop
+   to its own line there instead of overflowing or squashing the label. */
+.board__alt {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 4px 10px; flex-wrap: wrap;
+  padding: 10px 14px;
+  border: 1px dashed var(--sky-200); border-radius: var(--radius);
+  background: var(--sky-50);
+  min-height: 44px;
+  transition: border-color .2s var(--ease), background .2s var(--ease);
+}
+.board__alt:hover { border-style: solid; border-color: var(--sky-500); background: #fff; }
+.board__alt-label {
+  font-family: var(--font-head); font-weight: 700; font-size: .92rem;
+  color: var(--navy-800); white-space: nowrap;
+}
+.board__alt-price {
+  font-family: var(--font-head); font-weight: 600; font-size: .92rem;
+  color: var(--color-primary-strong); text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.board__alt-note { font-size: .8rem; color: var(--color-fg-soft); margin-top: 2px; }
+
+/* =============================================================================
+   FAMILY MEMBERSHIP
+   ============================================================================= */
+.family-panel {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+.family-panel__copy h3 {
+  font-family: var(--font-head); font-weight: 800;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem); color: var(--navy-800);
+}
+.family-panel__copy p { color: var(--color-fg-soft); margin-top: 12px; }
+.family-panel__list { display: grid; gap: 10px; margin-top: 18px; }
+.family-panel__list li { position: relative; padding-left: 26px; color: var(--color-fg-soft); }
+.family-panel__list li::before {
+  content: ""; position: absolute; left: 0; top: .45em;
+  width: 15px; height: 9px;
+  border-left: 2.5px solid var(--color-primary);
+  border-bottom: 2.5px solid var(--color-primary);
+  transform: rotate(-45deg);
+}
+@media (max-width: 860px) { .family-panel { grid-template-columns: 1fr; } }
+
 @media (max-width: 980px) { .boards { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; } }
 
 /* The required legal line under every pricing table. */

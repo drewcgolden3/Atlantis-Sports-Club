@@ -70,6 +70,23 @@
     fitness:      money(pr.fitness),
     fitnessPool:  money(pr.fitnessPool),
     complete:     money(pr.complete),
+
+    // Student rates (30% off) and their reduced enrollment
+    studentFitness:     money(pr.studentFitness),
+    studentFitnessPool: money(pr.studentFitnessPool),
+    studentComplete:    money(pr.studentComplete),
+    studentEnrollment:  money(pr.studentEnrollment),
+
+    // Couples: per person, plus the pair total the card is actually charged.
+    // The pair figure is derived rather than configured — a couples rate that
+    // says "$44 each" next to a total that isn't $88 is a chargeback waiting
+    // to happen, so there is only one number to keep correct.
+    couplesFitnessEach:      money(pr.couplesFitnessEach),
+    couplesFitnessPoolEach:  money(pr.couplesFitnessPoolEach),
+    couplesCompleteEach:     money(pr.couplesCompleteEach),
+    couplesFitnessPair:      money((pr.couplesFitnessEach || 0) * 2),
+    couplesFitnessPoolPair:  money((pr.couplesFitnessPoolEach || 0) * 2),
+    couplesCompletePair:     money((pr.couplesCompleteEach || 0) * 2),
     // Enrollment
     enrollment:        money(pr.enrollment),
     regularEnrollment: money(pr.regularEnrollment),
