@@ -13,6 +13,33 @@
   function $(s, c) { return (c || document).querySelector(s); }
   function $all(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
 
+  /* ---------- known-visitor id ----------
+     Once someone has given us their details through any form on the site,
+     Switchboard hands back the lead id it saved them under. Keeping it means a
+     later click through to Mindbody can be attributed to that person rather
+     than landing anonymously — which is what moves them along the pipeline
+     without the club having to notice and do it by hand.
+
+     Survives across pages by design: the form is usually on a different page
+     from the booking link. Stored per client so a shared browser can't leak
+     one club's lead id into another's. */
+  var SB_LEAD_KEY = "sb_lead_" + ((CFG.chat && CFG.chat.clientSlug) || "atlantis-sports-club");
+
+  function rememberLead(data) {
+    try {
+      if (data && data.id) localStorage.setItem(SB_LEAD_KEY, data.id);
+    } catch (e) {}
+    return data; // pass-through: callers keep using the parsed body as before
+  }
+
+  function sbLeadId() {
+    try {
+      return localStorage.getItem(SB_LEAD_KEY);
+    } catch (e) {
+      return null;
+    }
+  }
+
   /* ---------- campaign attribution ----------
      An ad link lands on the home page carrying ?utm_source=facebook, but the
      form is two pages later, by which point the URL is clean. So the tags are
@@ -462,6 +489,7 @@
         }),
       })
         .then(function (r) { return r.json(); })
+        .then(rememberLead)
         .then(function (r) {
           if (!r || !r.ok) throw new Error("not recorded");
           form.reset();
@@ -588,7 +616,7 @@
           referrer: ATTRIBUTION.referrer,
           company: (form.querySelector("[name=company]") || {}).value || "",
         }),
-      }).then(function (r) { return r.json(); });
+      }).then(function (r) { return r.json(); }).then(rememberLead);
 
       // Optional email copy. Sent as multipart when the form carries a file so
       // the resume travels with it; never blocks the visitor either way.
@@ -658,6 +686,9 @@
         var sb = CFG.chat || {};
         var payload = JSON.stringify({
           clientSlug: sb.clientSlug || "atlantis-sports-club",
+          // Null for a visitor who never gave us their details — those clicks
+          // still count, they just can't be tied to anyone.
+          leadId: sbLeadId(),
           origin: "website",
           label: (el.textContent || "").trim().slice(0, 120),
           path: window.location.pathname,
@@ -987,7 +1018,7 @@
           referrer: ATTRIBUTION.referrer,
           company: "",                       // honeypot, always empty for a human
         }),
-      }).then(function (r) { return r.json(); });
+      }).then(function (r) { return r.json(); }).then(rememberLead);
 
       // 2) Optional second copy straight to the party inbox, if a Web3Forms key
       //    is configured. Never blocks the visitor: a rejected email must not
