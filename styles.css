@@ -1358,28 +1358,47 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
    they can choose; this way the individual rate stays the obvious default and
    the other two are there for whoever they apply to. */
 .board__alts { margin-top: 14px; display: grid; gap: 8px; }
-/* The couples row ("Couples rate" + "$44 each · $88 per pair") is only just
-   narrower than a board at the 1000px breakpoint. Wrapping lets the price drop
-   to its own line there instead of overflowing or squashing the label. */
+/* Secondary buttons, not decoration. They were dashed outlines before, which
+   read as a label rather than something you press — a solid border, a real
+   surface, an arrow and a press state make them obviously tappable while
+   staying visually below the primary CTA above them.
+   The couples row ("Couples rate" + "$44 each · $88 per pair") is only just
+   narrower than a board at the 1000px breakpoint, so it wraps rather than
+   overflowing or squashing the label. */
 .board__alt {
-  display: flex; align-items: baseline; justify-content: space-between;
+  display: flex; align-items: center;
   gap: 4px 10px; flex-wrap: wrap;
-  padding: 10px 14px;
-  border: 1px dashed var(--sky-200); border-radius: var(--radius);
-  background: var(--sky-50);
-  min-height: 44px;
-  transition: border-color .2s var(--ease), background .2s var(--ease);
+  padding: 11px 14px;
+  border: 1.5px solid var(--sky-200); border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  min-height: 48px;
+  cursor: pointer;
+  transition: border-color .2s var(--ease), background .2s var(--ease),
+              transform .2s var(--ease), box-shadow .2s var(--ease);
 }
-.board__alt:hover { border-style: solid; border-color: var(--sky-500); background: #fff; }
+.board__alt:hover {
+  border-color: var(--sky-500); background: var(--sky-50);
+  transform: translateY(-2px); box-shadow: var(--shadow);
+}
+.board__alt:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
+.board__alt:focus-visible { outline: 3px solid var(--sky-400); outline-offset: 2px; }
 .board__alt-label {
-  font-family: var(--font-head); font-weight: 700; font-size: .92rem;
+  font-family: var(--font-head); font-weight: 700; font-size: .95rem;
   color: var(--navy-800); white-space: nowrap;
 }
 .board__alt-price {
-  font-family: var(--font-head); font-weight: 600; font-size: .92rem;
+  font-family: var(--font-head); font-weight: 700; font-size: .95rem;
   color: var(--color-primary-strong); text-align: right;
+  margin-left: auto;
   font-variant-numeric: tabular-nums;
 }
+.board__alt-arrow {
+  flex: 0 0 auto; width: 16px; height: 16px;
+  color: var(--color-primary); opacity: .6;
+  transition: transform .2s var(--ease), opacity .2s var(--ease);
+}
+.board__alt:hover .board__alt-arrow { opacity: 1; transform: translateX(3px); }
 .board__alt-note { font-size: .8rem; color: var(--color-fg-soft); margin-top: 2px; }
 
 /* =============================================================================
