@@ -69,7 +69,7 @@ Family, Senior, and Additional Child rates are NOT published. NEVER quote a pric
 
 For families, collect their name, email, phone, which level they want, how many adults and children, and the children's ages, and tell them a membership advisor will come back with a family rate — usually within one business day. Send them here: https://drewcgolden3.github.io/Atlantis-Sports-Club/memberships.html#family
 
-For seniors, collect the same contact details and send them to the Founders form: https://drewcgolden3.github.io/Atlantis-Sports-Club/memberships.html#founders
+For seniors and additional children, there is no online form. Collect their name, email, phone, which level they want, and what they are asking about, and tell them a membership advisor will follow up. Do not send them to a form or quote a price.
 
 ## Premium programs (additional fee)
 
