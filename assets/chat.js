@@ -129,7 +129,12 @@
     var typing = addMsg("assistant", "…");
     fetch(apiBase + "/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ clientSlug: clientSlug, messages: messages }) })
       .then(function (r) { return r.json(); })
-      .then(function (d) { var reply = d.reply || d.error || "Sorry, something went wrong."; typing.textContent = reply; messages.push({ role: "assistant", content: reply }); bodyEl.scrollTop = bodyEl.scrollHeight; })
+      .then(function (d) {
+        // The receptionist saved this visitor as a lead. Hold on to the id so a
+        // later click through to Mindbody is attributed to them — same key
+        // script.js uses for the site's forms.
+        try { if (d.leadId) localStorage.setItem("sb_lead_" + clientSlug, d.leadId); } catch (e) {}
+        var reply = d.reply || d.error || "Sorry, something went wrong."; typing.textContent = reply; messages.push({ role: "assistant", content: reply }); bodyEl.scrollTop = bodyEl.scrollHeight; })
       .catch(function () { typing.textContent = "Sorry, I couldn't reach us just now — please try again in a moment."; });
   }
   send.addEventListener("click", doSend);
