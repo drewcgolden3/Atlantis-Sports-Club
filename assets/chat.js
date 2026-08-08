@@ -22,12 +22,29 @@
   function isNarrow() { return window.matchMedia("(max-width: 760px)").matches; }
   function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
 
-  /* page-view tracking — fire-and-forget, never blocks the page */
+  /* page-view tracking — fire-and-forget, never blocks the page
+     sessionId lets the dashboard count visits instead of page loads. Kept in
+     sessionStorage on purpose: one tab, no cookie, no cross-site value, and
+     gone when the tab closes, so it can't follow anyone between visits.
+     Browsers that block storage just send nothing. */
+  function sessionId() {
+    try {
+      var key = "sb_sid", id = sessionStorage.getItem(key);
+      if (!id) {
+        id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+           : String(Date.now()) + Math.random().toString(36).slice(2);
+        sessionStorage.setItem(key, id);
+      }
+      return id;
+    } catch (e) { return null; }
+  }
+
   try {
     fetch(apiBase + "/api/track", {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.assign(
-        { clientSlug: clientSlug, path: location.pathname, referrer: document.referrer || null },
+        { clientSlug: clientSlug, path: location.pathname, referrer: document.referrer || null,
+          sessionId: sessionId() },
         // Same campaign tags script.js captured on the first page of the visit,
         // so traffic and leads can be compared on one axis and a real
         // conversion rate per campaign becomes possible.
