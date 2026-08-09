@@ -142,11 +142,11 @@
     var lead = null;
     try { lead = localStorage.getItem("sb_lead_" + clientSlug); } catch (e) {}
 
-    options.forEach(function (o) {
+    function optionLink(o, small) {
       var a = document.createElement("a");
       a.href = o.url + (lead ? "?lead=" + encodeURIComponent(lead) : "");
       a.target = "_blank"; a.rel = "noopener";
-      css(a, { display: "block", padding: "10px 13px", borderRadius: "12px", border: "1.5px solid " + BLUE, background: "#fff", color: INK, fontFamily: FONT, fontSize: "14px", textDecoration: "none", lineHeight: "1.35" });
+      css(a, { display: "block", padding: small ? "8px 11px" : "10px 13px", borderRadius: "12px", border: "1.5px solid " + (small ? LINE : BLUE), background: "#fff", color: INK, fontFamily: FONT, fontSize: small ? "13px" : "14px", textDecoration: "none", lineHeight: "1.35" });
       a.onmouseenter = function () { a.style.background = "#F0F9FF"; };
       a.onmouseleave = function () { a.style.background = "#fff"; };
 
@@ -167,8 +167,32 @@
         desc.textContent = o.description;
         a.appendChild(desc);
       }
+      return a;
+    }
 
-      wrap.appendChild(a);
+    options.forEach(function (o) {
+      wrap.appendChild(optionLink(o, false));
+
+      /* Student and couples rates. A <details> rather than a custom toggle: it
+         opens on click and on Enter, screen readers announce it as expandable,
+         and it works even if this script errors after render. Collapsed so the
+         three memberships stay readable, but the summary is a full-width line
+         of text — nobody has to guess it's there. */
+      if (o.variants && o.variants.length) {
+        var det = document.createElement("details");
+        css(det, { margin: "-2px 0 2px", fontFamily: FONT });
+
+        var sum = document.createElement("summary");
+        sum.textContent = "Student or joining as a couple? See rates";
+        css(sum, { cursor: "pointer", fontSize: "12.5px", color: BLUE_D, fontWeight: "600", padding: "5px 4px", listStyle: "revert" });
+
+        var inner = document.createElement("div");
+        css(inner, { display: "flex", flexDirection: "column", gap: "5px", padding: "4px 0 2px 10px", borderLeft: "2px solid " + LINE, marginLeft: "3px" });
+        o.variants.forEach(function (v) { inner.appendChild(optionLink(v, true)); });
+
+        det.appendChild(sum); det.appendChild(inner);
+        wrap.appendChild(det);
+      }
     });
 
     bodyEl.appendChild(wrap); bodyEl.scrollTop = bodyEl.scrollHeight;
