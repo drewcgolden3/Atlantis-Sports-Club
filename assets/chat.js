@@ -129,6 +129,51 @@
     bodyEl.appendChild(b); bodyEl.scrollTop = bodyEl.scrollHeight;
     return b;
   }
+
+  /* Options the receptionist offers as buttons — membership tiers, parties, lane
+     hire, whatever is set up in Switchboard. Each href is a signed tracking link
+     that logs the click and forwards to the real Mindbody page, so the club can
+     see which option a visitor actually chose. The lead id rides along when we
+     know who they are; otherwise the click still counts, just anonymously. */
+  function addOptions(options) {
+    var wrap = document.createElement("div");
+    css(wrap, { display: "flex", flexDirection: "column", gap: "6px", maxWidth: "84%", alignSelf: "flex-start", margin: "2px 0 4px" });
+
+    var lead = null;
+    try { lead = localStorage.getItem("sb_lead_" + clientSlug); } catch (e) {}
+
+    options.forEach(function (o) {
+      var a = document.createElement("a");
+      a.href = o.url + (lead ? "?lead=" + encodeURIComponent(lead) : "");
+      a.target = "_blank"; a.rel = "noopener";
+      css(a, { display: "block", padding: "10px 13px", borderRadius: "12px", border: "1.5px solid " + BLUE, background: "#fff", color: INK, fontFamily: FONT, fontSize: "14px", textDecoration: "none", lineHeight: "1.35" });
+      a.onmouseenter = function () { a.style.background = "#F0F9FF"; };
+      a.onmouseleave = function () { a.style.background = "#fff"; };
+
+      var name = document.createElement("span");
+      css(name, { fontWeight: "700" });
+      name.textContent = o.label;
+      a.appendChild(name);
+
+      if (o.priceNote) {
+        var price = document.createElement("span");
+        css(price, { color: BLUE_D, fontWeight: "700", marginLeft: "6px" });
+        price.textContent = o.priceNote;
+        a.appendChild(price);
+      }
+      if (o.description) {
+        var desc = document.createElement("span");
+        css(desc, { display: "block", fontSize: "12px", color: SOFT, marginTop: "2px" });
+        desc.textContent = o.description;
+        a.appendChild(desc);
+      }
+
+      wrap.appendChild(a);
+    });
+
+    bodyEl.appendChild(wrap); bodyEl.scrollTop = bodyEl.scrollHeight;
+  }
+
   addMsg("assistant", greeting + "\nAsk me about pricing, hours, classes, or the founding presale.");
 
   /* ---- open / close ---- */
@@ -151,7 +196,9 @@
         // later click through to Mindbody is attributed to them — same key
         // script.js uses for the site's forms.
         try { if (d.leadId) localStorage.setItem("sb_lead_" + clientSlug, d.leadId); } catch (e) {}
-        var reply = d.reply || d.error || "Sorry, something went wrong."; typing.textContent = reply; messages.push({ role: "assistant", content: reply }); bodyEl.scrollTop = bodyEl.scrollHeight; })
+        var reply = d.reply || d.error || "Sorry, something went wrong."; typing.textContent = reply; messages.push({ role: "assistant", content: reply });
+        if (d.options && d.options.length) addOptions(d.options);
+        bodyEl.scrollTop = bodyEl.scrollHeight; })
       .catch(function () { typing.textContent = "Sorry, I couldn't reach us just now — please try again in a moment."; });
   }
   send.addEventListener("click", doSend);
