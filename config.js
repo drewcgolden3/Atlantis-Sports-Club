@@ -39,15 +39,12 @@ window.ATLANTIS_CONFIG = {
 
     // Family — $99 biweekly for a household of four, plus the $99 enrollment.
     family:              "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=227",
-    // Bigger households. Mindbody currently has no family-of-5 or -6 contract
-    // (site 7396 sells 227 above plus the 228 add-on below), so these are left
-    // blank and both buttons open 227 and then walk the visitor through the
-    // add-on on-page. If someone builds proper "Family of 5" ($128 biweekly,
-    // 52 weeks) and "Family of 6" ($157) contracts, paste their links here —
-    // the buttons become one-click checkouts and the step-2 panel disappears
-    // on its own.
-    family5:             "",
-    family6:             "",
+    // Bigger households have their own contracts, so a family of five or six
+    // checks out in one click at the right price instead of stacking add-ons.
+    // Each is the family membership plus the per-person add-on rolled into one
+    // contract — same $99 enrollment, same 52 weeks, same 7/7/2027 start.
+    family5:             "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=229",
+    family6:             "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=230",
     // The $29-per-extra-person add-on. Carries NO enrollment fee, because the
     // family membership above already charged one. Bought once per additional
     // member, so a family of six buys it twice — which is why the site spells

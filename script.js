@@ -716,12 +716,10 @@
 
   /* ============================================================= LINKS (Mindbody) */
   var links = CFG.links || {};
-  // Mindbody sells one "Founding Family Membership" (prodid 227) and a per-person
-  // "Additional Family Member" (228) — there is no family-of-5 or -6 contract to
-  // link at. So those buttons open the family contract and the page then hands
-  // over the add-on with the count already worked out (see the step panel below).
-  // If dedicated contracts are ever created, filling in config.links.family5 /
-  // family6 takes over and the step panel stops appearing.
+  // Households of five and six have their own Mindbody contracts (229 and 230).
+  // If either link is ever cleared, fall back to the family membership rather
+  // than leaving a priced button that goes nowhere — the club settles the extra
+  // members by hand, which is how it worked before those contracts existed.
   ["family5", "family6"].forEach(function (k) {
     if (!links[k] || links[k] === "#") links[k] = links.family;
   });
@@ -769,41 +767,6 @@
       });
     }
   });
-
-  /* ================================================ FAMILY STEP-2 PANEL
-     A household of five or six is one family contract plus one or two
-     $29 add-ons in Mindbody. The buttons quote the real total; this reveals
-     the second step once they've started, with the count already done, so
-     nobody has to reason about add-ons at checkout. Skipped entirely if
-     dedicated family-of-5/6 contracts get configured. */
-  (function () {
-    var step = document.querySelector("[data-famstep]");
-    if (!step) return;
-    var covers = Number((CFG.pricing || {}).familyCovers || 4);
-
-    ["family5", "family6"].forEach(function (key, i) {
-      var btn = document.querySelector('[data-link="' + key + '"]');
-      // A real contract of its own means checkout is one click — no step 2.
-      if (!btn || (links[key] && links[key] !== links.family)) return;
-      var extra = i + 1;
-      btn.addEventListener("click", function () {
-        var set = function (sel, val) {
-          step.querySelectorAll(sel).forEach(function (el) { el.textContent = val; });
-        };
-        set("[data-famstep-size]", String(covers + extra));
-        set("[data-famstep-count]", String(extra));
-        set("[data-famstep-word]", extra === 1 ? "member" : "members");
-        // Mindbody sells the add-on one person at a time, so two extras means
-        // buying it twice. Saying so beats a $58 button that charges $29.
-        set("[data-famstep-each]", extra === 1 ? "" : " each");
-        set("[data-famstep-twice]", extra === 1 ? "" : " — that's the add-on twice, once per person");
-        step.hidden = false;
-        // The contract opened in a new tab, so this tab is showing the panel
-        // behind it — put it where their eye lands when they come back.
-        step.scrollIntoView({ block: "center" });
-      });
-    });
-  })();
 
   var toastEl;
   function toast(msg) {
