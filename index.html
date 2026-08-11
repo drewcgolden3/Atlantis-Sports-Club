@@ -156,7 +156,10 @@
       <p class="disclaimer" data-disclaimer></p>
 
       <!-- ---------------------------------------------- newsletter signup --- -->
-      <div class="signup reveal">
+      <!-- id is the jump target for join.html's "Latest Club Updates" link,
+           which the printed QR codes lead to. Without it the scan lands at the
+           top of the home page and the visitor has to go hunting. -->
+      <div class="signup reveal" id="signup">
         <div class="signup__copy">
           <p class="signup__eyebrow">Stay in the Loop</p>
           <h3 class="signup__title">Be first to know</h3>
