@@ -1785,3 +1785,9 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
 .famjump__cta svg { width: 16px; height: 16px; transition: transform .2s var(--ease); }
 .famjump:hover .famjump__cta svg { transform: translateX(3px); }
 @media (max-width: 700px) { .famjump__text { font-size: .94rem; } }
+
+/* Household-size buttons sit side by side on a wide board — two short rows of
+   one look like an afterthought next to a full-width primary. */
+@media (min-width: 620px) {
+  .famboard .board__alts { grid-template-columns: 1fr 1fr; }
+}

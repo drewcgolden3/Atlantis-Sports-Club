@@ -39,6 +39,13 @@ window.ATLANTIS_CONFIG = {
 
     // Family — $99 biweekly for a household of four, plus the $99 enrollment.
     family:              "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=227",
+    // Bigger households buy their own contract instead of stacking add-ons at
+    // checkout. Create a "Family of 5" ($128 biweekly) and "Family of 6" ($157
+    // biweekly) product in Mindbody and paste their links here. Left blank,
+    // both buttons fall back to the family-of-4 product above, and the club
+    // settles the extra members by hand — so nothing is ever a dead link.
+    family5:             "",
+    family6:             "",
     // The $29-per-extra-person add-on. Carries NO enrollment fee, because the
     // family membership above already charged one. Bought once per additional
     // member, so a family of six buys it twice — which is why the site spells
@@ -84,9 +91,9 @@ window.ATLANTIS_CONFIG = {
     couplesFitnessPoolEach: 62,
     couplesCompleteEach:    89,
 
-    // Family — covers a household of four. Anyone beyond that buys the $29
-    // add-on themselves, once per person, so a family of six is the base rate
-    // plus two add-ons. Nobody at the front desk has to reconcile it.
+    // Family — covers a household of four. Households of five and six get their
+    // own button, priced from these two numbers (base + $29 per extra person),
+    // so the boards can never drift from what the add-on costs.
     family:           99,
     familyRegular:   129,   // what it becomes after the founding memberships go
     familyAdditional: 29,   // biweekly, per person beyond the first four

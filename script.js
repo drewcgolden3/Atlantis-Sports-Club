@@ -132,6 +132,12 @@
     familyRegular:     money(pr.familyRegular),
     familyAdditional:  money(pr.familyAdditional),
     familyCovers:      String(pr.familyCovers || 4),
+    // The bigger-household rates. Derived, so adding a dollar to the add-on
+    // moves every button at once instead of leaving two of them stale.
+    family5:           money((pr.family || 0) + (pr.familyAdditional || 0)),
+    family6:           money((pr.family || 0) + (pr.familyAdditional || 0) * 2),
+    familyCovers5:     String((pr.familyCovers || 4) + 1),
+    familyCovers6:     String((pr.familyCovers || 4) + 2),
     familySave:        money((pr.familyRegular || 0) - (pr.family || 0)),
     familySaveYear:    money(((pr.familyRegular || 0) - (pr.family || 0)) * (pr.paymentsPerYear || 26)),
 
@@ -710,6 +716,12 @@
 
   /* ============================================================= LINKS (Mindbody) */
   var links = CFG.links || {};
+  // Until the family-of-5 and -6 contracts exist in Mindbody, those buttons
+  // send people to the family membership rather than nowhere — the club adds
+  // the extra members on, exactly as it did before they had their own button.
+  ["family5", "family6"].forEach(function (k) {
+    if (!links[k] || links[k] === "#") links[k] = links.family;
+  });
   $all("[data-link]").forEach(function (el) {
     var key = el.getAttribute("data-link");
     if (key === "map" || key === "email") return;
