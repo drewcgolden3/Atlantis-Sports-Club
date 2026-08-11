@@ -137,7 +137,7 @@ window.ATLANTIS_CONFIG = {
     ],
     ctaLabel: "Join Yarmouth Today",
     ctaNote:  "Keep moving before our new state-of-the-art facility opens in Hyannis.",
-    url:      "https://www.atlantisswimclubyarmouth.com/pricing-plans/plans-pricing",
+    url:      "https://www.atlantisswimclubyarmouth.com/",
     dismissLabel: "I’m here about Hyannis",
   },
 
