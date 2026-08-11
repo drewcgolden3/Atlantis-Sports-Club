@@ -1054,6 +1054,121 @@
     render(false);
   }
 
+  /* ================================================= YARMOUTH "OPEN NOW" POPUP
+     Hyannis is a year out, so anyone who lands here wanting a club today is a
+     sale for the Yarmouth location rather than a lost visitor. This offers them
+     that, once, without hijacking the page the moment it loads.
+
+     Deliberately restrained: it waits before appearing, remembers a dismissal
+     for a fortnight, and the dismiss control says what it does rather than
+     shaming the visitor for closing it. */
+  (function () {
+    var y = CFG.yarmouth || {};
+    if (!y.enabled || !y.url) return;
+
+    var KEY = "asc_yarmouth_dismissed";
+    try {
+      var until = Number(localStorage.getItem(KEY) || 0);
+      if (until && Date.now() < until) return;
+    } catch (e) {}                                  // private mode — just show it
+
+    function dismiss() {
+      try {
+        var days = Number(y.remindAfterDays || 14);
+        localStorage.setItem(KEY, String(Date.now() + days * 864e5));
+      } catch (e) {}
+      overlay.classList.remove("is-open");
+      document.body.style.overflow = "";
+      setTimeout(function () { overlay.remove(); }, 300);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    var lastFocus = null;
+    var img = (CFG.images || {}).yarmouth;
+
+    var overlay = document.createElement("div");
+    overlay.className = "ypop";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-labelledby", "ypopTitle");
+
+    var features = (y.features || []).map(function (f) {
+      return "<li>" + f + "</li>";
+    }).join("");
+
+    overlay.innerHTML =
+      '<div class="ypop__card">' +
+        '<button class="ypop__close" type="button" aria-label="Close">&times;</button>' +
+        (img ? '<div class="ypop__media"><img src="' + img + '" alt="The Atlantis Swim Club in South Yarmouth" /></div>' : "") +
+        '<div class="ypop__body">' +
+          '<p class="ypop__eyebrow"><span class="ypop__dot" aria-hidden="true"></span>' + (y.eyebrow || "Open Now") + "</p>" +
+          '<h2 class="ypop__title" id="ypopTitle">' + (y.title || "") + "</h2>" +
+          (y.tagline ? '<p class="ypop__tagline">' + y.tagline + "</p>" : "") +
+          (y.intro ? '<p class="ypop__intro">' + y.intro + "</p>" : "") +
+          (features ? '<ul class="ypop__list">' + features + "</ul>" : "") +
+          '<a class="btn btn--gold btn--block ypop__cta" href="' + y.url + '" target="_blank" rel="noopener">' +
+            (y.ctaLabel || "Join Yarmouth Today") + "</a>" +
+          (y.ctaNote ? '<p class="ypop__note">' + y.ctaNote + "</p>" : "") +
+          '<button class="ypop__dismiss" type="button">' + (y.dismissLabel || "No thanks") + "</button>" +
+        "</div>" +
+      "</div>";
+
+    // The photo is optional. Until someone drops yarmouth.jpg into
+    // assets/images/ the file 404s, and a broken <img> leaves a tall white gap
+    // with alt text sitting where the picture should be — worse than no picture
+    // at all. Drop the whole media block if it can't load.
+    (function () {
+      var media = overlay.querySelector(".ypop__media");
+      if (!media) return;
+      var im = media.querySelector("img");
+      im.addEventListener("error", function () { media.remove(); });
+    })();
+
+    function open() {
+      lastFocus = document.activeElement;
+      document.body.appendChild(overlay);
+      document.body.style.overflow = "hidden";
+      // Force a reflow rather than waiting on requestAnimationFrame: rAF does
+      // not fire in a background tab, which left the overlay at opacity 0 while
+      // the body was already scroll-locked — a visitor who opened the site in a
+      // background tab came back to a page they couldn't scroll and couldn't
+      // see why. A reflow starts the transition whatever the tab is doing.
+      void overlay.offsetWidth;
+      overlay.classList.add("is-open");
+      var first = overlay.querySelector(".ypop__cta");
+      if (first) { try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); } }
+
+      // The visitor going to Yarmouth is a win, not a bounce — record it the
+      // same way a Mindbody handoff is recorded so it shows up alongside them.
+      overlay.querySelector(".ypop__cta").addEventListener("click", function () {
+        var sb = CFG.chat || {};
+        try {
+          navigator.sendBeacon(
+            (sb.apiBase || "https://switchboard-os.vercel.app") + "/api/booking-click",
+            new Blob([JSON.stringify({
+              clientSlug: sb.clientSlug || "atlantis-sports-club",
+              origin: "website",
+              label: "Yarmouth popup — " + (y.ctaLabel || "Join Yarmouth"),
+              path: window.location.pathname,
+            })], { type: "application/json" })
+          );
+        } catch (e) {}
+        dismiss();
+      });
+    }
+
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) dismiss();          // click the scrim to close
+    });
+    overlay.querySelector(".ypop__close").addEventListener("click", dismiss);
+    overlay.querySelector(".ypop__dismiss").addEventListener("click", dismiss);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && overlay.classList.contains("is-open")) dismiss();
+    });
+
+    setTimeout(open, Math.max(0, Number(y.delaySeconds || 6)) * 1000);
+  })();
+
   /* ============================================================= YEAR */
   var yearEl = $("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();

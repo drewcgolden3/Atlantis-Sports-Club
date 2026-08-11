@@ -1541,3 +1541,118 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
   font-family: var(--font-head); font-weight: 600; color: var(--color-fg-soft);
 }
 .qr-secondary a:hover { color: var(--color-primary-strong); }
+
+/* =============================================================================
+   YARMOUTH "OPEN NOW" POPUP
+   The one interruption on the site, so it earns its place: it waits before
+   appearing, it's dismissible three ways, and it respects reduced-motion.
+   ============================================================================= */
+.ypop {
+  position: fixed; inset: 0; z-index: 1000;
+  display: grid; place-items: center;
+  padding: 20px;
+  /* Strong enough to isolate the card — a weak scrim leaves the page competing
+     with the thing you're asking someone to read. */
+  background: rgba(6, 32, 58, .62);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+}
+.ypop.is-open { opacity: 1; }
+
+.ypop__card {
+  position: relative;
+  width: 100%; max-width: 460px;
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(12px) scale(.98);
+  transition: transform .32s var(--ease);
+}
+.ypop.is-open .ypop__card { transform: translateY(0) scale(1); }
+@media (prefers-reduced-motion: reduce) {
+  .ypop, .ypop__card { transition: none; }
+  .ypop__card { transform: none; }
+}
+
+.ypop__close {
+  position: absolute; top: 10px; right: 10px; z-index: 2;
+  width: 40px; height: 40px; border: 0; border-radius: 50%;
+  background: rgba(255,255,255,.9); color: var(--navy-900);
+  font-size: 26px; line-height: 1; cursor: pointer;
+  display: grid; place-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: background .2s var(--ease);
+}
+.ypop__close:hover { background: #fff; }
+.ypop__close:focus-visible { outline: 3px solid var(--sky-400); outline-offset: 2px; }
+
+.ypop__media { aspect-ratio: 16 / 10; overflow: hidden; border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+.ypop__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.ypop__body { padding: 24px 26px 26px; }
+
+.ypop__eyebrow {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-head); font-weight: 800;
+  font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
+  color: #0F7A3D;
+}
+.ypop__dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #16A34A;
+  box-shadow: 0 0 0 0 rgba(22,163,74,.5);
+  animation: ypopPulse 2s infinite;
+}
+@keyframes ypopPulse {
+  70% { box-shadow: 0 0 0 8px rgba(22,163,74,0); }
+  100% { box-shadow: 0 0 0 0 rgba(22,163,74,0); }
+}
+@media (prefers-reduced-motion: reduce) { .ypop__dot { animation: none; } }
+
+.ypop__title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.5rem, 4.4vw, 1.85rem); line-height: 1.12;
+  color: var(--navy-900); margin-top: 8px;
+}
+.ypop__tagline {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: .95rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--color-primary-strong); margin-top: 8px;
+}
+.ypop__intro { color: var(--color-fg-soft); font-size: .98rem; margin-top: 12px; }
+
+.ypop__list { display: grid; gap: 7px; margin-top: 16px; }
+.ypop__list li {
+  position: relative; padding-left: 24px;
+  color: var(--color-fg); font-size: .96rem;
+}
+.ypop__list li::before {
+  content: ""; position: absolute; left: 0; top: .42em;
+  width: 13px; height: 8px;
+  border-left: 2.5px solid var(--color-primary);
+  border-bottom: 2.5px solid var(--color-primary);
+  transform: rotate(-45deg);
+}
+
+.ypop__cta { margin-top: 20px; }
+.ypop__note {
+  color: var(--color-fg-soft); font-size: .86rem; line-height: 1.5;
+  text-align: center; margin-top: 10px;
+}
+.ypop__dismiss {
+  display: block; width: 100%; margin-top: 14px;
+  background: none; border: 0; cursor: pointer;
+  font-family: var(--font-head); font-weight: 600; font-size: .92rem;
+  color: var(--color-fg-soft); padding: 10px; min-height: 44px;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.ypop__dismiss:hover { color: var(--navy-800); }
+.ypop__dismiss:focus-visible { outline: 3px solid var(--sky-400); outline-offset: 2px; border-radius: var(--radius-sm); }
+
+@media (max-width: 420px) {
+  .ypop { padding: 12px; }
+  .ypop__body { padding: 20px 20px 22px; }
+  .ypop__media { aspect-ratio: 16 / 9; }
+}

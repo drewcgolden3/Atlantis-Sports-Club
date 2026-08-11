@@ -87,8 +87,20 @@ window.ATLANTIS_CONFIG = {
   images: {
     exterior:    "assets/images/exterior.jpg",
     pool:        "assets/images/pool.jpg",
-    basketball:  "assets/images/basketball.jpg",
     dance:       "assets/images/dance.jpg",
+
+    // The two boutique studios. Pointed at real club photos for now — swap these
+    // for proper high-energy class and yoga/Pilates shots when they're taken.
+    energyStudio:   "assets/images/dance.jpg",
+    mindBodyStudio: "assets/images/stretch.jpg",
+
+    // Drop a photo here and the sauna card fills itself in. Until the file
+    // exists the card simply renders without a background rather than showing a
+    // broken image — so it's safe to leave this pointing at nothing.
+    sauna:       "assets/images/sauna.jpg",
+
+    // The Yarmouth club, used by the "open now" popup.
+    yarmouth:    "assets/images/yarmouth.jpg",
     // Booking card photos (can reuse the amenity photos above)
     bookLapLanes:   "assets/images/pool.jpg",
     bookDance:      "assets/images/dance.jpg",
@@ -98,6 +110,35 @@ window.ATLANTIS_CONFIG = {
   party: {
     startingPrice: 749,   // "starting at" price shown on the page
     maxGuests: 20,        // package covers up to this many people
+  },
+
+  /* -- 3d) "OPEN NOW IN YARMOUTH" POPUP --------------------------------------
+     Hyannis doesn't open until 2027, so this site's job is partly to send
+     people who want a club TODAY over to the Yarmouth location. The popup shows
+     once per visitor (remembered for `remindAfterDays`), never on first paint —
+     it waits `delaySeconds` so it can't interrupt someone who's still reading.
+
+     Set `enabled: false` to switch it off entirely.                           */
+  yarmouth: {
+    enabled: true,
+    delaySeconds: 6,        // how long before it appears
+    remindAfterDays: 14,    // don't show again for this many days once dismissed
+
+    eyebrow: "Open Now",
+    title:   "Atlantis Swim Club — Yarmouth",
+    tagline: "Swim. Move. Feel better.",
+    intro:   "Atlantis Sports Club Hyannis opens July 2027. In the meantime, our Yarmouth club is open today.",
+    features: [
+      "Beautiful 86° heated indoor pool",
+      "Lap swimming",
+      "Open swim",
+      "Aqua fitness &amp; wellness",
+      "Compact fitness center",
+    ],
+    ctaLabel: "Join Yarmouth Today",
+    ctaNote:  "Keep moving before our new state-of-the-art facility opens in Hyannis.",
+    url:      "https://www.atlantisswimclubyarmouth.com/pricing-plans/plans-pricing",
+    dismissLabel: "I’m here about Hyannis",
   },
 
   /* -- 4) FORMS -------------------------------------------------------------

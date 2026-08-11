@@ -24,7 +24,7 @@ Phone: (508) 862-2535
 Email: pkearney.atlantis@gmail.com
 
 AMENITIES
-A full fitness floor with brand-new Life Fitness and Hammer Strength equipment, an Olympic-size pool, a basketball court, and a sprung-floor dance studio. Also locker rooms, showers, sauna, a member lounge, a stretch and recovery zone, free on-site parking, and Wi-Fi throughout. The club also hosts birthday parties.
+A full fitness floor with brand-new Life Fitness and Hammer Strength equipment and an Olympic-size pool. Two boutique studios: the Atlantis Energy Studio (Zumba, dance fitness, HIIT, boot camp, kickboxing, spin, kettlebells) and the Atlantis Mind & Body Studio (yoga, Pilates, barre, Tai Chi, stretching, mobility, meditation). A sauna in each locker room — Men's and Women's — for post-workout and post-swim recovery. Also locker rooms, showers, a member lounge, a stretch and recovery zone, free on-site parking, and Wi-Fi throughout. The club also hosts birthday parties. There is no basketball court.
 
 FOUNDING MEMBER PRESALE
 Only the first 500 members get founding rates. All founding memberships are billed EVERY TWO WEEKS — 26 payments a year, not monthly. Do not describe these as monthly prices.
