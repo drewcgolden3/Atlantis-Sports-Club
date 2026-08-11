@@ -37,15 +37,13 @@ window.ATLANTIS_CONFIG = {
     couplesFitnessPool:  "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=225",
     couplesComplete:     "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=226",
 
-    // Family — paste the Founding Family Membership contract URL here once the
-    // contract exists in Mindbody. While this is blank the button shows the
-    // "booking opens soon" notice instead of a dead link, so nothing broken
-    // reaches a customer — but nobody can buy a family membership either.
-    family:              "",
-    // The $29-per-extra-person add-on. Bought once per additional member, so a
-    // family of six buys it twice — that's why the site spells the count out
-    // rather than leaving people to work it out at checkout.
-    familyAddOn:         "",
+    // Family — $99 biweekly for a household of four, plus the $99 enrollment.
+    family:              "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=227",
+    // The $29-per-extra-person add-on. Carries NO enrollment fee, because the
+    // family membership above already charged one. Bought once per additional
+    // member, so a family of six buys it twice — which is why the site spells
+    // the count out rather than leaving people to work it out at checkout.
+    familyAddOn:         "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=228",
 
     // Kept so older links/buttons still work — points at the Complete membership.
     membership:   "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=220",
