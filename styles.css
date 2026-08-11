@@ -1748,3 +1748,40 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
 .famboard__body .board__cta { padding-top: 22px; }
 
 @media (max-width: 860px) { .famboard { grid-template-columns: 1fr; } }
+
+/* =============================================================================
+   FAMILY JUMP LINK
+   The family rate sits below three full boards. Without a signpost this high
+   up, a parent scrolls past it and buys an individual membership at a worse
+   price — which costs them money and costs the club a bigger sale.
+   ============================================================================= */
+.famjump {
+  display: block;
+  background: linear-gradient(135deg, var(--gold-200), var(--gold-300));
+  border-bottom: 1px solid var(--gold-400);
+  transition: filter .2s var(--ease);
+}
+.famjump:hover { filter: brightness(1.04); }
+.famjump:focus-visible { outline: 3px solid var(--navy-800); outline-offset: -3px; }
+.famjump__inner {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 8px 16px;
+  max-width: var(--container); margin-inline: auto;
+  padding: 14px clamp(20px, 5vw, 40px);
+  color: var(--navy-900);
+}
+.famjump__tag {
+  font-family: var(--font-head); font-weight: 800;
+  font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+  background: var(--navy-900); color: var(--gold-300);
+  padding: 5px 11px; border-radius: 999px; white-space: nowrap;
+}
+.famjump__text { font-size: 1rem; text-align: center; }
+.famjump__cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-head); font-weight: 800; font-size: .98rem;
+  white-space: nowrap; text-decoration: underline; text-underline-offset: 3px;
+}
+.famjump__cta svg { width: 16px; height: 16px; transition: transform .2s var(--ease); }
+.famjump:hover .famjump__cta svg { transform: translateX(3px); }
+@media (max-width: 700px) { .famjump__text { font-size: .94rem; } }

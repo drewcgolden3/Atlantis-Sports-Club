@@ -596,6 +596,10 @@ window.ASC_PT = {
 
   /* ---------------------------------------------------------- family board --- */
   "Family Membership": "Plano Família",
+  "Families": "Famílias",
+  "Signing up the whole household? The family rate saves you": "Vai inscrever a família toda? O valor familiar economiza",
+  "a year": "por ano",
+  "See family pricing": "Ver valores para família",
   "One membership, one enrollment fee, the whole family in. Founding rate locked in before it goes up.": "Um plano, uma única taxa de adesão, a família toda dentro. Valor de fundador garantido antes do aumento.",
   "Save": "Economize",
   "every two weeks": "a cada duas semanas",
