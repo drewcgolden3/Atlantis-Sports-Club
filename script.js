@@ -7,6 +7,13 @@
 (function () {
   "use strict";
   var CFG = window.ATLANTIS_CONFIG || {};
+
+  /* Copy that this file builds rather than reads from the page — the
+     announcement bar and the pricing disclaimer both splice numbers from
+     config.js into a sentence. The dictionary in assets/pt.js can't reach those
+     because the numbers change, so they pick their own language here. */
+  var LANG = (window.ASC_LANG === "pt") ? "pt" : "en";
+  function t(en, pt) { return LANG === "pt" ? pt : en; }
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var page = document.body.getAttribute("data-page") || "home";
 
@@ -125,12 +132,18 @@
 
   // The disclaimer Paul requires under every pricing table. Written once here
   // so it can never drift between pages.
-  var PRICING_DISCLAIMER =
+  var PRICING_DISCLAIMER = t(
     "Membership dues are billed every two weeks. There are " +
-    priceValues.paymentsPerYear + " biweekly payments each year. Certain programs, " +
-    "services, and amenities may require additional fees or advance reservations. " +
-    "Membership terms, operating hours, availability, and program schedules are " +
-    "subject to change.";
+      priceValues.paymentsPerYear + " biweekly payments each year. Certain programs, " +
+      "services, and amenities may require additional fees or advance reservations. " +
+      "Membership terms, operating hours, availability, and program schedules are " +
+      "subject to change.",
+    "As mensalidades são cobradas a cada duas semanas. São " +
+      priceValues.paymentsPerYear + " pagamentos quinzenais por ano. Alguns programas, " +
+      "serviços e estruturas podem exigir taxas adicionais ou reserva antecipada. " +
+      "Condições do plano, horários de funcionamento, disponibilidade e grade de " +
+      "programas estão sujeitos a alteração."
+  );
 
   var NAV = [
     { key: "amenities",   label: "Fitness",         href: "amenities.html" },
@@ -149,12 +162,18 @@
   /* ============================================================= HEADER */
   // Two lengths of the same message: the full pitch has room on desktop, but on a
   // phone it ran to three lines and pushed the whole hero down the screen.
-  var announceLong =
+  var announceLong = t(
     "Founding Members — three levels from <em>" + priceValues.fitness +
-    " biweekly</em>, plus " + priceValues.enrollment + " enrollment (reg. " +
-    priceValues.regularEnrollment + "). Only " + priceValues.spots + " available.";
-  var announceShort =
-    "Founding Members — from <em>" + priceValues.fitness + " biweekly</em>.";
+      " biweekly</em>, plus " + priceValues.enrollment + " enrollment (reg. " +
+      priceValues.regularEnrollment + "). Only " + priceValues.spots + " available.",
+    "Sócios Fundadores — três níveis a partir de <em>" + priceValues.fitness +
+      " quinzenais</em>, mais " + priceValues.enrollment + " de adesão (normal " +
+      priceValues.regularEnrollment + "). Apenas " + priceValues.spots + " vagas."
+  );
+  var announceShort = t(
+    "Founding Members — from <em>" + priceValues.fitness + " biweekly</em>.",
+    "Sócios Fundadores — a partir de <em>" + priceValues.fitness + " quinzenais</em>."
+  );
 
   var brand =
     '<a href="index.html" class="brand" aria-label="Atlantis Sports Clubs home">' +
@@ -175,15 +194,19 @@
     '<div class="announce">' +
       '<span class="announce__long">' + announceLong + '</span>' +
       '<span class="announce__short">' + announceShort + '</span>' +
-      ' <a href="' + offerHref + '">See the deal &rarr;</a></div>' +
+      ' <a href="' + offerHref + '">' + t("See the deal", "Ver a oferta") + ' &rarr;</a></div>' +
     '<header class="nav" id="nav"><div class="nav__inner">' +
       brand +
       '<nav class="nav__links" aria-label="Primary">' + navLinks() + '</nav>' +
+      // Language sits beside the join button, not buried in the menu — a
+      // Portuguese speaker shouldn't have to read English to find it.
+      '<span class="nav__lang" data-lang-toggle></span>' +
       '<a href="' + offerHref + '" class="btn btn--gold btn--sm nav__cta">Join Atlantis</a>' +
       '<button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
     '</div>' +
     '<div class="nav__mobile" id="navMobile">' + navLinks() +
       '<a href="' + offerHref + '" class="btn btn--gold">Join Atlantis</a>' +
+      '<span class="nav__lang nav__lang--mobile" data-lang-toggle></span>' +
     '</div></header>';
 
   var headerMount = $("#siteHeader");
@@ -263,7 +286,10 @@
   })();
 
   /* ============================================================= CONFIG TEXT */
-  $all("[data-opening-label]").forEach(function (el) { if (CFG.openingLabel) el.textContent = CFG.openingLabel; });
+  // A Portuguese page that says "July 7, 2027" reads like a half-finished
+  // translation, so the date has its own label rather than being skipped.
+  var openingLabel = t(CFG.openingLabel, CFG.openingLabelPt || CFG.openingLabel);
+  $all("[data-opening-label]").forEach(function (el) { if (openingLabel) el.textContent = openingLabel; });
 
   if (CFG.contact) {
     var c = CFG.contact;

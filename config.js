@@ -198,6 +198,7 @@ window.ATLANTIS_CONFIG = {
   /* -- 5) OPENING DATE & DETAILS -------------------------------------------- */
   openingDate: "2027-07-07T09:00:00",   // drives the countdown
   openingLabel: "July 7, 2027",
+  openingLabelPt: "7 de julho de 2027",   // shown when the site is in Portuguese
 
   contact: {
     email: "pkearney.atlantis@gmail.com",
@@ -220,5 +221,6 @@ window.ATLANTIS_CONFIG = {
     apiBase:    "https://switchboard-os.vercel.app", // Switchboard backend
     title:      "Atlantis Sports Club",              // shown in the chat header
     greeting:   "Hi! How can I help you?",           // proactive bubble + first message
+    greetingPt: "Olá! Como posso ajudar?",           // shown when the site is in Portuguese
   },
 };

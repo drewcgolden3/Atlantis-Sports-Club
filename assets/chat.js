@@ -9,7 +9,12 @@
   var CFG = (window.ATLANTIS_CONFIG && window.ATLANTIS_CONFIG.chat) || {};
   var clientSlug = CFG.clientSlug || "atlantis-sports-club";
   var apiBase = CFG.apiBase || "https://switchboard-os.vercel.app";
-  var greeting = CFG.greeting || "Hi! How can I help you?";
+  // Follows the site's language toggle: a visitor who switched to Portuguese
+  // should be greeted in Portuguese, not have to ask in it first.
+  var lang = (window.ASC_LANG === "pt") ? "pt" : "en";
+  var greeting = lang === "pt"
+    ? (CFG.greetingPt || "Olá! Como posso ajudar?")
+    : (CFG.greeting || "Hi! How can I help you?");
   var title = CFG.title || "Atlantis Sports Club";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -198,7 +203,9 @@
     bodyEl.appendChild(wrap); bodyEl.scrollTop = bodyEl.scrollHeight;
   }
 
-  addMsg("assistant", greeting + "\nAsk me about pricing, hours, classes, or the founding presale.");
+  addMsg("assistant", greeting + "\n" + (lang === "pt"
+      ? "Pergunte sobre valores, horários, aulas ou a pré-venda para sócios fundadores."
+      : "Ask me about pricing, hours, classes, or the founding presale."));
 
   /* ---- open / close ---- */
   function openPanel() { open = true; panel.style.display = "flex"; hidePromo(true); launcher.setAttribute("aria-expanded", "true"); setTimeout(function () { input.focus(); }, 60); }
@@ -213,7 +220,7 @@
     input.value = "";
     messages.push({ role: "user", content: t }); addMsg("user", t);
     var typing = addMsg("assistant", "…");
-    fetch(apiBase + "/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ clientSlug: clientSlug, messages: messages }) })
+    fetch(apiBase + "/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ clientSlug: clientSlug, messages: messages, language: lang }) })
       .then(function (r) { return r.json(); })
       .then(function (d) {
         // The receptionist saved this visitor as a lead. Hold on to the id so a
@@ -223,7 +230,7 @@
         var reply = d.reply || d.error || "Sorry, something went wrong."; typing.textContent = reply; messages.push({ role: "assistant", content: reply });
         if (d.options && d.options.length) addOptions(d.options);
         bodyEl.scrollTop = bodyEl.scrollHeight; })
-      .catch(function () { typing.textContent = "Sorry, I couldn't reach us just now — please try again in a moment."; });
+      .catch(function () { typing.textContent = (lang === "pt" ? "Desculpe, não consegui conectar agora — tente novamente em instantes." : "Sorry, I couldn't reach us just now — please try again in a moment."); });
   }
   send.addEventListener("click", doSend);
   input.addEventListener("keydown", function (e) { if (e.key === "Enter") doSend(); });

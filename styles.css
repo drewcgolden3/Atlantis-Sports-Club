@@ -1656,3 +1656,42 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
   .ypop__body { padding: 20px 20px 22px; }
   .ypop__media { aspect-ratio: 16 / 9; }
 }
+
+/* =============================================================================
+   LANGUAGE TOGGLE
+   Sits beside the join button rather than inside the menu — someone who reads
+   Portuguese shouldn't have to navigate English to find their own language.
+   ============================================================================= */
+.nav__lang { display: inline-flex; }
+.langtog {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 40px; padding: 7px 12px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.4); border-radius: 999px;
+  color: #fff; cursor: pointer;
+  font-family: var(--font-head); font-weight: 700; font-size: .84rem;
+  letter-spacing: .04em;
+  transition: background .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+}
+.langtog svg { width: 15px; height: 15px; }
+.langtog:hover { background: rgba(255,255,255,.24); transform: translateY(-1px); }
+.langtog:focus-visible { outline: 3px solid var(--sky-400); outline-offset: 2px; }
+
+/* Once the header goes solid on scroll the white-on-transparent pill would
+   vanish into the background, so it flips to navy-on-white. */
+.nav.is-scrolled .langtog,
+.nav.is-menu-open .langtog {
+  background: var(--sky-50); border-color: var(--sky-200); color: var(--navy-800);
+}
+.nav.is-scrolled .langtog:hover,
+.nav.is-menu-open .langtog:hover { background: var(--sky-100); }
+
+/* In the mobile sheet it's on a white panel, so it needs the solid treatment
+   and enough width to be an obvious control rather than a chip. */
+.nav__lang--mobile { display: flex; margin-top: 14px; }
+.nav__lang--mobile .langtog {
+  width: 100%; justify-content: center;
+  min-height: 48px; font-size: .95rem;
+  background: var(--sky-50); border-color: var(--sky-200); color: var(--navy-800);
+}
+@media (max-width: 999px) { .nav__lang:not(.nav__lang--mobile) { display: none; } }
