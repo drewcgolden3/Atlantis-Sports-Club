@@ -1695,3 +1695,56 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
   background: var(--sky-50); border-color: var(--sky-200); color: var(--navy-800);
 }
 @media (max-width: 999px) { .nav__lang:not(.nav__lang--mobile) { display: none; } }
+
+/* =============================================================================
+   FAMILY BOARD
+   Paul asked for the value to be visible, so the saving leads and the old price
+   sits struck through beside the new one — the comparison is the pitch.
+   ============================================================================= */
+.famboard {
+  display: grid; grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 0;
+  border: 1.5px solid var(--gold-400); border-radius: var(--radius-xl);
+  overflow: hidden; box-shadow: var(--shadow-glow);
+  background: #fff;
+}
+.famboard__price {
+  background: linear-gradient(165deg, var(--navy-800), var(--navy-900));
+  color: #fff; padding: clamp(28px, 4vw, 40px);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.famboard__save {
+  display: inline-block; align-self: flex-start;
+  background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+  color: var(--navy-900);
+  font-family: var(--font-head); font-weight: 800;
+  font-size: .82rem; letter-spacing: .08em; text-transform: uppercase;
+  padding: 7px 14px; border-radius: 999px;
+}
+.famboard__amounts { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.famboard__was {
+  font-family: var(--font-display); font-size: 1.6rem;
+  color: rgba(255,255,255,.5); text-decoration-thickness: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.famboard__amt {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(3rem, 6vw, 4rem); line-height: 1; color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.famboard__cadence {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: 1rem; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--gold-300);
+}
+.famboard__covers { color: rgba(255,255,255,.82); font-size: .96rem; margin-top: 14px; }
+.famboard__year {
+  color: rgba(255,255,255,.92); font-size: .95rem; line-height: 1.6;
+  margin-top: 16px; padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.famboard__body { padding: clamp(26px, 4vw, 38px); display: flex; flex-direction: column; }
+.famboard__body .board__list { margin-top: 0; }
+.famboard__body .board__cta { padding-top: 22px; }
+
+@media (max-width: 860px) { .famboard { grid-template-columns: 1fr; } }

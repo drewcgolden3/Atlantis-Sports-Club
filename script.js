@@ -125,6 +125,16 @@
     enrollment:        money(pr.enrollment),
     regularEnrollment: money(pr.regularEnrollment),
     saveEnrollment:    money(saveEnrollment),
+    // Family. The saving figures are derived rather than configured — Paul wants
+    // the value shown, and a hand-typed "save $780" that stops matching the
+    // prices above is worse than not showing it at all.
+    family:            money(pr.family),
+    familyRegular:     money(pr.familyRegular),
+    familyAdditional:  money(pr.familyAdditional),
+    familyCovers:      String(pr.familyCovers || 4),
+    familySave:        money((pr.familyRegular || 0) - (pr.family || 0)),
+    familySaveYear:    money(((pr.familyRegular || 0) - (pr.family || 0)) * (pr.paymentsPerYear || 26)),
+
     // Billing cadence
     paymentsPerYear: String(pr.paymentsPerYear || 26),
     spots: Number(pr.foundingSpots || 500).toLocaleString(),

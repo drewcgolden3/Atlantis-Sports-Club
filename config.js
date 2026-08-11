@@ -37,6 +37,16 @@ window.ATLANTIS_CONFIG = {
     couplesFitnessPool:  "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=225",
     couplesComplete:     "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=226",
 
+    // Family — paste the Founding Family Membership contract URL here once the
+    // contract exists in Mindbody. While this is blank the button shows the
+    // "booking opens soon" notice instead of a dead link, so nothing broken
+    // reaches a customer — but nobody can buy a family membership either.
+    family:              "",
+    // The $29-per-extra-person add-on. Bought once per additional member, so a
+    // family of six buys it twice — that's why the site spells the count out
+    // rather than leaving people to work it out at checkout.
+    familyAddOn:         "",
+
     // Kept so older links/buttons still work — points at the Complete membership.
     membership:   "https://clients.mindbodyonline.com/classic/ws?studioid=7396&stype=40&prodid=220",
 
@@ -75,6 +85,14 @@ window.ATLANTIS_CONFIG = {
     couplesFitnessEach:     44,
     couplesFitnessPoolEach: 62,
     couplesCompleteEach:    89,
+
+    // Family — covers a household of four. Anyone beyond that buys the $29
+    // add-on themselves, once per person, so a family of six is the base rate
+    // plus two add-ons. Nobody at the front desk has to reconcile it.
+    family:           99,
+    familyRegular:   129,   // what it becomes after the founding memberships go
+    familyAdditional: 29,   // biweekly, per person beyond the first four
+    familyCovers:      4,   // household size the base rate covers
 
     // Scarcity
     foundingSpots:   500,   // how many founding memberships exist

@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=38" />
+  <link rel="stylesheet" href="styles.css?v=39" />
 </head>
 <body data-page="memberships">
 
@@ -192,101 +192,51 @@
     <div class="container">
       <div class="section__head">
         <p class="section__eyebrow">Bringing the whole household?</p>
-        <h2 class="section__title">Apply for a Family Membership</h2>
-        <p class="section__sub">Family rates depend on how many of you there are and what you want access to, so we price them individually rather than publishing one number that fits nobody. Tell us about your household and we&rsquo;ll build you a rate.</p>
+        <h2 class="section__title">Family Membership</h2>
+        <p class="section__sub">One membership, one enrollment fee, the whole family in. Founding rate locked in before it goes up.</p>
       </div>
 
-      <div class="family-panel">
-        <div class="family-panel__copy">
-          <h3>What happens next</h3>
-          <p>Fill this in and a membership advisor will come back to you with a family rate built around your household — usually within one business day.</p>
-          <ul class="family-panel__list">
-            <li>One enrollment fee for the whole household</li>
-            <li>Every level available — Fitness, Fitness&nbsp;+&nbsp;Pool, or Complete</li>
-            <li>Add children individually as they grow</li>
-            <li>Founders pricing held while we work it out with you</li>
-          </ul>
-          <p class="board__alt-note" style="margin-top:18px">Already know you want a couples membership for two adults? That&rsquo;s priced and ready — <a href="#levels" style="color:var(--color-primary-strong);text-decoration:underline">see couples rates</a>.</p>
+      <div class="famboard">
+        <div class="famboard__price">
+          <span class="famboard__save">Save <span data-price="familySave">$30</span> every two weeks</span>
+          <div class="famboard__amounts">
+            <s class="famboard__was" aria-label="Regular price"><span data-price="familyRegular">$129</span></s>
+            <span class="famboard__amt" data-price="family">$99</span>
+            <span class="famboard__cadence">Biweekly</span>
+          </div>
+          <p class="famboard__covers">Covers a household of <span data-price="familyCovers">4</span> &middot; plus a one-time <span data-price="enrollment">$99</span> founding enrollment</p>
+          <p class="famboard__year">That&rsquo;s <strong><span data-price="familySaveYear">$780</span> a year</strong> less than the standard family rate — held for as long as you stay a member.</p>
         </div>
 
-        <form class="leadform"
-              data-leadform
-              data-leadform-config="foundersForm"
-              data-leadform-source="Website — Family Membership"
-              data-leadform-interest-fields="Preferred membership level"
-              data-leadform-done="Thank you — we’ve got your details and a membership advisor will be in touch with your family rate."
-              novalidate>
+        <div class="famboard__body">
+          <ul class="board__list">
+            <li>Everything in the Complete Membership, for the whole household</li>
+            <li>One enrollment fee, not one per person</li>
+            <li>Every group fitness class included — yoga, Pilates, Zumba, cycling, water aerobics and more</li>
+            <li>Olympic-size pool, lap swimming and open swim</li>
+            <li>The full fitness floor, locker rooms, sauna and member lounge</li>
+            <li>Add more family members any time at <span data-price="familyAdditional">$29</span> biweekly each</li>
+          </ul>
 
-          <div class="field">
-            <label for="fam-name">Full name <span aria-hidden="true">*</span></label>
-            <input id="fam-name" name="Full name" type="text" autocomplete="name" required />
+          <p class="board__excludes">More than <span data-price="familyCovers">4</span> in your household? Add the extras yourself at <strong><span data-price="familyAdditional">$29</span> biweekly</strong> each — one add-on per person, straight through checkout.</p>
+
+          <div class="board__cta">
+            <a href="#" data-link="family" class="btn btn--gold btn--lg btn--block">
+              <span class="btn__label">Choose Family Membership</span>
+            </a>
+            <div class="board__alts">
+              <a href="#" data-link="familyAddOn" class="board__alt">
+                <span class="board__alt-label">Add a family member</span>
+                <span class="board__alt-price"><span data-price="familyAdditional">$29</span> biweekly each</span>
+                <svg class="board__alt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+            <p class="board__alt-note">Household of five? Add it once. Six? Twice — and so on. Just two adults? The <a href="#levels">couples rates</a> are cheaper.</p>
           </div>
-
-          <div class="field">
-            <label for="fam-email">Email address <span aria-hidden="true">*</span></label>
-            <input id="fam-email" name="Email address" type="email" autocomplete="email" required />
-          </div>
-
-          <div class="field">
-            <label for="fam-phone">Phone number</label>
-            <input id="fam-phone" name="Phone number" type="tel" autocomplete="tel" />
-          </div>
-
-          <div class="field">
-            <label for="fam-level">What are you interested in?</label>
-            <select id="fam-level" name="Preferred membership level">
-              <option value="Fitness — fitness floor only">Fitness — fitness floor only</option>
-              <option value="Fitness + Pool">Fitness + Pool</option>
-              <option value="Complete — everything including classes" selected>Complete — everything including classes</option>
-              <option value="Not sure yet">Not sure yet — help us choose</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="fam-adults">Number of adults</label>
-            <input id="fam-adults" name="Number of adults" type="number" min="1" max="10" inputmode="numeric" />
-          </div>
-
-          <div class="field">
-            <label for="fam-children">Number of children</label>
-            <input id="fam-children" name="Number of children" type="number" min="0" max="12" inputmode="numeric" />
-          </div>
-
-          <div class="field field--wide">
-            <label for="fam-ages">Children&rsquo;s ages</label>
-            <input id="fam-ages" name="Children's ages" type="text" placeholder="e.g. 6, 9 and 14" />
-            <span class="hint">Some programs and pool times are age-based, so this helps us quote accurately.</span>
-          </div>
-
-          <div class="field field--wide">
-            <label for="fam-size">Anything else about your household?</label>
-            <textarea id="fam-size" name="Anything else about the household" rows="3" maxlength="600" placeholder="Grandparents joining, a child already in swim lessons, split households — whatever's useful."></textarea>
-          </div>
-
-          <div class="field field--wide">
-            <label for="fam-time">Best time to contact</label>
-            <select id="fam-time" name="Best time to contact">
-              <option value="Anytime">Anytime</option>
-              <option value="Morning">Morning</option>
-              <option value="Afternoon">Afternoon</option>
-              <option value="Evening">Evening</option>
-              <option value="Weekends">Weekends</option>
-            </select>
-          </div>
-
-          <div class="leadform__hp" aria-hidden="true">
-            <label for="fam-company">Company</label>
-            <input id="fam-company" name="company" type="text" tabindex="-1" autocomplete="off" />
-          </div>
-
-          <p class="leadform__req"><span aria-hidden="true">*</span> Required</p>
-
-          <div class="leadform__actions">
-            <button type="submit" class="btn btn--gold btn--lg">Apply for a Family Membership</button>
-            <p class="leadform__msg" data-leadform-msg role="status" aria-live="polite"></p>
-          </div>
-        </form>
+        </div>
       </div>
+
+      <p class="disclaimer" data-disclaimer></p>
     </div>
   </section>
 
@@ -350,10 +300,10 @@
 
   <footer class="footer" id="siteFooter"></footer>
 
-  <script src="config.js?v=18"></script>
-  <script src="assets/pt.js?v=1"></script>
+  <script src="config.js?v=20"></script>
+  <script src="assets/pt.js?v=3"></script>
   <script src="assets/i18n.js?v=1"></script>
-  <script src="script.js?v=33"></script>
+  <script src="script.js?v=34"></script>
   <script src="assets/chat.js?v=8"></script>
 </body>
 </html>
