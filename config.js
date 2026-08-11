@@ -121,7 +121,7 @@ window.ATLANTIS_CONFIG = {
      Set `enabled: false` to switch it off entirely.                           */
   yarmouth: {
     enabled: true,
-    delaySeconds: 2,        // how long before it appears
+    delaySeconds: 4,        // how long before it appears
     remindAfterDays: 14,    // don't show again for this many days once dismissed
 
     // The popup switches itself off for good on opening day, because "join
