@@ -124,6 +124,12 @@ window.ATLANTIS_CONFIG = {
     delaySeconds: 6,        // how long before it appears
     remindAfterDays: 14,    // don't show again for this many days once dismissed
 
+    // The popup switches itself off for good on opening day, because "join
+    // Yarmouth while you wait" makes no sense once Hyannis is open. Left blank
+    // it follows `openingDate` below, so changing the opening date is enough —
+    // set a date here only to retire the popup earlier than that.
+    hideFrom: "",
+
     eyebrow: "Open Now",
     title:   "Atlantis Swim Club — Yarmouth",
     tagline: "Swim. Move. Feel better.",

@@ -1066,6 +1066,16 @@
     var y = CFG.yarmouth || {};
     if (!y.enabled || !y.url) return;
 
+    // The whole pitch is "come to Yarmouth while Hyannis is still being built",
+    // which stops being true the moment Hyannis opens. Tied to openingDate by
+    // default so moving the opening moves the popup with it — otherwise this
+    // would quietly keep sending people away from a club that had just opened.
+    var hideFrom = y.hideFrom || CFG.openingDate;
+    if (hideFrom) {
+      var endsAt = new Date(hideFrom).getTime();
+      if (!isNaN(endsAt) && Date.now() >= endsAt) return;
+    }
+
     var KEY = "asc_yarmouth_dismissed";
     try {
       var until = Number(localStorage.getItem(KEY) || 0);
