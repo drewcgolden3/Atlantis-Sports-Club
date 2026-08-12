@@ -494,7 +494,10 @@ ul { list-style: none; padding: 0; }
    lists every destination anyway. Re-measure if a nav item is ever added back. */
 @media (max-width: 999px) {
   .nav__links, .nav__cta { display: none; }
-  .nav__toggle { display: flex; }
+  /* The links row carries the margin-left:auto that pushes everything after it
+     to the right. Hiding it leaves the toggle sitting against the logo, so the
+     toggle takes over the job of holding the right edge. */
+  .nav__toggle { display: flex; margin-left: auto; }
 }
 
 @media (max-width: 940px) {
@@ -506,7 +509,7 @@ ul { list-style: none; padding: 0; }
 }
 @media (max-width: 760px) {
   .nav__links, .nav__cta { display: none; }
-  .nav__toggle { display: flex; }
+  .nav__toggle { display: flex; margin-left: auto; }
   .amenity-grid { grid-template-columns: 1fr; }
   .amenity--wide { grid-column: span 1; }
   .booking-grid { grid-template-columns: 1fr; }
