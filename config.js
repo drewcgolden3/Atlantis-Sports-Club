@@ -111,14 +111,11 @@ window.ATLANTIS_CONFIG = {
     pool:        "assets/images/pool.jpg",
     dance:       "assets/images/dance.jpg",
 
-    // The two boutique studios. Pointed at real club photos for now — swap these
-    // for proper high-energy class and yoga/Pilates shots when they're taken.
-    energyStudio:   "assets/images/dance.jpg",
-    mindBodyStudio: "assets/images/stretch.jpg",
+    // The two boutique studios. Energy is the new build's spin/group-fitness
+    // room; Mind & Body keeps the open studio floor it moved off of.
+    energyStudio:   "assets/images/energy-studio.jpg",
+    mindBodyStudio: "assets/images/dance.jpg",
 
-    // Drop a photo here and the sauna card fills itself in. Until the file
-    // exists the card simply renders without a background rather than showing a
-    // broken image — so it's safe to leave this pointing at nothing.
     sauna:       "assets/images/sauna.jpg",
 
     // The Yarmouth club, used by the "open now" popup.
