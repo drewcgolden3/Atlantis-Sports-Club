@@ -9,13 +9,62 @@
   <meta property="og:title" content="Atlantis Sports Club — Opening July 7, 2027" />
   <meta property="og:description" content="Three membership levels — Fitness $49 biweekly, Fitness + Pool $69 biweekly, Complete $99 biweekly. Founding enrollment $99 (reg. $299). Hyannis, MA." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/images/hero-poster.jpg" />
+  <meta property="og:url" content="https://drewcgolden3.github.io/Atlantis-Sports-Club/" />
+  <link rel="canonical" href="https://drewcgolden3.github.io/Atlantis-Sports-Club/" />
+  <meta property="og:image" content="https://drewcgolden3.github.io/Atlantis-Sports-Club/assets/images/hero-poster.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%230284C7'/%3E%3Cpath d='M24 9L35 24C31 21.6 17 21.6 13 24Z' fill='%23fff'/%3E%3Cpath d='M10 31C16.5 24.2 31.5 24.2 38 31C31.5 27.6 16.5 27.6 10 31Z' fill='%23fff'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css?v=40" />
+
+  <!-- ============================ STRUCTURED DATA ============================
+       Tells Google this is a real health club at a real address, which is what
+       earns the business panel and Maps relevance for "gym in Hyannis". It is
+       written out rather than generated from config.js on purpose: a crawler
+       that skips our JavaScript still has to see it.
+
+       KEEP IN SYNC with config.js — name, address, phone, email and price range.
+       If any of those change there, change them here too.
+
+       Deliberately absent: geo coordinates (we would be guessing them, and a
+       wrong pin is worse than none — Google resolves the address itself) and
+       openingHours (the club has none until July 7, 2027). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthClub",
+    "@id": "https://drewcgolden3.github.io/Atlantis-Sports-Club/#club",
+    "name": "Atlantis Sports Club",
+    "description": "A brand-new gym and Olympic-size pool opening July 7, 2027 in Hyannis, MA. Three membership levels, plus student, couples and family rates.",
+    "url": "https://drewcgolden3.github.io/Atlantis-Sports-Club/",
+    "image": "https://drewcgolden3.github.io/Atlantis-Sports-Club/assets/images/exterior.jpg",
+    "telephone": "+1-508-862-2535",
+    "email": "pkearney.atlantis@gmail.com",
+    "priceRange": "$49-$99 biweekly",
+    "currenciesAccepted": "USD",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "35 Scudder Ave",
+      "addressLocality": "Hyannis",
+      "addressRegion": "MA",
+      "postalCode": "02601",
+      "addressCountry": "US"
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=35+Scudder+Ave+Hyannis+MA+02601",
+    "sameAs": [
+      "https://www.facebook.com/ATLANTISSPORTSCLUBANDSPAHYANNIS/"
+    ],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Olympic-size pool", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Fitness floor", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Group fitness studios", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Sauna", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true }
+    ]
+  }
+  </script>
 </head>
 <body data-page="home">
 

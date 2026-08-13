@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Every page a visitor should be able to find in search, in rough order of how
+  much we care about it. presale.html is deliberately absent — it is retired and
+  canonicals to memberships.html.
+
+  lastmod is the date the page's content last changed. It is a hint, not a
+  promise: bumping every date on every deploy trains Google to ignore the field,
+  so only touch a date when the page actually changed.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- The money page: three membership levels plus the family rates. -->
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/memberships.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/amenities.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/aquatics.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/training.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Local-intent pages: the two people search for by name near opening. -->
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/location.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/booking.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/parties.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/community.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/careers.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- The QR-code landing page. Low priority in search, high value in print. -->
+  <url>
+    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/join.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>
