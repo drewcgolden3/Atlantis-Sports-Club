@@ -103,7 +103,7 @@
     '</span>' +
     '<span style="flex:1;min-width:0">' +
       '<span style="display:block;font-weight:700;font-size:15px;letter-spacing:.01em">' + esc(title) + '</span>' +
-      '<span style="display:block;font-size:12px;opacity:.85">We usually reply in a few minutes</span>' +
+      '<span style="display:block;font-size:12px;opacity:.85">We reply instantly</span>' +
     '</span>' +
     '<button class="asc-close" type="button" aria-label="Close chat" style="border:none;background:transparent;color:#fff;font-size:22px;line-height:1;cursor:pointer;padding:2px 6px">&times;</button>';
 
