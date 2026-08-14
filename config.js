@@ -118,6 +118,12 @@ window.ATLANTIS_CONFIG = {
 
     sauna:       "assets/images/sauna.jpg",
 
+    // The party room dressed for a birthday — the only picture on that page.
+    birthday:    "assets/images/birthday-party.jpg",
+
+    // The club's front elevation. Also the amenities hero, set in styles.css.
+    clubFront:   "assets/images/club-front.jpg",
+
     // The Yarmouth club, used by the "open now" popup.
     yarmouth:    "assets/images/yarmouth.jpg",
     // Booking card photos (can reuse the amenity photos above)

@@ -372,6 +372,9 @@ window.ASC_PT = {
   /* ------------------------------------------------------------ community --- */
   "Atlantis in the Community": "Atlantis na Comunidade",
   "Building a Healthier Cape Cod Together": "Construindo uma Cape Cod Mais Saudável, Juntos",
+  "Coming Soon": "Em Breve",
+  "Member Rewards": "Programa de Recompensas",
+  "— earn perks for training, referring friends, and showing up for the community.": "— ganhe vantagens treinando, indicando amigos e participando da comunidade.",
   "More than a fitness facility — an active partner to the organisations that hold this community together.": "Mais do que uma academia — um parceiro ativo das organizações que sustentam esta comunidade.",
   "Become a Community Partner": "Seja um Parceiro da Comunidade",
   "Our Commitment": "Nosso Compromisso",
