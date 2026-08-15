@@ -11,7 +11,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/</loc>
+    <loc>https://atlantissportsclubhyannis.com/</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -19,28 +19,28 @@
 
   <!-- The money page: three membership levels plus the family rates. -->
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/memberships.html</loc>
+    <loc>https://atlantissportsclubhyannis.com/memberships.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/amenities.html</loc>
+    <loc>https://atlantissportsclubhyannis.com/amenities.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/aquatics.html</loc>
+    <loc>https://atlantissportsclubhyannis.com/aquatics.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/training.html</loc>
+    <loc>https://atlantissportsclubhyannis.com/training.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -48,35 +48,35 @@
 
   <!-- Local-intent pages: the two people search for by name near opening. -->
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/location.html</loc>
+    <loc>https://atlantissportsclubhyannis.com/location.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/booking.html</loc>
+    <loc>https://atlantissportsclubhyannis.com/booking.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/parties.html</loc>
+    <loc>https://atlantissportsclubhyannis.com/parties.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/community.html</loc>
+    <loc>https://atlantissportsclubhyannis.com/community.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/careers.html</loc>
+    <loc>https://atlantissportsclubhyannis.com/careers.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -84,7 +84,7 @@
 
   <!-- The QR-code landing page. Low priority in search, high value in print. -->
   <url>
-    <loc>https://drewcgolden3.github.io/Atlantis-Sports-Club/join.html</loc>
+    <loc>https://atlantissportsclubhyannis.com/join.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>

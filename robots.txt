@@ -4,6 +4,6 @@ Allow: /
 # presale.html is a retired page kept only so old QR codes and printed links
 # still land somewhere. It canonicals to memberships.html and is noindexed, so
 # there is nothing here for a crawler to spend time on.
-Disallow: /Atlantis-Sports-Club/presale.html
+Disallow: /presale.html
 
-Sitemap: https://drewcgolden3.github.io/Atlantis-Sports-Club/sitemap.xml
+Sitemap: https://atlantissportsclubhyannis.com/sitemap.xml
