@@ -312,7 +312,7 @@ ul { list-style: none; padding: 0; }
   text-shadow: 0 2px 20px rgba(4,27,43,.5);
 }
 .hero--center .hero__cta { justify-content: center; margin-top: 32px; }
-.hero--center .countdown { margin-top: 30px; }
+.hero--center .opening { margin-top: 30px; }
 .hero__trust {
   margin-top: 22px;
   font-family: var(--font-head); font-weight: 600;
@@ -339,12 +339,13 @@ ul { list-style: none; padding: 0; }
 .hero__scroll-mouse span { position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; background: #fff; border-radius: 2px; transform: translateX(-50%); animation: scrollWheel 1.8s var(--ease) infinite; }
 @keyframes scrollWheel { 0% { opacity: 0; transform: translate(-50%, 0); } 30% { opacity: 1; } 60% { opacity: 1; transform: translate(-50%, 12px); } 100% { opacity: 0; transform: translate(-50%, 14px); } }
 
-/* countdown */
-.countdown { display: inline-flex; align-items: flex-start; gap: 6px; margin-top: 24px; padding: 14px 22px; background: rgba(4,27,43,.35); border: 1px solid rgba(255,255,255,.22); border-radius: var(--radius); backdrop-filter: blur(10px); }
-.countdown__unit { display: flex; flex-direction: column; align-items: center; min-width: 58px; }
-.countdown__num { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1; font-variant-numeric: tabular-nums; }
-.countdown__lab { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; opacity: .75; margin-top: 6px; }
-.countdown__sep { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1; opacity: .4; padding-top: 2px; }
+/* opening */
+/* Replaced the opening-day countdown. A clock counting to an exact second is a
+   promise about a date; the opening is a season, so the hero states the season
+   and keeps the same glass plate so the composition doesn't lose its anchor. */
+.opening { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 24px; padding: 16px 32px; background: rgba(4,27,43,.35); border: 1px solid rgba(255,255,255,.22); border-radius: var(--radius); backdrop-filter: blur(10px); }
+.opening__lab { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; opacity: .75; }
+.opening__when { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 4.6vw, 2.6rem); line-height: 1; }
 
 /* pulse dot */
 .pulse-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--cyan-300); position: relative; flex: none; }
@@ -515,15 +516,14 @@ ul { list-style: none; padding: 0; }
   .booking-grid { grid-template-columns: 1fr; }
   .footer__inner { grid-template-columns: 1fr; }
   .hero__content { padding-top: calc(var(--header-h, 150px) + 22px); padding-bottom: 64px; }
-  .countdown { padding: 12px 14px; gap: 2px; }
-  .countdown__unit { min-width: 46px; }
+  .opening { padding: 14px 22px; }
 
   /* Phone hero: everything a notch tighter so the offer and both buttons fit on
      one screen without the content running under the header or the chat bubble. */
   .hero__eyebrow { font-size: .74rem; letter-spacing: .08em; gap: 8px; padding: 7px 13px; }
   .hero__title { font-size: clamp(2.6rem, 12vw, 3.6rem); margin-top: 14px; }
   .hero__lede { font-size: 1.02rem; margin-top: 12px; }
-  .countdown { margin-top: 18px; }
+  .opening { margin-top: 18px; }
   .hero__cta { margin-top: 20px; gap: 10px; }
   .hero__cta .btn { width: 100%; }
   .btn--lg { font-size: 1.05rem; padding: .8em 1.2em; }
@@ -543,14 +543,14 @@ ul { list-style: none; padding: 0; }
   .announce__short { display: inline; }
 }
 @media (max-width: 420px) {
-  .countdown__unit { min-width: 40px; }
-  .countdown__num { font-size: 1.75rem; }
+  .opening { padding: 12px 18px; }
+  .opening__when { font-size: 1.75rem; }
   /* Small phones (SE-class): shave just enough to keep both hero buttons above
      the fold once the announcement bar wraps to two lines. */
   .hero__eyebrow { font-size: .68rem; padding: 6px 11px; }
   .hero__title { font-size: clamp(2.3rem, 11.5vw, 3rem); }
   .hero__lede { font-size: .98rem; margin-top: 10px; }
-  .countdown { margin-top: 14px; padding: 10px 12px; }
+  .opening { margin-top: 14px; padding: 10px 16px; }
   .hero__cta { margin-top: 16px; }
   .hero__content { padding-bottom: 52px; }
 }
@@ -659,17 +659,6 @@ ul { list-style: none; padding: 0; }
   font-family: var(--font-head); font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
   font-size: .76rem; color: var(--color-fg-soft); margin-bottom: 12px;
 }
-/* Countdown on a light section, rather than over the dark hero/offer card. */
-.countdown--ink {
-  background: var(--sky-50);
-  border-color: var(--color-border);
-  color: var(--color-fg);
-  backdrop-filter: none;
-  margin-top: 0;
-}
-.countdown--ink .countdown__num { color: var(--color-primary-strong); }
-.countdown--ink .countdown__lab { color: var(--color-fg-soft); opacity: 1; }
-.countdown--ink .countdown__sep { color: var(--sky-300); opacity: 1; }
 .offer-timer .scarcity { margin-top: 20px; width: 100%; }
 .offer-timer .scarcity__label { color: var(--color-primary-strong); text-align: center; }
 

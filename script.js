@@ -790,23 +790,6 @@
     }, 3600);
   }
 
-  /* ============================================================= COUNTDOWN */
-  var cdEls = { days: $('[data-cd="days"]'), hours: $('[data-cd="hours"]'), mins: $('[data-cd="mins"]'), secs: $('[data-cd="secs"]') };
-  if (cdEls.days || cdEls.hours) {
-    var target = new Date(CFG.openingDate || "2027-07-07T09:00:00").getTime();
-    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
-    var tick = function () {
-      var diff = target - Date.now(); if (diff < 0) diff = 0;
-      var d = Math.floor(diff / 86400000), h = Math.floor((diff % 86400000) / 3600000),
-          m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000);
-      if (cdEls.days) cdEls.days.textContent = d;
-      if (cdEls.hours) cdEls.hours.textContent = pad(h);
-      if (cdEls.mins) cdEls.mins.textContent = pad(m);
-      if (cdEls.secs) cdEls.secs.textContent = pad(s);
-    };
-    tick(); setInterval(tick, 1000);
-  }
-
   /* ============================================================= NAV BEHAVIOR */
   var nav = $("#nav");
   if (nav) {

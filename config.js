@@ -158,7 +158,7 @@ window.ATLANTIS_CONFIG = {
     eyebrow: "Open Now",
     title:   "Atlantis Swim Club — Yarmouth",
     tagline: "Swim. Move. Feel better.",
-    intro:   "Atlantis Sports Club Hyannis opens July 2027. In the meantime, our Yarmouth club is open today.",
+    intro:   "Atlantis Sports Club Hyannis opens in summer 2027. In the meantime, our Yarmouth club is open today.",
     features: [
       "Beautiful 86° heated indoor pool",
       "Lap swimming",
@@ -221,9 +221,12 @@ window.ATLANTIS_CONFIG = {
   },
 
   /* -- 5) OPENING DATE & DETAILS -------------------------------------------- */
-  openingDate: "2027-07-07T09:00:00",   // drives the countdown
-  openingLabel: "July 7, 2027",
-  openingLabelPt: "7 de julho de 2027",   // shown when the site is in Portuguese
+  openingDate: "2027-07-07T09:00:00",   // the real contract date: it no longer
+                                        // appears on the site, but it still sets
+                                        // the earliest bookable party date and
+                                        // retires the Yarmouth popup
+  openingLabel: "Summer 2027",
+  openingLabelPt: "verão de 2027",        // shown when the site is in Portuguese
 
   contact: {
     email: "pkearney.atlantis@gmail.com",

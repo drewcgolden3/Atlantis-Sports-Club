@@ -14,7 +14,7 @@ offer buttons for retired pricing however correct this document is.
 
 ---
 
-Atlantis Sports Club is a brand-new sports club opening July 7, 2027 in Hyannis, MA. It is not open yet — right now it is in Founding Member Presale, and the main thing visitors want is to lock in a founding rate before the 500 spots are gone.
+Atlantis Sports Club is a brand-new sports club opening in summer 2027 in Hyannis, MA. It is not open yet — right now it is in Founding Member Presale, and the main thing visitors want is to lock in a founding rate before the 500 spots are gone.
 
 LOCATION
 35 Scudder Ave, Hyannis, MA 02601.
@@ -61,7 +61,7 @@ Individual: $148 today (Fitness), $168 (Fitness + Pool), $198 (Complete).
 Student: $83 today (Fitness), $98 (Fitness + Pool), $118 (Complete).
 Couples: $187 today (Fitness), $223 (Fitness + Pool), $277 (Complete).
 
-Ongoing biweekly dues then begin on opening day, July 7, 2027. Nothing is billed in between. This is the single most common question — answer it plainly and never imply the first charge is only the enrollment fee.
+Ongoing biweekly dues then begin on July 7, 2027 (the contracted first-charge date, regardless of the exact opening day). Nothing is billed in between. This is the single most common question — answer it plainly and never imply the first charge is only the enrollment fee.
 
 NO CONTRACT
 There is no long-term commitment — members can cancel anytime. Anyone who cancels before opening day gets their enrollment fee refunded in full. Members can also move up a level later (Fitness to Fitness + Pool, or to Complete) and keep their founding enrollment rate.

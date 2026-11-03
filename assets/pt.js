@@ -13,7 +13,7 @@
 window.ASC_PT = {
 
   /* ---------------------------------------------------------- page titles --- */
-  "Atlantis Sports Club — Opening July 7, 2027 · Hyannis, MA": "Atlantis Sports Club — Inauguração em 7 de julho de 2027 · Hyannis, MA",
+  "Atlantis Sports Club — Opening Summer 2027 · Hyannis, MA": "Atlantis Sports Club — Inauguração no verão de 2027 · Hyannis, MA",
   "Amenities — Atlantis Sports Club": "Estrutura — Atlantis Sports Club",
   "Aquatics — Atlantis Sports Club": "Piscina — Atlantis Sports Club",
   "Membership Options — Atlantis Sports Club": "Planos de Associação — Atlantis Sports Club",
@@ -179,7 +179,7 @@ window.ASC_PT = {
   "Pick your level, then your rate — every one has a student and a couples price, and families get their own. Founding members pay": "Escolha seu nível e depois seu valor — todos têm preço para estudante e para casal, e famílias têm o seu próprio. Sócios fundadores pagam",
   "to enroll instead of the standard": "de adesão em vez do valor normal de",
   "— a saving of": "— uma economia de",
-  ". Dues begin on opening day,": ". As mensalidades começam no dia da inauguração,",
+  ". Dues begin on July 7, 2027.": ". As mensalidades começam em 7 de julho de 2027.",
   "Fitness Membership": "Plano Musculação",
   "Plus a one-time": "Mais uma taxa única de",
   "founding enrollment": "de adesão fundadora",
@@ -275,7 +275,7 @@ window.ASC_PT = {
   "payments a year. These are not monthly rates.": "pagamentos por ano. Estes não são valores mensais.",
   "What do I pay today, and when does billing start?": "Quanto pago hoje e quando começa a cobrança?",
   "Today you pay the": "Hoje você paga a adesão de",
-  "enrollment plus your first payment, which covers your first period of membership once we open. Your ongoing biweekly dues then begin on opening day,": "mais o seu primeiro pagamento, que cobre o primeiro período de associação depois que abrirmos. As cobranças quinzenais seguintes começam no dia da inauguração,",
+  "enrollment plus your first payment, which covers your first period of membership once we open. Your ongoing biweekly dues then begin on July 7, 2027 — nothing is billed in between.": "mais o seu primeiro pagamento, que cobre o primeiro período de associação depois que abrirmos. As cobranças quinzenais seguintes começam em 7 de julho de 2027 — nada é cobrado nesse intervalo.",
   "— nothing is billed in between.": "— nada é cobrado nesse intervalo.",
   "Are classes included?": "As aulas estão incluídas?",
   "Group fitness classes are included in the": "As aulas coletivas estão incluídas apenas no",
@@ -636,7 +636,7 @@ window.ASC_PT = {
   "Open Now": "Aberto Agora",
   "Atlantis Swim Club — Yarmouth": "Atlantis Swim Club — Yarmouth",
   "Swim. Move. Feel better.": "Nade. Movimente-se. Sinta-se melhor.",
-  "Atlantis Sports Club Hyannis opens July 2027. In the meantime, our Yarmouth club is open today.": "O Atlantis Sports Club Hyannis abre em julho de 2027. Enquanto isso, nosso clube em Yarmouth já está aberto.",
+  "Atlantis Sports Club Hyannis opens in summer 2027. In the meantime, our Yarmouth club is open today.": "O Atlantis Sports Club Hyannis abre no verão de 2027. Enquanto isso, nosso clube em Yarmouth já está aberto.",
   "Beautiful 86° heated indoor pool": "Linda piscina coberta aquecida a 86°F (30°C)",
   "Open swim": "Natação livre",
   "Aqua fitness &amp; wellness": "Hidroginástica e bem-estar",
