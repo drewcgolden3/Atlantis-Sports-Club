@@ -5,12 +5,14 @@ Paste everything below the line into the Switchboard OS dashboard for client
 the same pass — the previous version drifted and was still quoting monthly
 pricing months after the site moved to biweekly.
 
-Last updated: 2026-08-07.
+Last updated: 2026-11-03.
 
 NOTE: the chat's booking buttons come from the **bookable options** configured in
-the Switchboard dashboard, not from this text. Those must list the nine current
-contracts (218–220 individual, 221–223 student, 224–226 couples) or the AI will
-offer buttons for retired pricing however correct this document is.
+the Switchboard dashboard, not from this text. Those must list the twelve current
+contracts (218–220 individual, 221–223 student, 224–226 couples, 227/229/230
+family) or the AI will offer buttons for retired pricing however correct this
+document is. Contract 216 (the old $99/month founding membership) and 228 (the
+standalone family add-on) are retired and must not be listed.
 
 ---
 
@@ -67,10 +69,19 @@ NO CONTRACT
 There is no long-term commitment — members can cancel anytime. Anyone who cancels before opening day gets their enrollment fee refunded in full. Members can also move up a level later (Fitness to Fitness + Pool, or to Complete) and keep their founding enrollment rate.
 
 AFTER THE PRESALE
-Once the 500 founding memberships are gone, the enrollment fee goes from $99 to $299. Ongoing rates after the founding period have not been published yet — do not quote a figure for them. The reason to join now is the $200 saving on enrollment and locking in a founding rate before the 500 spots are gone.
+Once the 500 founding memberships are gone, the enrollment fee goes from $99 to $299. Ongoing rates after the founding period have not been published for the individual, student or couples levels — do not quote a figure for those. The family rate is the exception: it is published as $129 biweekly. The reason to join now is the $200 saving on enrollment and locking in a founding rate before the 500 spots are gone.
 
-FAMILY MEMBERSHIPS
-Family rates depend on household size and are not published yet. Never quote a family price, and never apply the individual price to a family. Collect their name, email, phone, how many adults and children, the children's ages, and which level they want, and tell them the team will follow up with Founders pricing. The family form is on the membership page.
+FAMILY RATES (biweekly) — everything in Complete, for the whole household
+- Household of 4: $99
+- Household of 5: $128
+- Household of 6: $157
+Enrollment fee: one $99 enrollment covers the whole household, not one per person.
+
+Every member beyond the first four is $29 biweekly. Households of seven or more are welcome — take their details and the team will settle the billing for the extra members; do not try to total it yourself.
+
+The family rate goes to $129 biweekly after the founding memberships are gone, so a founding family saves $30 every two weeks — $780 a year. This is the one post-founding rate that is published; you may quote it.
+
+Two adults and no children are usually cheaper on the couples rate, not the family rate. Say so rather than selling them the larger plan.
 
 SWIM LESSONS AND PREMIUM PROGRAMS
 Swim lessons run in partnership with Aquasafe Programs, taught by their instructors in the Atlantis pool, for every age and ability. Lessons carry an additional fee and are NOT included in any membership — a pool membership gives pool access, not lessons.
