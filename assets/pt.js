@@ -11,6 +11,11 @@
    thing in English and another in Portuguese.
    ============================================================================ */
 window.ASC_PT = {
+  "An Aquasafe lesson · photo courtesy of Aquasafe Programs": "Uma aula da Aquasafe · foto cedida pela Aquasafe Programs",
+  "A Studio EX group fitness class in session": "Uma aula coletiva da Studio EX em andamento",
+  "An Aquasafe Programs instructor teaching a swim lesson": "Uma instrutora da Aquasafe Programs dando aula de natação",
+  "Studio EX — Cycle & Group Fitness": "Studio EX — Cycle & Group Fitness",
+
   "Group fitness at Atlantis, by Studio EX": "Ginástica coletiva no Atlantis, pela Studio EX",
   "We’ve partnered with Studio EX — the cycle and group fitness studio already packing classes in Hyannis — to run every group class at Atlantis. Their instructors, our studios, from the day we open.": "Fizemos parceria com a Studio EX — o estúdio de spinning e ginástica coletiva que já lota as aulas em Hyannis — para comandar todas as aulas coletivas do Atlantis. Os instrutores deles, nos nossos estúdios, desde o dia em que abrirmos.",
   "Train with Studio EX today": "Treine na Studio EX hoje",

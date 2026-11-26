@@ -1843,3 +1843,28 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
 
 /* Two partner links side by side, wrapping on a phone. */
 .feature-row__links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 6px; }
+
+/* ---------------------------------------------- partner logos & photos ---
+   A named partner reads as real when their own mark is on the page, so each
+   partnership section carries the logo above its heading. Capped small: it is
+   a credential, not a co-brand, and must not out-shout the Atlantis wordmark
+   in the header.                                                            */
+.partner-logo { display: block; height: 54px; width: auto; margin-bottom: 14px; }
+/* Studio EX's mark ships on its own black plate, so it gets rounded corners
+   rather than sitting as a hard square on a light section. */
+.partner-logo--dark { border-radius: 10px; }
+/* Aquasafe's mark is navy and white, and the swim section it sits on is navy
+   — half the logo disappeared. A white plate is what a partner logo gets on a
+   dark ground anyway, and keeps their colours the colours they chose. */
+.partner-logo--plate {
+  background: #fff; border-radius: 10px;
+  padding: 10px 14px; height: 68px; box-sizing: content-box;
+}
+
+.partner-col { display: flex; flex-direction: column; gap: 20px; }
+.partner-shot { margin: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--color-border); }
+.partner-shot img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.partner-shot figcaption {
+  padding: 9px 14px; font-size: .76rem; color: var(--color-fg-soft);
+  background: var(--color-surface); border-top: 1px solid var(--color-border);
+}
