@@ -823,7 +823,15 @@
   /* ============================================================= NAV BEHAVIOR */
   var nav = $("#nav");
   if (nav) {
-    var onScrollNav = function () { nav.classList.toggle("is-scrolled", window.scrollY > 40); };
+    // Pages that open on a light band have no dark hero for the nav to sit
+    // over, and the nav is white-on-transparent until it scrolls — so it
+    // would be invisible for the first 40px of those pages. They opt into
+    // the solid treatment from the start.
+    var navAlwaysSolid = document.body.hasAttribute("data-nav-solid");
+    if (navAlwaysSolid) nav.classList.add("is-scrolled");
+    var onScrollNav = function () {
+      nav.classList.toggle("is-scrolled", navAlwaysSolid || window.scrollY > 40);
+    };
     onScrollNav();
     window.addEventListener("scroll", onScrollNav, { passive: true });
   }

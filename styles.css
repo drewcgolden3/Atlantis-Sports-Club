@@ -1850,15 +1850,10 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
    a credential, not a co-brand, and must not out-shout the Atlantis wordmark
    in the header.                                                            */
 .partner-logo { display: block; height: 54px; width: auto; margin-bottom: 14px; }
-/* Studio EX's mark ships on its own black plate. On the dark partner section
-   that plate has no edge at all, so it needs a hairline to read as a logo
-   rather than a smudge — and the same height as Aquasafe's plated mark, so
-   the two pages carry equal weight. Not inverted onto white: the wordmark
-   itself is white and would disappear. */
-.partner-logo--dark {
-  border-radius: 10px; height: 68px;
-  border: 1px solid rgba(255,255,255,.22);
-}
+/* Studio EX's mark ships on its own black plate, which reads fine on the
+   white partner section. Matched in height to Aquasafe's so the two pages
+   carry equal weight. Never inverted: the wordmark itself is white. */
+.partner-logo--dark { border-radius: 10px; height: 68px; }
 /* Aquasafe's mark is navy and white, and the swim section it sits on is navy
    — half the logo disappeared. A white plate is what a partner logo gets on a
    dark ground anyway, and keeps their colours the colours they chose. */
@@ -1882,8 +1877,49 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
    transparent until you scroll, so a light band at the top of the page
    would hide it.                                                          */
 .cine--lead { padding-top: max(clamp(120px, 16vw, 168px), calc(var(--header-h, 104px) + 44px)); }
-/* Two cine sections in a row would restate the same gradient; the second
-   picks up where the first ended instead. */
-.cine--lead + .cine { background: linear-gradient(180deg, #0A3D63 0%, var(--ocean) 100%); }
 
 .cine__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+
+/* --------------------------------------------- light partner sections ---
+   Same cine split, white ground. Every colour in .cine assumes a dark
+   background, so each one is restated here rather than the markup being
+   rebuilt — the two partner pages stay structurally identical to each
+   other, and to the dark cine sections further down the same pages.
+
+   Pages using this must also carry data-nav-solid on <body>: the nav is
+   white-on-transparent until it scrolls, and would vanish against this. */
+.cine--light {
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+.cine--light .cine__title { color: var(--navy-800); }
+.cine--light .cine__eyebrow { color: var(--color-primary-strong); }
+.cine--light .cine__sub { color: var(--color-fg-soft); }
+.cine--light .cine__sub strong { color: var(--navy-800); }
+.cine--light .cine__sub a { color: var(--color-primary-strong); border-bottom-color: var(--sky-300); }
+.cine--light .cine__link { color: var(--color-primary-strong); }
+.cine--light .cine__link:hover { color: var(--navy-800); }
+
+/* The signup panel drops its dark-ground treatment with everything else. */
+.cine--light .signup--panel {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+.cine--light .signup--panel .signup__fields input { background: #fff; }
+.cine--light .signup__title { color: var(--navy-800); }
+.cine--light .signup__eyebrow { color: var(--color-primary-strong); }
+.cine--light .signup__sub { color: var(--color-fg-soft); }
+
+/* .btn--ghost is a white-on-dark button; on white it reads as a blank
+   outline. The light sections use the outline button instead. */
+.cine--light .btn--ghost {
+  background: transparent;
+  color: var(--color-primary-strong);
+  border-color: var(--sky-300);
+  backdrop-filter: none;
+}
+.cine--light .btn--ghost:hover { background: var(--sky-50); border-color: var(--sky-500); }
+
+/* Aquasafe's mark no longer needs a plate of its own on a white ground. */
+.cine--light .partner-logo--plate { background: none; padding: 0; height: 60px; }
