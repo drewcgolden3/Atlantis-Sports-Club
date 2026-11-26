@@ -164,7 +164,7 @@
   var NAV = [
     { key: "amenities",   label: "Fitness",         href: "amenities.html" },
     { key: "aquatics",    label: "Swim Lessons",    href: "aquatics.html" },
-    { key: "training",    label: "Classes",         href: "training.html" },
+    { key: "training",    label: "Group Fitness",   href: "training.html" },
     { key: "parties",     label: "Birthday Parties", href: "parties.html" },
     { key: "community",   label: "Community",       href: "community.html" },
     { key: "careers",     label: "Join the Team",   href: "careers.html" },
@@ -723,6 +723,36 @@
   ["family5", "family6"].forEach(function (k) {
     if (!links[k] || links[k] === "#") links[k] = links.family;
   });
+  /* ===================================================== PROGRAM PARTNERS */
+  // Partner links come from config so the owner never edits HTML to add one.
+  // An element whose partner has no url yet is removed rather than left
+  // pointing at "#": a dead "more about our partner" link reads worse to a
+  // visitor than no link at all, and the surrounding section still stands.
+  var partnerSeen = [];
+  $all("[data-partner]").forEach(function (el) {
+    var spec = (el.getAttribute("data-partner") || "").split(".");
+    var partner = (CFG.partners || {})[spec[0]] || {};
+    var url = partner[spec[1] || "url"] || "";
+    if (!url) { el.remove(); return; }
+    // A partner whose "book now" and "about us" addresses are the same one
+    // site would otherwise render two links, side by side, to the same page.
+    // Keep the first — the pages list the actionable one first — and drop the
+    // rest. Give that partner distinct urls in config and both come back.
+    var dupe = partnerSeen.some(function (seen) {
+      return seen.parent === el.parentNode && seen.url === url;
+    });
+    if (dupe) { el.remove(); return; }
+    partnerSeen.push({ parent: el.parentNode, url: url });
+    el.setAttribute("href", url);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+  // Partner names too, so renaming one is a single edit in config.js.
+  $all("[data-partner-name]").forEach(function (el) {
+    var p = (CFG.partners || {})[el.getAttribute("data-partner-name")];
+    if (p && p.name) el.textContent = p.name;
+  });
+
   $all("[data-link]").forEach(function (el) {
     var key = el.getAttribute("data-link");
     if (key === "map" || key === "email") return;

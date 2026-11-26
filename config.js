@@ -59,6 +59,29 @@ window.ATLANTIS_CONFIG = {
     danceStudio:  "#",   // Dance studio booking
   },
 
+  /* -- 1b) PROGRAM PARTNERS -------------------------------------------------
+     The two outside programs running inside Atlantis. Each page shows the
+     partner section either way; the "more about" link only appears once a url
+     is filled in here, so a missing address is a quieter section rather than
+     a dead link.
+
+     `liveUrl` is where that partner takes bookings TODAY, at their own
+     locations. It is deliberately separate from the Atlantis programme, which
+     does not start until the club opens — leave it blank and the site stops
+     offering it.                                                             */
+  partners: {
+    studioEx: {
+      name:    "Studio EX",
+      url:     "https://www.studiogroupex.com/",
+      liveUrl: "https://www.studiogroupex.com/schedule",
+    },
+    aquasafe: {
+      name:    "Aquasafe Programs",
+      url:     "https://www.aquasafeprograms.com/",
+      liveUrl: "https://www.aquasafeprograms.com/",
+    },
+  },
+
   /* -- 2) PRICING -----------------------------------------------------------
      Enter numbers only (no "$"). Every price on the site is billed EVERY TWO
      WEEKS — 26 payments a year. The site says so automatically and prints the
