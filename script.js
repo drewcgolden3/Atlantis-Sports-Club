@@ -569,6 +569,69 @@
     var fileWrap = $("[data-leadform-file]", form);
     if (fileWrap && !cfg.web3formsKey) fileWrap.remove();
 
+    /* ------------------------------------------------------- drop a link ---
+       Dragging a file out of Google Drive, Dropbox or LinkedIn hands the page
+       a URL, so the commonest way people have their resume to hand can fill
+       this field by dropping rather than copy-pasting between tabs.
+
+       Dropping a file off the desktop cannot work — there is nowhere to put
+       it — so that case says so plainly instead of appearing to accept the
+       file and losing it. */
+    $all("[data-dropzone]", form).forEach(function (zone) {
+      var input = $("input", zone);
+      var hint = $("[data-dropzone-hint]", zone);
+      if (!input) return;
+      var original = hint ? hint.textContent : "";
+      var resetTimer;
+
+      function note(text, kind) {
+        if (!hint) return;
+        clearTimeout(resetTimer);
+        hint.textContent = text;
+        hint.classList.toggle("is-error", kind === "error");
+        hint.classList.toggle("is-ok", kind === "ok");
+        resetTimer = setTimeout(function () {
+          hint.textContent = original;
+          hint.classList.remove("is-error", "is-ok");
+        }, 9000);
+      }
+
+      ["dragenter", "dragover"].forEach(function (evt) {
+        zone.addEventListener(evt, function (e) {
+          e.preventDefault();
+          zone.classList.add("is-dragover");
+        });
+      });
+      ["dragleave", "dragend", "drop"].forEach(function (evt) {
+        zone.addEventListener(evt, function () { zone.classList.remove("is-dragover"); });
+      });
+
+      zone.addEventListener("drop", function (e) {
+        e.preventDefault();
+        var dt = e.dataTransfer;
+        if (!dt) return;
+
+        // uri-list is what a drag from a cloud drive or a browser tab carries;
+        // text/plain is the fallback for a pasted-style drag.
+        var url = (dt.getData("text/uri-list") || dt.getData("text/plain") || "").trim();
+        url = url.split("\n")[0].trim();
+
+        if (/^https?:\/\/\S+$/i.test(url)) {
+          input.value = url;
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+          note(t("Link added — thanks.", "Link adicionado — obrigado."), "ok");
+          return;
+        }
+
+        if (dt.files && dt.files.length) {
+          note(t(
+            "We can't take the file itself here — share it from Google Drive, Dropbox or LinkedIn and drop that link in, or email it to us after applying.",
+            "Não conseguimos receber o arquivo por aqui — compartilhe pelo Google Drive, Dropbox ou LinkedIn e solte o link aqui, ou envie por e-mail depois de se inscrever."
+          ), "error");
+        }
+      });
+    });
+
     function say(text, isError) {
       if (!msg) return;
       msg.textContent = text;

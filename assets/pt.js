@@ -11,6 +11,8 @@
    thing in English and another in Portuguese.
    ============================================================================ */
 window.ASC_PT = {
+  "Paste a link, or drag your resume straight in from Google Drive, Dropbox or LinkedIn. You can also email it to us after applying.": "Cole um link ou arraste seu currículo direto do Google Drive, Dropbox ou LinkedIn. Você também pode enviar por e-mail depois de se inscrever.",
+
   "We’ve teamed up with Studio EX": "Fizemos parceria com a Studio EX",
   "A Studio EX class · photo courtesy of Studio EX": "Uma aula da Studio EX · foto cedida pela Studio EX",
   "Atlantis has teamed up with": "O Atlantis fez parceria com a",

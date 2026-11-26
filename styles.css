@@ -1944,3 +1944,13 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
 .cine--light .signup__select option { background: #fff; color: var(--color-fg); }
 .cine--light .signup__msg { color: var(--color-primary-strong); }
 .cine--light .signup__msg.is-error { color: #B91C1C; }
+
+/* ------------------------------------------------------------- dropzone ---
+   The resume field accepts a dragged link. The affordance only appears while
+   something is actually over it — a permanently dashed box would read as a
+   file upload, which this is not. */
+.dropzone { position: relative; border-radius: var(--radius); transition: box-shadow .2s var(--ease); }
+.dropzone.is-dragover { box-shadow: 0 0 0 2px var(--color-primary-strong); }
+.dropzone.is-dragover input { border-color: var(--color-primary-strong); }
+.dropzone .hint.is-ok { color: var(--color-primary-strong); font-weight: 600; }
+.dropzone .hint.is-error { color: var(--color-fg); font-weight: 600; }
