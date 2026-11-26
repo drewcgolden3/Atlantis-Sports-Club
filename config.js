@@ -144,7 +144,10 @@ window.ATLANTIS_CONFIG = {
     sauna:       "assets/images/sauna.jpg",
 
     // The party room dressed for a birthday — the only picture on that page.
-    birthday:    "assets/images/birthday-party.jpg",
+    // Blank on purpose: the previous image was AI-generated and looked it
+    // (misspelt signage, melted faces). The page hides the frame entirely
+    // while this is empty. Put a real photo of the room here to restore it.
+    birthday:    "",
 
     // The club's front elevation. Also the amenities hero, set in styles.css.
     clubFront:   "assets/images/club-front.jpg",

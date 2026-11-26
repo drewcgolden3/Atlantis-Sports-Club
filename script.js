@@ -382,7 +382,12 @@
   $all("[data-img]").forEach(function (el) {
     var key = el.getAttribute("data-img");
     var src = imgMap[key];
-    if (!src) return;
+    if (!src) {
+      // A frame that exists only to hold a photo is a bordered grey box
+      // without one. Better gone than looking like a failed image.
+      if (el.hasAttribute("data-img-required")) el.remove();
+      return;
+    }
     var target = el.querySelector(".amenity__media, .book-card__media") || el;
     var probe = new Image();
     probe.onload = function () {
