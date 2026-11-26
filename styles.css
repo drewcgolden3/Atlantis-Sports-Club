@@ -1850,9 +1850,15 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
    a credential, not a co-brand, and must not out-shout the Atlantis wordmark
    in the header.                                                            */
 .partner-logo { display: block; height: 54px; width: auto; margin-bottom: 14px; }
-/* Studio EX's mark ships on its own black plate, so it gets rounded corners
-   rather than sitting as a hard square on a light section. */
-.partner-logo--dark { border-radius: 10px; }
+/* Studio EX's mark ships on its own black plate. On the dark partner section
+   that plate has no edge at all, so it needs a hairline to read as a logo
+   rather than a smudge — and the same height as Aquasafe's plated mark, so
+   the two pages carry equal weight. Not inverted onto white: the wordmark
+   itself is white and would disappear. */
+.partner-logo--dark {
+  border-radius: 10px; height: 68px;
+  border: 1px solid rgba(255,255,255,.22);
+}
 /* Aquasafe's mark is navy and white, and the swim section it sits on is navy
    — half the logo disappeared. A white plate is what a partner logo gets on a
    dark ground anyway, and keeps their colours the colours they chose. */
@@ -1868,3 +1874,16 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
   padding: 9px 14px; font-size: .76rem; color: var(--color-fg-soft);
   background: var(--color-surface); border-top: 1px solid var(--color-border);
 }
+
+/* ------------------------------------------------- partner-led pages ---
+   The group fitness and swim pages open on their partner section instead of
+   a hero. Two consequences: the section has to clear the fixed header the
+   way .page-hero did, and it has to stay dark — the nav is white-on-
+   transparent until you scroll, so a light band at the top of the page
+   would hide it.                                                          */
+.cine--lead { padding-top: max(clamp(120px, 16vw, 168px), calc(var(--header-h, 104px) + 44px)); }
+/* Two cine sections in a row would restate the same gradient; the second
+   picks up where the first ended instead. */
+.cine--lead + .cine { background: linear-gradient(180deg, #0A3D63 0%, var(--ocean) 100%); }
+
+.cine__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }

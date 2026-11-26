@@ -19,23 +19,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=45" />
+  <link rel="stylesheet" href="styles.css?v=47" />
 </head>
 <body data-page="training">
 
   <div id="siteHeader"></div>
-
-  <section class="page-hero">
-    <div class="container">
-      <p class="page-hero__eyebrow">Group Fitness</p>
-      <h1 class="page-hero__title">Group fitness at Atlantis, by Studio EX</h1>
-      <p class="page-hero__sub">We&rsquo;ve partnered with Studio EX — the cycle and group fitness studio already packing classes in Hyannis — to run every group class at Atlantis. Their instructors, our studios, from the day we open.</p>
-      <div class="page-hero__cta">
-        <a href="#interest" class="btn btn--primary btn--lg">Get Class Updates</a>
-        <a href="#" data-partner="studioEx.liveUrl" class="btn btn--ghost btn--lg">Train with Studio EX today</a>
-      </div>
-    </div>
-  </section>
 
   <!-- ============================ STUDIO EX ============================ -->
   <!-- Mirrors the Aquasafe section on the aquatics page: same shape, so the
@@ -43,23 +31,30 @@
        running" paragraph is the important one — Studio EX teaches in Hyannis
        today, and someone who wants a class this week should be sent there
        rather than onto a 2027 waiting list. -->
-  <section class="section" id="studio-ex">
+  <section class="cine cine--lead" id="studio-ex">
     <div class="container">
-      <div class="feature-row">
-        <div class="feature-row__body">
-          <span class="feature-row__tag">Our Group Fitness Partner</span>
+      <div class="cine__split">
+        <div class="cine__body reveal">
+          <p class="cine__eyebrow">Group Fitness</p>
           <img class="partner-logo partner-logo--dark" src="assets/images/partners/studioex-logo.png" alt="Studio EX — Cycle &amp; Group Fitness" width="480" height="480" loading="lazy" />
-          <h2><span data-partner-name="studioEx">Studio EX</span> is bringing group fitness to Atlantis</h2>
-          <p>Atlantis has teamed up with Studio EX, the cycle and group fitness studio already running classes here in Hyannis. Their instructors will teach in our studios when the club opens — spin, rowing, Pilates, Pump, circuit and boxing are the formats they&rsquo;re known for.</p>
-          <p>The Atlantis class line-up and weekly schedule are being confirmed now and will be published before opening day.</p>
-          <p><strong>Training before we open?</strong> Studio EX classes are running at their own studio today — that&rsquo;s separate from Atlantis membership, and you can book with them directly.</p>
-          <p class="feature-row__links">
-            <a href="#" data-partner="studioEx.liveUrl" class="cine__link">Book a class with Studio EX today &rarr;</a>
+          <h2 class="cine__title">We&rsquo;ve teamed up with Studio EX</h2>
+          <p class="cine__sub">Atlantis has teamed up with <a href="#" data-partner="studioEx.url">Studio EX</a>, the cycle and group fitness studio already running classes here in Hyannis. Their instructors will teach in our studios when the club opens — spin, rowing, Pilates, Pump, circuit and boxing are the formats they&rsquo;re known for.</p>
+          <p class="cine__sub">The Atlantis class line-up and weekly schedule are being confirmed now and will be published before opening day.</p>
+          <p class="cine__sub"><strong>Training before we open?</strong> Studio EX classes are running at their own studio today — that&rsquo;s separate from Atlantis membership, and you can book with them directly.</p>
+          <div class="cine__cta">
+            <a href="#class-updates" class="btn btn--primary btn--lg">Get Class Updates</a>
+            <a href="#" data-partner="studioEx.liveUrl" class="btn btn--ghost btn--lg">Train with Studio EX today</a>
+          </div>
+          <p class="cine__note">
             <a href="#" data-partner="studioEx.url" class="cine__link">More about Studio EX &rarr;</a>
           </p>
         </div>
-        <div class="feature-row__media feature-row__media--img">
-          <img src="assets/images/partners/studioex-class.jpg" alt="A Studio EX group fitness class in session" loading="lazy" width="1000" height="1333" />
+
+        <div class="partner-col reveal">
+          <figure class="partner-shot">
+            <img src="assets/images/partners/studioex-class.jpg" alt="A Studio EX group fitness class in session" loading="lazy" width="1000" height="1333" />
+            <figcaption>A Studio EX class &middot; photo courtesy of Studio EX</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -120,7 +115,7 @@
           <p class="cine__sub">No obligation, and nothing to pay now.</p>
         </div>
 
-        <div class="signup signup--panel reveal">
+        <div class="signup signup--panel reveal" id="class-updates">
           <div class="signup__copy">
             <p class="signup__eyebrow">Interested?</p>
             <h3 class="signup__title">Get class updates</h3>
@@ -166,7 +161,7 @@
   <footer class="footer" id="siteFooter"></footer>
 
   <script src="config.js?v=26"></script>
-  <script src="assets/pt.js?v=11"></script>
+  <script src="assets/pt.js?v=12"></script>
   <script src="assets/i18n.js?v=1"></script>
   <script src="script.js?v=36"></script>
   <script src="assets/chat.js?v=8"></script>
