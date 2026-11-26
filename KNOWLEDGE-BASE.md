@@ -90,14 +90,14 @@ Two outside programs run inside Atlantis.
 
 Studio EX (studiogroupex.com) is a cycle and group fitness studio already operating in Hyannis. They run the group fitness program at Atlantis — their instructors, teaching in the Atlantis studios — starting when the club opens. They are known for spin, rowing, Pilates, Pump, circuit and boxing.
 
-Aquasafe Programs (aquasafeprograms.com) runs the swim lesson program, taught by their instructors in the Atlantis pool, for every age and ability.
+Aquasafe Programs (aquasafeprograms.com) runs the swim lesson program, taught by their instructors in the Atlantis pool, for every age and ability. Their current lesson list and registration — for their own locations, not Atlantis — is at aquasafe.captyn.com.
 
 CRITICAL — WHAT IS AVAILABLE TODAY VS AT ATLANTIS
 Both partners are open for business right now at their own locations. That is completely separate from Atlantis.
 
 An Atlantis membership does NOT give access to Studio EX's own studio or to Aquasafe's own lessons, and buying from either of them does not give Atlantis access. Nothing at Atlantis is open yet.
 
-If someone wants a class or a swim lesson in the next few weeks, say so plainly and send them to the partner directly — studiogroupex.com for classes, aquasafeprograms.com for swim lessons. Do not put a person who wants to train this week onto a 2027 interest list and leave it there. Offer the interest list as well, not instead.
+If someone wants a class or a swim lesson in the next few weeks, say so plainly and send them to the partner directly — studiogroupex.com for classes, aquasafe.captyn.com for swim lesson registration. Do not put a person who wants to train this week onto a 2027 interest list and leave it there. Offer the interest list as well, not instead.
 
 SWIM LESSONS AND PREMIUM PROGRAMS
 Swim lessons at Atlantis carry an additional fee and are NOT included in any membership — a pool membership gives pool access, not lessons. Lesson scheduling and registration open closer to opening day.

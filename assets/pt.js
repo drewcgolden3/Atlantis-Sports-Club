@@ -36,7 +36,7 @@ window.ASC_PT = {
   "The group fitness studio at Atlantis Sports Club": "O estúdio de ginástica coletiva do Atlantis Sports Club",
   "Lesson scheduling and registration for Atlantis open closer to opening day. Leave your details below and we’ll be in touch the moment they go live.": "A grade e as inscrições das aulas do Atlantis abrem mais perto da inauguração. Deixe seus dados abaixo e avisamos assim que estiverem disponíveis.",
   "Looking for lessons now?": "Procurando aulas agora?",
-  "Lessons with Aquasafe today →": "Aulas com a Aquasafe hoje →",
+  "Register for a lesson with Aquasafe today →": "Inscreva-se numa aula com a Aquasafe hoje →",
   "Group fitness classes & personal training": "Aulas coletivas de ginástica e treino personalizado",
 
 

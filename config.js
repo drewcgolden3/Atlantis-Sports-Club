@@ -78,7 +78,9 @@ window.ATLANTIS_CONFIG = {
     aquasafe: {
       name:    "Aquasafe Programs",
       url:     "https://www.aquasafeprograms.com/",
-      liveUrl: "https://www.aquasafeprograms.com/",
+      // Their live registration list, on Captyn. Distinct from the homepage,
+      // so both the "register today" and "more about" links now show.
+      liveUrl: "https://aquasafe.captyn.com/find?department=cm7tmh34x01r8lg1b68d5ce3z&filter=0",
     },
   },
 
