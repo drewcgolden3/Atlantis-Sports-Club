@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=49" />
+  <link rel="stylesheet" href="styles.css?v=50" />
 </head>
 <body data-page="training" data-nav-solid>
 
@@ -55,6 +55,35 @@
             <img src="assets/images/partners/studioex-class.jpg" alt="A Studio EX group fitness class in session" loading="lazy" width="1000" height="1333" />
             <figcaption>A Studio EX class &middot; photo courtesy of Studio EX</figcaption>
           </figure>
+        <div class="signup signup--panel" id="class-updates">
+          <div class="signup__copy">
+            <p class="signup__eyebrow">Interested?</p>
+            <h3 class="signup__title">Get class updates</h3>
+          </div>
+          <form class="signup__form" data-signup
+                data-signup-interest="Group fitness classes (Studio EX) &amp; personal training"
+                data-signup-source="Website — Training"
+                data-signup-done="Thanks — we’ll be in touch before schedules go public.">
+            <div class="signup__fields">
+              <label class="sr-only" for="trChoice">What are you interested in?</label>
+              <select id="trChoice" data-signup-choice class="signup__select">
+                <option value="Group fitness classes">Group fitness classes</option>
+                <option value="Personal training">Personal training</option>
+                <option value="Group fitness classes &amp; personal training" selected>Both</option>
+              </select>
+              <label class="sr-only" for="trName">Name</label>
+              <input id="trName" type="text" name="name" autocomplete="name" placeholder="First and last name" required />
+              <label class="sr-only" for="trEmail">Email</label>
+              <input id="trEmail" type="email" name="email" autocomplete="email" placeholder="you@email.com" required />
+              <label class="sr-only" for="trPhone">Phone</label>
+              <input id="trPhone" type="tel" name="phone" autocomplete="tel" placeholder="(508) 555-0199" required />
+              <button type="submit" class="btn btn--primary">Get Class Updates</button>
+            </div>
+            <!-- Bots fill every field they can see; people never see this one. -->
+            <input type="text" name="company" class="signup__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <p class="signup__msg" role="status" data-signup-msg></p>
+          </form>
+        </div>
         </div>
       </div>
     </div>
@@ -99,50 +128,6 @@
           <p>Personal training runs on the same floor as everything else — a full selectorized strength line, a plate-loaded power area, free weights and lifting platforms, and a dedicated stretch and recovery zone to work in.</p>
           <p>Whether you&rsquo;re starting from scratch, coming back from a layoff, or training for something specific, we&rsquo;ll match you with a trainer when the club opens.</p>
           <p class="feature-row__soon">Trainer matching opens as we approach opening day</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ INTEREST FORM ============================ -->
-  <section class="cine cine--split" id="interest">
-    <div class="container">
-      <div class="cine__split">
-        <div class="cine__body reveal">
-          <p class="cine__eyebrow">Be First in Line</p>
-          <h2 class="cine__title">Get class updates</h2>
-          <p class="cine__sub">Classes and personal training are both being set up for opening day. Leave your details and we&rsquo;ll come to you first — with the class schedule, trainer availability, and any founding-member rates before they go public.</p>
-          <p class="cine__sub">No obligation, and nothing to pay now.</p>
-        </div>
-
-        <div class="signup signup--panel reveal" id="class-updates">
-          <div class="signup__copy">
-            <p class="signup__eyebrow">Interested?</p>
-            <h3 class="signup__title">Get class updates</h3>
-          </div>
-          <form class="signup__form" data-signup
-                data-signup-interest="Group fitness classes (Studio EX) &amp; personal training"
-                data-signup-source="Website — Training"
-                data-signup-done="Thanks — we’ll be in touch before schedules go public.">
-            <div class="signup__fields">
-              <label class="sr-only" for="trChoice">What are you interested in?</label>
-              <select id="trChoice" data-signup-choice class="signup__select">
-                <option value="Group fitness classes">Group fitness classes</option>
-                <option value="Personal training">Personal training</option>
-                <option value="Group fitness classes &amp; personal training" selected>Both</option>
-              </select>
-              <label class="sr-only" for="trName">Name</label>
-              <input id="trName" type="text" name="name" autocomplete="name" placeholder="First and last name" required />
-              <label class="sr-only" for="trEmail">Email</label>
-              <input id="trEmail" type="email" name="email" autocomplete="email" placeholder="you@email.com" required />
-              <label class="sr-only" for="trPhone">Phone</label>
-              <input id="trPhone" type="tel" name="phone" autocomplete="tel" placeholder="(508) 555-0199" required />
-              <button type="submit" class="btn btn--primary">Get Class Updates</button>
-            </div>
-            <!-- Bots fill every field they can see; people never see this one. -->
-            <input type="text" name="company" class="signup__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <p class="signup__msg" role="status" data-signup-msg></p>
-          </form>
         </div>
       </div>
     </div>

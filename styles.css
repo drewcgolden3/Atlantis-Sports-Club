@@ -1923,3 +1923,24 @@ body[data-page="location"] .page-hero::after { opacity: .22; }
 
 /* Aquasafe's mark no longer needs a plate of its own on a white ground. */
 .cine--light .partner-logo--plate { background: none; padding: 0; height: 60px; }
+
+/* Signup form fields on a white ground: the base rules are dark-ground values
+   (white text, translucent white border) and left typed text invisible. */
+.cine--light .signup__fields input {
+  color: var(--color-fg);
+  border-color: var(--color-border);
+}
+.cine--light .signup__fields input::placeholder { color: #7891a1; }
+.cine--light .signup__fields input:focus {
+  border-color: var(--sky-500);
+  background: #fff;
+}
+.cine--light .signup__select {
+  color: var(--color-fg);
+  border-color: var(--color-border);
+  background-color: #fff;
+}
+.cine--light .signup__select:focus { border-color: var(--sky-500); }
+.cine--light .signup__select option { background: #fff; color: var(--color-fg); }
+.cine--light .signup__msg { color: var(--color-primary-strong); }
+.cine--light .signup__msg.is-error { color: #B91C1C; }
