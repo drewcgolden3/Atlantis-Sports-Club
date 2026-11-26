@@ -11,6 +11,13 @@
    thing in English and another in Portuguese.
    ============================================================================ */
 window.ASC_PT = {
+  "Group fitness at Atlantis, by Studio EX": "Ginástica coletiva no Atlantis, pela Studio EX",
+  "We’ve partnered with Studio EX — the cycle and group fitness studio already packing classes in Hyannis — to run every group class at Atlantis. Their instructors, our studios, from the day we open.": "Fizemos parceria com a Studio EX — o estúdio de spinning e ginástica coletiva que já lota as aulas em Hyannis — para comandar todas as aulas coletivas do Atlantis. Os instrutores deles, nos nossos estúdios, desde o dia em que abrirmos.",
+  "Train with Studio EX today": "Treine na Studio EX hoje",
+  "Swim lessons at Atlantis, with Aquasafe": "Aulas de natação no Atlantis, com a Aquasafe",
+  "We’ve partnered with Aquasafe Programs to teach every swim lesson at Atlantis — their instructors, in our five-lane pool, for every age and ability. Plus lap lanes and open swim, heated and lifeguarded year-round.": "Fizemos parceria com a Aquasafe Programs para dar todas as aulas de natação do Atlantis — os instrutores deles, na nossa piscina de cinco raias, para todas as idades e níveis. Além de raias para nado e natação livre, aquecidas e com salva-vidas o ano todo.",
+  "Register with Aquasafe today": "Inscreva-se na Aquasafe hoje",
+
   "Group Fitness — Atlantis Sports Club": "Ginástica Coletiva — Atlantis Sports Club",
   "Group fitness at Atlantis comes from Studio EX, right here in Hyannis. Both launch with the club — schedules, instructors, and trainer matching are confirmed as we get closer to opening day.": "A ginástica coletiva do Atlantis vem da Studio EX, aqui mesmo em Hyannis. As duas começam junto com o clube — grade, instrutores e escolha de personal são confirmados mais perto da inauguração.",
   "Atlantis has teamed up with Studio EX, the cycle and group fitness studio already running classes here in Hyannis. Their instructors will teach in our studios when the club opens — spin, rowing, Pilates, Pump, circuit and boxing are the formats they’re known for.": "O Atlantis fez parceria com a Studio EX, o estúdio de spinning e ginástica coletiva que já dá aulas aqui em Hyannis. Os instrutores deles vão dar aula nos nossos estúdios quando o clube abrir — spin, remo, Pilates, Pump, circuito e boxe são os formatos pelos quais são conhecidos.",
